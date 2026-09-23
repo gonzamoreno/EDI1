@@ -4,12 +4,59 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portafolio docente</title>
+
+    <!-- Estilos: cuadros de color y botones -->
+    <style>
+      #secciones {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        padding: 1.5rem;
+        border: 2px solid #b3d9ff;
+        border-radius: 10px;
+        background-color: #f4f9ff;
+      }
+      #secciones h2 {
+        flex: 1 1 100%;
+      }
+      #secciones article {
+        flex: 1 1 200px;
+        padding: 1rem;
+        border-radius: 8px;
+        background-color: #dceefc; /* celeste */
+      }
+      #secciones article:nth-child(2) { background-color: #d9f5e0; } /* verde */
+      #secciones article:nth-child(3) { background-color: #fdeacb; } /* amarillo */
+      #secciones article:nth-child(4) { background-color: #f6d9f2; } /* rosa */
+
+      #secciones article a {
+        display: inline-block;
+        margin-top: 0.5rem;
+        padding: 0.5rem 1rem;
+        border-radius: 6px;
+        color: #fff;
+        text-decoration: none;
+        background-color: #3399ff; /* botón celeste */
+      }
+      #secciones article:nth-child(2) a { background-color: #33a35a; } /* botón verde */
+      #secciones article:nth-child(3) a { background-color: #e0a029; } /* botón amarillo */
+      #secciones article:nth-child(4) a { background-color: #c04fb0; } /* botón rosa */
+    </style>
   </head>
   <body>
+    <!-- Encabezado con menú de navegación -->
     <header>
       <div>
+
+
         <p>Portafolio docente</p>
+
+
+
+
         <p>Profesorado en Educación Primaria</p>
+
+        
       </div>
 
       <nav aria-label="Navegación principal">
@@ -26,12 +73,16 @@
       </nav>
     </header>
 
+    <!-- Contenido principal -->
     <main>
+
+      <!-- Bienvenida -->
       <section id="inicio" aria-labelledby="titulo-principal">
         <h1 id="titulo-principal">Mi portafolio</h1>
         <p>Bienvenidos a mi espacio docente, donde comparto mi recorrido, experiencias y propuestas de enseñanza.</p>
       </section>
 
+      <!-- Tarjetas con las secciones del portafolio -->
       <section id="secciones" aria-labelledby="titulo-secciones">
         <h2 id="titulo-secciones">Secciones del portafolio</h2>
 
@@ -60,12 +111,17 @@
         </article>
       </section>
 
+      <!-- Sección para el portafolio colectivo -->
+
       <section id="portafolio-colectivo" aria-labelledby="titulo-portafolio-colectivo">
         <h2 id="titulo-portafolio-colectivo">Portafolio colectivo</h2>
         <p>Espacio colaborativo de construcción e intercambio entre pares, donde compartimos producciones, miradas y experiencias comunes de la práctica docente.</p>
         <a href="#">Acceder al portafolio colectivo</a>
       </section>
     </main>
+
+    <!-- Pie de página institucional -->
+
 
     <footer>
       <p>Práctica Docente III</p>
