@@ -1,18 +1,30 @@
 <!DOCTYPE html>
 <html lang="es">
+ 
   <head>
+    <!-- Define la codificación de caracteres para aceptar tildes y caracteres especiales -->
     <meta charset="UTF-8" />
+    <!-- Configura el viewport para diseño responsivo -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portafolio docente</title>
+    <title>Portafolio Docente - Inicio</title>
+  
   </head>
+ 
   <body>
-    <header>
+
+    <!-- ==========================================
+         ENCABEZADO Y NAVEGACIÓN GLOBAL
+         ========================================== -->
+    
+         <header>
+      
       <div>
-        <p>Portafolio docente</p>
-        <p>Profesorado en Educación Primaria</p>
+        <p>Portafolio Docente</p>
+        <p>Profesorado de Educación Secundaria en Informática</p>
       </div>
 
       <nav aria-label="Navegación principal">
+        
         <ul>
           <li><a href="#inicio">Inicio</a></li>
           <li><a href="#sobre-mi">Sobre mí</a></li>
@@ -23,14 +35,98 @@
           <li><a href="#reflexiones">Reflexiones</a></li>
           <li><a href="#portafolio-colectivo">Portafolio colectivo</a></li>
         </ul>
+      
       </nav>
+    
     </header>
 
+    <!-- ==========================================
+         CONTENIDO PRINCIPAL DE LA PÁGINA
+         ========================================== -->
+
     <main>
-      <section id="inicio" aria-labelledby="titulo-principal">
-        <h2 id="titulo-principal">Mi portafolio</h1>
-        <p>Bienvenidos a mi espacio docente, donde comparto mi recorrido, experiencias y propuestas de enseñanza.</p>
+      
+      <section id="inicio">
+            <h1 id="inicio">Mi portafolio</h1>
+            <h2>Bienvenidos a mi espacio de formación</h2>
+            <p>Este es el punto de partida donde organizo y comparto mis prácticas, planificaciones y reflexiones sobre la docencia.</p>
       </section>
+        
+        <!-- ==========================================
+             NUEVO: SECCIÓN DE PROPÓSITO
+             ========================================== --> 
+      <section aria-labelledby="proposito-portafolio">
+        <h2 id="proposito-portafolio">¿Para qué este portafolio?</h2>
+        <p>
+          Este portafolio reúne las experiencias, reflexiones y producciones de mi
+          formación docente para mostrar mi proceso de aprendizaje, mi crecimiento
+          profesional y las decisiones pedagógicas que orientan mi práctica.
+        </p>
+
+        <!-- Etiqueta semántica para citas bibliográficas largas o destacadas -->
+        <blockquote>
+          <p>
+            La educación debe ser una práctica de libertad, de diálogo y de
+            transformación de la realidad.
+          </p>
+          <!-- <footer> dentro de un blockquote se usa para la atribución -->
+          <footer>— <cite>Paulo Freire</cite></footer>
+        </blockquote>
+      </section>
+
+    <!-- ==========================================
+          NUEVO: SECCIÓN DE CATEGORÍAS (ARTÍCULOS)
+         ========================================== -->
+
+      <section aria-labelledby="secciones-portafolio">
+        <h2 id="secciones-portafolio">Secciones del portafolio</h2>
+
+        <!-- Categoría 1 -->
+        <!-- <article> define un contenido que podría tener sentido por sí solo 
+             o que es una tarjeta de contenido independiente -->
+        <article>
+          <h3>Sobre mí</h3>
+          <p>Presentación personal, expectativas y motivaciones.</p>
+          <a href="#sobre-mi">Ver sección</a>
+        </article>
+
+        <!-- Categoría 2 -->
+        <article>
+          <h3>Mi recorrido</h3>
+          <p>Línea de tiempo de las actividades realizadas.</p>
+          <a href="#mi-recorrido">Ver sección</a>
+        </article>
+
+        <!-- Categoría 3 -->
+        <article>
+          <h3>Lectura curricular e institucional</h3>
+          <p>Reflexiones sobre el marco curricular y los contextos institucionales.</p>
+          <a href="#lectura-curricular">Ver sección</a>
+        </article>
+
+        <!-- Categoría 4 -->
+        <article>
+          <h3>Planificaciones</h3>
+          <p>Propuestas, diseños y estrategias pensadas para la práctica docente.</p>
+          <a href="#planificaciones">Ver sección</a>
+        </article>
+      
+      </section>
+    
     </main>
+
+    <!-- ==========================================
+         PIE DE PÁGINA GLOBAL
+         ========================================== -->
+
+    <footer>
+      <!-- Utilizamos <small> porque es la etiqueta semántica correcta 
+             para créditos, derechos de autor o notas al pie -->
+        <p>
+            <small>Año de creación: 2026 | Materia: EDI 1 Diseño WEB | Curso: 3ro</small>
+        </p>
+    </footer>
+  
   </body>
+
 </html>
