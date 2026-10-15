@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perfil docente - Portafolio docente</title>
+  </head>
+  <body>
+    <!-- ==========================================
+         ENCABEZADO GLOBAL (Preservado de index.html)
+         ========================================== -->
+    <header>
+      <div>
+        <p>Portafolio docente</p>
+        <p>Profesorado en Educación Primaria</p>
+      </div>
+
+      <nav aria-label="Navegación principal">
+        <ul>
+          <li><a href="index.html#inicio">Inicio</a></li>
+          <li><a href="index.html#sobre-mi">Sobre mí</a></li>
+          <li><a href="index.html#mi-recorrido">Mi recorrido</a></li>
+          <li><a href="index.html#planificaciones">Planificaciones</a></li>
+          <li><a href="index.html#recursos">Recursos</a></li>
+          <li><a href="index.html#registros">Registros</a></li>
+          <li><a href="index.html#reflexiones">Reflexiones</a></li>
+          <li><a href="profesores.html">Portafolio colectivo</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- ==========================================
+         CONTENIDO PRINCIPAL: DETALLE DEL PERFIL
+         ========================================== -->
+    <main>
+      <!-- Enlace de regreso al índice: conserva sentido semántico y foco inicial -->
+      <nav aria-label="Navegación de retorno">
+        <p><a href="profesores.html">Volver al portafolio colectivo (Listado de profesores)</a></p>
+      </nav>
+
+      <!-- 1. PRESENTACIÓN (Mantiene el patrón de #inicio y el único <h1>) -->
+      <!-- [JS-FUTURO]: Componente de cabecera del perfil (nombre, rol y biografía) -->
+      <section id="presentacion" aria-labelledby="titulo-principal">
+        <h1 id="titulo-principal">Prof. Laura Victoria Méndez</h1>
+        <p>Docente en formación del Profesorado en Informática - Práctica Docente III.</p>
+        <p>Enfocada en el diseño de propuestas didácticas inclusivas que integran el pensamiento computacional, la programación y el uso crítico de recursos digitales en el aula.</p>
+      </section>
+
+      <!-- 2. FORTALEZAS -->
+      <!-- [JS-FUTURO]: Componente de lista dinámica (iteración de array a nodos <li>) -->
+      <section id="fortalezas" aria-labelledby="titulo-fortalezas">
+        <h2 id="titulo-fortalezas">Fortalezas</h2>
+        <ul>
+          <li>Planificación de secuencias didácticas mediadas por tecnologías digitales.</li>
+          <li>Creación y adaptación de recursos educativos abiertos y accesibles.</li>
+          <li>Trabajo colaborativo en parejas pedagógicas y reflexión sobre la práctica.</li>
+          <li>Acompañamiento personalizado a las trayectorias estudiantiles.</li>
+        </ul>
+      </section>
+
+      <!-- 3. EXPERIENCIA (Reutiliza la anatomía de <article> de index.html) -->
+      <!-- [JS-FUTURO]: Componente de listado de artículos para antecedentes docentes -->
+      <section id="experiencia" aria-labelledby="titulo-experiencia">
+        <h2 id="titulo-experiencia">Experiencia</h2>
+
+        <article>
+          <h3>Prácticas de enseñanza en nivel secundario</h3>
+          <p>Escuela de Educación Secundaria N° 12 (2025 - 2026)</p>
+          <p>Diseño de planificaciones, implementación de clases de informática y elaboración de registros reflexivos de práctica.</p>
+        </article>
+
+        <article>
+          <h3>Tutorías en taller de robótica y programación inicial</h3>
+          <p>Espacio de Extensión Institucional (2024 - 2025)</p>
+          <p>Facilitación de actividades lúdicas de pensamiento lógico y resolución de problemas en entornos colaborativos.</p>
+        </article>
+      </section>
+
+      <!-- 4. FORMACIÓN (Reutiliza la anatomía de <article> de index.html) -->
+      <!-- [JS-FUTURO]: Componente de listado de artículos para trayectoria académica -->
+      <section id="formacion" aria-labelledby="titulo-formacion">
+        <h2 id="titulo-formacion">Formación</h2>
+
+        <article>
+          <h3>Profesorado en Informática</h3>
+          <p>Instituto Superior de Formación Docente (En curso)</p>
+          <p>Formación pedagógica, didáctica específica y desarrollo del trayecto de práctica docente.</p>
+        </article>
+
+        <article>
+          <h3>Seminario de Recursos Digitales para la Enseñanza</h3>
+          <p>Jornadas de Actualización Pedagógica (2025)</p>
+          <p>Capacitación intensiva en curaduría de materiales didácticos, aplicaciones interactivas y evaluación formativa.</p>
+        </article>
+      </section>
+
+      <!-- 5. CONTACTO -->
+      <!-- [JS-FUTURO]: Componente de enlaces y vías de contacto del perfil -->
+      <section id="contacto" aria-labelledby="titulo-contacto">
+        <h2 id="titulo-contacto">Contacto</h2>
+        <p>Espacio de comunicación para el intercambio de producciones, recursos didácticos y consultas pedagógicas:</p>
+        <ul>
+          <li><a href="mailto:laura.mendez@ejemplo.edu.ar">Correo electrónico: laura.mendez@ejemplo.edu.ar</a></li>
+          <li><a href="https://github.com">Repositorio de recursos didácticos</a></li>
+          <li><a href="profesores.html">Regresar al listado general de profesores</a></li>
+        </ul>
+      </section>
+    </main>
+
+    <!-- ==========================================
+         PIE DE PÁGINA GLOBAL (Preservado de index.html)
+         ========================================== -->
+    <footer>
+      <p>Práctica Docente III</p>
+      <p>Profesorado en Informática</p>
+      <p>Portafolio institucional destinado a la documentación, seguimiento y reflexión pedagógica de la formación docente.</p>
+    </footer>
+  </body>
+</html>
