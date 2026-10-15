@@ -1,30 +1,50 @@
 <!DOCTYPE html>
 <html lang="es">
+ 
   <head>
+    <!-- Define la codificación de caracteres para aceptar tildes y caracteres especiales -->
     <meta charset="UTF-8" />
+    <!-- Configura el viewport para diseño responsivo -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portafolio docente</title>
+    <title>Portafolio Docente - Inicio</title>
+  
   </head>
+ 
   <body>
-    <header>
+
+    <!-- ==========================================
+         ENCABEZADO Y NAVEGACIÓN GLOBAL
+         ========================================== -->
+    
+         <header>
+      
       <div>
-        <p>Portafolio docente</p>
-        <p>Profesorado en Educación Primaria</p>
+        <p>Portafolio Docente</p>
+        <p>Profesorado de Educación Secundaria en Informática</p>
       </div>
 
       <nav aria-label="Navegación principal">
+        
         <ul>
           <li><a href="#inicio">Inicio</a></li>
           <li><a href="#sobre-mi">Sobre mí</a></li>
+          <li><a href="#lectura">Lectura</a></li>
           <li><a href="#mi-recorrido">Mi recorrido</a></li>
           <li><a href="#planificaciones">Planificaciones</a></li>
           <li><a href="#recursos">Recursos</a></li>
           <li><a href="#registros">Registros</a></li>
+          <li><a href="#devoluciones">Devoluciones</a></li>
           <li><a href="#reflexiones">Reflexiones</a></li>
           <li><a href="#portafolio-colectivo">Portafolio colectivo</a></li>
         </ul>
+      
       </nav>
+    
     </header>
+
+    <!-- ==========================================
+         CONTENIDO PRINCIPAL DE LA PÁGINA
+         ========================================== -->
 
     <main>
       <section id="inicio" aria-labelledby="titulo-principal">
@@ -36,41 +56,94 @@
         <h2 id="titulo-secciones">Secciones del portafolio</h2>
 
         <article>
+          <h3>Sobre mí</h3>
+          <p>Presentación personal, expectativas y motivaciones.</p>
+          <a href="#sobre-mi">Ver sección</a>
+        </article>
+
+        <!-- Categoría 2 -->
+        <article>
+          <h3>Mi recorrido</h3>
+          <p>Línea de tiempo de las actividades realizadas.</p>
+          <a href="#mi-recorrido">Ver sección</a>
+        </article>
+
+        <!-- Categoría 3 -->
+        <article>
+          <h3>Lectura curricular e institucional</h3>
+          <p>Reflexiones sobre el marco curricular y los contextos institucionales.</p>
+          <a href="#lectura">Ver sección</a>
+        </article>
+
+        <!-- Categoría 4 -->
+        <article>
+          <h3>Planificaciones</h3>
+          <p>Propuestas, diseños y estrategias pensadas para la práctica docente.</p>
+          <a href="#planificaciones">Ver sección</a>
+        </article>
+
+        <article>
           <h3>Recursos y herramientas</h3>
           <p>Selección y recopilación de materiales didácticos, aplicaciones y recursos digitales para el aula.</p>
-          <a href="#">Ver sección</a>
+          <a href="#recursos">Ver sección</a>
         </article>
 
         <article>
           <h3>Registros de práctica</h3>
           <p>Documentación, observaciones y evidencias de las experiencias pedagógicas desarrolladas durante las prácticas.</p>
-          <a href="#">Ver sección</a>
+          <a href="#registros">Ver sección</a>
         </article>
 
         <article>
           <h3>Devoluciones y mejoras</h3>
           <p>Retroalimentación recibida por docentes y pares, junto con las adecuaciones y propuestas de mejora implementadas.</p>
-          <a href="#">Ver sección</a>
+          <a href="#devoluciones">Ver sección</a>
         </article>
 
         <article>
           <h3>Reflexión final</h3>
           <p>Análisis crítico global del proceso formativo, aprendizajes construidos y proyecciones como futuro docente.</p>
-          <a href="#">Ver sección</a>
+          <a href="#reflexiones">Ver sección</a>
         </article>
       </section>
 
       <section id="portafolio-colectivo" aria-labelledby="titulo-portafolio-colectivo">
         <h2 id="titulo-portafolio-colectivo">Portafolio colectivo</h2>
         <p>Espacio colaborativo de construcción e intercambio entre pares, donde compartimos producciones, miradas y experiencias comunes de la práctica docente.</p>
-        <a href="#">Acceder al portafolio colectivo</a>
+        <a href="#portafolio-colectivo">Acceder al portafolio colectivo</a>
+      </section>
+
+        <!-- ==========================================
+             NUEVO: SECCIÓN DE PROPÓSITO
+             ========================================== --> 
+      <section aria-labelledby="proposito-portafolio">
+        <h2 id="proposito-portafolio">¿Para qué este portafolio?</h2>
+        <p>
+          Este portafolio reúne las experiencias, reflexiones y producciones de mi
+          formación docente para mostrar mi proceso de aprendizaje, mi crecimiento
+          profesional y las decisiones pedagógicas que orientan mi práctica.
+        </p>
+
+        <!-- Etiqueta semántica para citas bibliográficas largas o destacadas -->
+        <blockquote>
+          <p>
+            La educación debe ser una práctica de libertad, de diálogo y de
+            transformación de la realidad.
+          </p>
+          <!-- <footer> dentro de un blockquote se usa para la atribución -->
+          <footer>— <cite>Paulo Freire</cite></footer>
+        </blockquote>
       </section>
     </main>
-
+<!-- ==========================================
+         PIE DE PÁGINA GLOBAL
+         ========================================== -->
     <footer>
       <p>Práctica Docente III</p>
       <p>Profesorado en Informática</p>
       <p>Portafolio institucional destinado a la documentación, seguimiento y reflexión pedagógica de la formación docente.</p>
+
     </footer>
   </body>
+
 </html>
