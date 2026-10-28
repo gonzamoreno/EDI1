@@ -11,36 +11,30 @@
         <p>Portafolio docente</p>
         <p>Profesorado en Educación Primaria</p>
       </div>
-
-      <nav aria-label="Navegación principal">
-        <ul>
-          <li><a href="index.html#inicio">Inicio</a></li>
-          <li><a href="index.html#sobre-mi">Sobre mí</a></li>
-          <li><a href="index.html#mi-recorrido">Mi recorrido</a></li>
-          <li><a href="index.html#planificaciones">Planificaciones</a></li>
-          <li><a href="index.html#recursos">Recursos</a></li>
-          <li><a href="index.html#registros">Registros</a></li>
-          <li><a href="index.html#reflexiones">Reflexiones</a></li>
-          <li><a href="index.html#portafolio-colectivo">Portafolio colectivo</a></li>
-        </ul>
-      </nav>
     </header>
 
     <main>
-      <nav aria-label="Navegación de retorno">
-        <ul>
-          <li><a href="profesor.html">Volver al perfil del profesor</a></li>
-          <li><a href="profesores.html">Volver al listado de profesores</a></li>
-        </ul>
+      <!-- ==========================================
+           BREADCRUMB EN UNA SOLA LÍNEA Y SIN NUMERACIÓN (HTML PURO)
+           Al usar elementos inline (<a> y <strong>) dentro de <p>,
+           se muestra horizontalmente sin necesidad de CSS.
+           ========================================== -->
+      <nav aria-label="Migas de pan">
+        <p>
+          <a href="index.html">Inicio</a> /
+          <a href="profesores.html">Listado de Profesores</a> /
+          <a href="profesor.html">Prof. Martín Alejandro Gómez</a> /
+          <strong aria-current="page">Mi Trayectoria Docente</strong>
+        </p>
       </nav>
 
       <section id="inicio-trayectoria" aria-labelledby="titulo-principal">
         <h1 id="titulo-principal">Prof. Martín Alejandro Gómez - Mi Trayectoria Docente</h1>
-        <p>Recorrido pedagógico, documentación de experiencias áulicas, análisis reflexivos de la práctica, antecedentes curriculares y secuencias didácticas desarrolladas durante la formación docente.</p>
+        <p>Espacio de documentación pedagógica donde se sistematizan las evidencias de práctica áulica, las reflexiones críticas sobre la enseñanza, los antecedentes curriculares y las secuencias didácticas implementadas durante el trayecto formativo.</p>
       </section>
 
       <nav aria-label="Navegación de trayectoria docente">
-        <h2>Secciones de esta trayectoria</h2>
+        <h2>Secciones de Mi Trayectoria Docente</h2>
         <ul>
           <li><a href="#registros">Registros</a></li>
           <li><a href="#reflexiones">Reflexiones</a></li>
@@ -51,27 +45,27 @@
 
       <section id="registros" aria-labelledby="titulo-registros">
         <h2 id="titulo-registros">Registros</h2>
-        <p>Documentación sistemática de observaciones áulicas, bitácoras de campo y evidencias recolectadas durante las intervenciones pedagógicas.</p>
+        <p>Recopilación de observaciones de clase, bitácoras de campo y evidencias de las intervenciones pedagógicas realizadas en el nivel secundario.</p>
 
         <article>
-          <h3>Observación áulica: Introducción a la lógica algorítmica</h3>
-          <p>Fecha: <time datetime="2026-04-14">14 de abril de 2026</time> | Curso: 2° Año de Educación Secundaria</p>
-          <p>Durante la primera mitad de la jornada se registró una alta participación de los estudiantes al trabajar con desafíos de secuencias de pasos en pizarrón. Se observó que el trabajo en parejas favoreció la detección temprana de errores lógicos entre pares sin requerir la intervención directa del docente.</p>
-          <p>Evidencia documentada: Fotografías de los diagramas elaborados en afiches por los cinco grupos de trabajo y grilla de seguimiento de participación oral.</p>
+          <h3>Observación de clase: Resolución de problemas y algoritmos</h3>
+          <p>Fecha: <time datetime="2026-04-16">16 de abril de 2026</time> | Curso: 2° Año</p>
+          <p>Se registró la dinámica grupal durante la introducción al diseño de algoritmos mediante actividades desconectadas. Los estudiantes debatieron las instrucciones paso a paso y validaron sus propias secuencias antes de pasar a la puesta en común en el pizarrón.</p>
+          <p>Evidencia de práctica: Registro fotográfico de las producciones grupales en papel afiche y planilla de seguimiento de participación.</p>
         </article>
 
         <article>
-          <h3>Bitácora de práctica: Taller de ciudadanía digital y privacidad</h3>
-          <p>Fecha: <time datetime="2026-05-20">20 de mayo de 2026</time> | Curso: 3° Año de Educación Secundaria</p>
-          <p>Se implementó una dinámica de estudio de casos sobre huella digital y configuración de seguridad en redes sociales. El registro narrativo da cuenta de un debate espontáneo acerca del uso de contraseñas seguras y la verificación en dos pasos.</p>
-          <p>Evidencia documentada: Producción colaborativa de un decálogo de buenas prácticas digitales redactado por los propios estudiantes en el entorno virtual institucional.</p>
+          <h3>Bitácora de campo: Práctica en el laboratorio de informática</h3>
+          <p>Fecha: <time datetime="2026-05-21">21 de mayo de 2026</time> | Curso: 3° Año</p>
+          <p>Crónica detallada del desarrollo de la clase sobre estructuras condicionales. Se documentaron las consultas frecuentes surgidas durante la codificación y las estrategias de andamiaje utilizadas para acompañar a los grupos con distintos ritmos de trabajo.</p>
+          <p>Evidencia de práctica: Archivos de ejercicios resueltos por los estudiantes y notas de campo del docente orientador.</p>
         </article>
 
         <article>
-          <h3>Registro de acompañamiento: Práctica en el laboratorio de informática</h3>
-          <p>Fecha: <time datetime="2026-06-11">11 de junio de 2026</time> | Curso: 4° Año de Educación Secundaria</p>
-          <p>En la sesión dedicada a estructuras condicionales se identificaron dificultades iniciales para comprender el flujo de bifurcación doble. A partir de esta observación, se incorporaron ejemplos cotidianos en tiempo real que destrabaron la resolución de la guía práctica.</p>
-          <p>Evidencia documentada: Capturas de código comentadas por los estudiantes y rúbrica de autoevaluación completada al cierre de la clase.</p>
+          <h3>Registro de jornada: Taller de ciudadanía y convivencia digital</h3>
+          <p>Fecha: <time datetime="2026-06-18">18 de junio de 2026</time> | Curso: 1° Año</p>
+          <p>Sistematización del intercambio oral a partir del análisis de casos sobre privacidad en redes sociales y huella digital. Los grupos elaboraron acuerdos de convivencia para el uso responsable de los entornos virtuales escolares.</p>
+          <p>Evidencia de práctica: Documento colaborativo redactado por el curso y rúbrica de co-evaluación grupal.</p>
         </article>
 
         <p><a href="#inicio-trayectoria">Volver arriba</a></p>
@@ -79,26 +73,26 @@
 
       <section id="reflexiones" aria-labelledby="titulo-reflexiones">
         <h2 id="titulo-reflexiones">Reflexiones</h2>
-        <p>Análisis crítico sobre las decisiones didácticas, los desafíos emergentes en el aula y la construcción del rol docente.</p>
+        <p>Análisis pedagógicos y miradas autocríticas sobre la propia práctica, la gestión del aula y la construcción del rol docente.</p>
 
-        <blockquote cite="https://ejemplo.edu.ar/bibliografia-practica">
-          <p>"La práctica reflexiva permite al docente transformar la experiencia cotidiana del aula en saber pedagógico fundamentado y en mejora continua de la enseñanza."</p>
-          <footer>— Referencia del Marco Pedagógico de <cite>Práctica Docente III</cite></footer>
+        <blockquote>
+          <p>"La reflexión sobre la propia práctica permite reconstruir la experiencia áulica, cuestionar los supuestos de enseñanza y transformar cada intervención en una oportunidad de aprendizaje profesional."</p>
+          <footer>— Cuaderno de bitácora de <cite>Práctica Docente III</cite></footer>
         </blockquote>
 
         <article>
-          <h3>La gestión del tiempo en las actividades prácticas de laboratorio</h3>
-          <p>Uno de los mayores aprendizajes durante las primeras intervenciones fue comprender que el tiempo planificado en el papel difiere del tiempo real de apropiación en el laboratorio. La preparación técnica previa de los equipos y la entrega de consignas escalonadas resultaron claves para garantizar un cierre pedagógico significativo en cada encuentro.</p>
+          <h3>De la planificación escrita a la toma de decisiones en el aula</h3>
+          <p>El contraste entre el diseño previo de la clase y su implementación real evidenció la necesidad de mantener una planificación flexible. Ajustar los tiempos de exposición teórica permitió priorizar el trabajo práctico y la experimentación directa de los estudiantes en las computadoras.</p>
         </article>
 
         <article>
-          <h3>El valor del error como motor de aprendizaje en programación</h3>
-          <p>Al analizar las devoluciones realizadas en el aula, advertí la importancia de desdramatizar el error de sintaxis o de lógica. Transformar la falla de un programa en una instancia colectiva de depuración fortaleció la tolerancia a la frustración y promovió la autonomía intelectual del grupo.</p>
+          <h3>El error técnico y lógico como oportunidad didáctica</h3>
+          <p>Durante las sesiones de programación, abordar los errores de código de manera colectiva en el proyector transformó la frustración individual en un ejercicio de análisis grupal. Esta estrategia fortaleció la autonomía de los estudiantes para revisar y depurar sus propias producciones.</p>
         </article>
 
         <article>
-          <h3>Atención a la heterogeneidad de saberes digitales previos</h3>
-          <p>Las prácticas evidenciaron una brecha importante entre quienes contaban con acceso cotidiano a computadoras y quienes solo utilizaban dispositivos móviles. Diseñar actividades con puntos de partida accesibles y desafíos adicionales optativos permitió sostener la motivación de la totalidad del curso.</p>
+          <h3>Estrategias de inclusión frente a la diversidad de saberes digitales</h3>
+          <p>Reconocer la heterogeneidad de trayectorias previas en el manejo de herramientas informáticas impulsó el diseño de consignas escalonadas y el trabajo en parejas pedagógicas entre pares, logrando una participación equitativa y sostenida en todo el grupo.</p>
         </article>
 
         <p><a href="#inicio-trayectoria">Volver arriba</a></p>
@@ -106,32 +100,32 @@
 
       <section id="cv" aria-labelledby="titulo-cv">
         <h2 id="titulo-cv">Curriculum Vitae (CV)</h2>
-        <p>Síntesis de antecedentes académicos, experiencias docentes, talleres dictados y trayectos de actualización continua.</p>
+        <p>Detalle de antecedentes docentes, cargos desempeñados, talleres dictados y trayectos de formación continua.</p>
 
         <article>
           <h3>Antecedentes y cargos docentes</h3>
           <ul>
-            <li>Residente de Práctica Docente III en Educación Secundaria - Escuela de Educación Secundaria N° 4 (2026).</li>
-            <li>Docente auxiliar en el Taller de Alfabetización Digital Comunitaria - Centro Educativo Municipal (2025 - 2026).</li>
-            <li>Tutor par de ingresantes en el espacio de Introducción a la Programación - Instituto Superior de Formación Docente (2025).</li>
+            <li>Practicante de residencia en el espacio de Informática - Escuela de Educación Secundaria N° 4 (2026).</li>
+            <li>Auxiliar docente en el Taller de Alfabetización Digital - Centro Educativo Comunitario (2025 - 2026).</li>
+            <li>Tutor estudiantil de acompañamiento a ingresantes - Instituto Superior de Formación Docente (2025).</li>
           </ul>
         </article>
 
         <article>
-          <h3>Talleres dictados y proyectos de extensión</h3>
+          <h3>Talleres dictados y actividades de extensión</h3>
           <ul>
-            <li>Coordinador del taller "Pensamiento Computacional Desenchufado para el Aula" en las Jornadas Institucionales de Práctica (2026).</li>
-            <li>Facilitador del encuentro "Herramientas de Software Libre para la Creación de Recursos Didácticos" (2025).</li>
-            <li>Colaborador en la Feria Anual de Ciencias y Tecnología Escolar en el área de Robótica Educativa (2024).</li>
+            <li>Facilitador del taller "Iniciación al Pensamiento Computacional en el Aula" - Jornadas Institucionales de Práctica Docente (2026).</li>
+            <li>Expositor en el encuentro "Creación de Materiales Didácticos con Software Libre" (2025).</li>
+            <li>Colaborador pedagógico en la Muestra Anual de Proyectos Escolares de Tecnología (2024).</li>
           </ul>
         </article>
 
         <article>
-          <h3>Formación académica y actualización continua</h3>
+          <h3>Formación académica y continua</h3>
           <ul>
-            <li>Profesorado en Informática - Instituto Superior de Formación Docente (Cursando 3° año, 2026).</li>
-            <li>Seminario de Actualización en Accesibilidad Web y Diseño Universal para el Aprendizaje (40 horas reloj, 2026).</li>
-            <li>Curso de Evaluación Formativa mediada por Tecnologías Digitales - Ministerio de Educación (60 horas reloj, 2025).</li>
+            <li>Profesorado en Informática - Instituto Superior de Formación Docente (En curso, 3° año).</li>
+            <li>Actualización en Accesibilidad Web y Recursos Educativos Abiertos (2026).</li>
+            <li>Seminario de Evaluación Formativa en Entornos Digitales (2025).</li>
           </ul>
         </article>
 
@@ -140,30 +134,30 @@
 
       <section id="planificaciones" aria-labelledby="titulo-planificaciones">
         <h2 id="titulo-planificaciones">Planificaciones</h2>
-        <p>Secuencias didácticas y propuestas de enseñanza diseñadas para articular contenidos curriculares con metodologías activas.</p>
+        <p>Propuestas de enseñanza y secuencias didácticas estructuradas con sus respectivos objetivos, contenidos y actividades.</p>
 
         <article>
-          <h3>Secuencia didáctica 1: Algoritmos y estructuras de control en la vida cotidiana</h3>
-          <p>Destinatarios: 2° Año de Educación Secundaria | Duración: 4 módulos de 80 minutos.</p>
-          <p>Objetivos de aprendizaje: Que los estudiantes logren descomponer problemas sencillos en pasos ordenados, identificar condiciones lógicas y representar soluciones mediante pseudocódigo.</p>
-          <p>Contenidos principales: Concepto de algoritmo, entrada y salida de datos, estructuras secuenciales y condicionales simples.</p>
-          <p>Actividades propuestas: Resolución de desafíos desconectados en equipo, traducción de recetas e instrucciones a diagramas lógicos, y validación cruzada de soluciones con otros grupos.</p>
+          <h3>Secuencia didáctica 1: Pensamiento algorítmico y estructuras secuenciales</h3>
+          <p>Curso destinatario: 2° Año | Tiempo estimado: 3 clases de 80 minutos.</p>
+          <p>Objetivos: Que los estudiantes logren descomponer problemas cotidianos en instrucciones precisas y representarlos mediante pseudocódigo y diagramas simples.</p>
+          <p>Contenidos: Concepto de algoritmo, datos de entrada y salida, variables y secuencias de ejecución lineal.</p>
+          <p>Actividades: Dinámica grupal de instrucciones desconectadas, resolución de problemas guiados en entorno de pseudocódigo y puesta en común de soluciones alternativas.</p>
         </article>
 
         <article>
-          <h3>Secuencia didáctica 2: Estructura semántica de documentos web</h3>
-          <p>Destinatarios: 4° Año de Educación Secundaria | Duración: 3 módulos de 80 minutos.</p>
-          <p>Objetivos de aprendizaje: Que los estudiantes comprendan la diferencia entre estructura y presentación en la web, construyendo páginas accesibles con etiquetas HTML5 semánticas.</p>
-          <p>Contenidos principales: Árbol del documento, etiquetas de región (header, nav, main, section, article, footer), jerarquía de encabezados y enlaces de navegación.</p>
-          <p>Actividades propuestas: Análisis de sitios web reales mediante el inspector del navegador, maquetación de un periódico escolar digital en HTML puro y verificación con validador oficial.</p>
+          <h3>Secuencia didáctica 2: Maquetación web con HTML5 semántico y accesible</h3>
+          <p>Curso destinatario: 4° Año | Tiempo estimado: 4 clases de 80 minutos.</p>
+          <p>Objetivos: Que los estudiantes estructuren documentos web respetando la jerarquía de títulos, las regiones semánticas y los criterios básicos de accesibilidad.</p>
+          <p>Contenidos: Estructura de un documento HTML, etiquetas de sección (header, nav, main, section, article, footer), listas, enlaces y atributos de accesibilidad.</p>
+          <p>Actividades: Análisis de la estructura de portales educativos, construcción de una página estática para un proyecto escolar y validación sintáctica del código.</p>
         </article>
 
         <article>
-          <h3>Secuencia didáctica 3: Ciudadanía digital, identidad y seguridad de la información</h3>
-          <p>Destinatarios: 1° Año de Educación Secundaria | Duración: 3 módulos de 80 minutos.</p>
-          <p>Objetivos de aprendizaje: Que los estudiantes desarrollen criterios de cuidado sobre su privacidad en entornos digitales y reconozcan riesgos asociados a la ingeniería social.</p>
-          <p>Contenidos principales: Identidad digital, huella en la red, gestión de permisos en aplicaciones, phishing y convivencia respetuosa en entornos virtuales.</p>
-          <p>Actividades propuestas: Análisis de casos simulados de correos fraudulentos, auditoría grupal de permisos de aplicaciones móviles y diseño de una campaña preventiva para la comunidad escolar.</p>
+          <h3>Secuencia didáctica 3: Seguridad informática y cuidado de la identidad digital</h3>
+          <p>Curso destinatario: 1° Año | Tiempo estimado: 3 clases de 80 minutos.</p>
+          <p>Objetivos: Que los estudiantes identifiquen riesgos en entornos digitales, apliquen medidas de resguardo de datos personales y promuevan prácticas de convivencia responsable.</p>
+          <p>Contenidos: Huella digital, privacidad en redes, gestión de contraseñas seguras, prevención de engaños virtuales (phishing) y ciudadanía digital.</p>
+          <p>Actividades: Estudio de casos a partir de situaciones cotidianas, configuración práctica de opciones de privacidad y elaboración grupal de afiches informativos para la escuela.</p>
         </article>
 
         <p><a href="#inicio-trayectoria">Volver arriba</a></p>
