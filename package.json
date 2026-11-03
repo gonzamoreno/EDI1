@@ -1,0 +1,10 @@
+{
+  "name": "edi1-portafolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Servidor Node.js para el portafolio docente",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  }
+}
