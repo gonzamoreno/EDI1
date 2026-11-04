@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <!-- Define la codificación de caracteres para admitir tildes y caracteres especiales -->
+    <meta charset="UTF-8" />
+    <!-- Configuración de viewport para asegurar adaptabilidad responsiva sin desbordes -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Índice de profesores - Portafolio colectivo</title>
+  </head>
+  <body>
+    <!-- ==========================================
+         CONTENIDO PRINCIPAL: ÍNDICE DE PROFESORES
+         ========================================== -->
+    <main>
+      <section id="indice-profesores" aria-labelledby="titulo-principal">
+        <h1 id="titulo-principal">Índice de profesores</h1>
+
+        <nav aria-label="Migas de pan">
+          <p>
+            <a href="../index.html">Inicio</a> /
+            <strong aria-current="page">Listado de Profesores</strong>
+          </p>
+        </nav>
+
+        <p>
+          Bienvenido al portafolio colectivo. Aquí puedes consultar el perfil de cada docente, sus áreas de especialización pedagógica y propuestas de enseñanza en el marco de la formación docente.
+        </p>
+
+        <p id="estado-profesores" role="status" aria-live="polite">Cargando profesores...</p>
+        <ul id="lista-profesores" aria-label="Profesores"></ul>
+      </section>
+    </main>
+
+    <!-- ==========================================
+         PIE DE PÁGINA GLOBAL
+         ========================================== -->
+    <footer>
+      <p>Práctica Docente III</p>
+      <p>Profesorado en Informática</p>
+      <p>Portafolio institucional destinado a la documentación, seguimiento y reflexión pedagógica de la formación docente.</p>
+    </footer>
+    <script>
+      const listaProfesores = document.getElementById("lista-profesores")
+      const estadoProfesores = document.getElementById("estado-profesores")
+
+      async function cargarProfesores() {
+        try {
+          const response = await fetch("/api/profesores")
+          if (!response.ok) {
+            throw new Error(`La solicitud falló con estado ${response.status}`)
+          }
+
+          const profesores = await response.json()
+          if (!Array.isArray(profesores)) {
+            throw new Error("La respuesta del servidor no contiene una lista de profesores")
+          }
+          if (profesores.some((profesor) =>
+            !profesor ||
+            typeof profesor.nombre !== "string" ||
+            profesor.id_profesor == null
+          )) {
+            throw new Error("La respuesta contiene un profesor con datos incompletos")
+          }
+
+          listaProfesores.replaceChildren()
+          profesores.forEach((profesor, index) => {
+            const item = document.createElement("li")
+            const article = document.createElement("article")
+            const heading = document.createElement("h2")
+            const summary = document.createElement("p")
+            const profileLink = document.createElement("a")
+
+            heading.id = `profesor-${index + 1}`
+            heading.textContent = profesor.nombre
+            article.setAttribute("aria-labelledby", heading.id)
+            article.append(heading)
+
+            if (typeof profesor.sobre_mi === "string" && profesor.sobre_mi.trim()) {
+              summary.textContent = profesor.sobre_mi
+              article.append(summary)
+            }
+
+            profileLink.href = `profesor.html?id=${encodeURIComponent(profesor.id_profesor)}`
+            profileLink.textContent = `Ver perfil de ${profesor.nombre}`
+            article.append(profileLink)
+            item.append(article)
+            listaProfesores.append(item)
+          })
+
+          estadoProfesores.textContent = profesores.length
+            ? ""
+            : "No hay profesores disponibles."
+        } catch (error) {
+          console.error("Error al cargar los profesores:", error)
+          estadoProfesores.setAttribute("role", "alert")
+          estadoProfesores.textContent = "No se pudo cargar la lista de profesores. Inténtalo nuevamente más tarde."
+        }
+      }
+
+      cargarProfesores()
+    </script>
+  </body>
+</html>
