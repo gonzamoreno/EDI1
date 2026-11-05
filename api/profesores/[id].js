@@ -1,0 +1,38 @@
+const { createClient } = require("@supabase/supabase-js")
+
+const supabaseUrl = process.env.EDI1_SUPABASE_URL
+const supabaseKey = process.env.EDI1_SUPABASE_SECRET_KEY || process.env.EDI1_SUPABASE_ANON_KEY
+
+module.exports = async function handler(request, response) {
+  if (request.method !== "GET") {
+    response.setHeader("Allow", "GET")
+    return response.status(405).json({ error: "Método no permitido" })
+  }
+
+  const id = Number(request.query.id)
+  if (!Number.isInteger(id) || id <= 0) {
+    return response.status(400).json({ error: "El id debe ser un número entero positivo" })
+  }
+
+  if (!supabaseUrl || !supabaseKey) {
+    return response.status(500).json({ error: "Falta la configuración de Supabase" })
+  }
+
+  const supabase = createClient(supabaseUrl, supabaseKey)
+  const { data, error } = await supabase
+    .from("profesores")
+    .select("id_profesor, nombre, foto, sobre_mi, contacto, fortalezas")
+    .eq("id_profesor", id)
+    .maybeSingle()
+
+  if (error) {
+    console.error("Error consultando Supabase:", error.message)
+    return response.status(500).json({ error: "No se pudo obtener el profesor" })
+  }
+
+  if (!data) {
+    return response.status(404).json({ error: "Profesor no encontrado" })
+  }
+
+  return response.status(200).json(data)
+}
