@@ -1,0 +1,483 @@
+/**
+ * ==============================================================================
+ * styles.css - Portafolio Docente
+ * ==============================================================================
+ * Sistema de diseño accesible, coherente y legible para todo el sitio.
+ * Armoniza y complementa Bootstrap 5 garantizando el cumplimiento de WCAG 2.1 AA:
+ *  - Contraste de color >= 4.5:1 en texto normal y >= 3:1 en componentes/foco.
+ *  - Indicador de foco claramente visible para navegación por teclado.
+ *  - Tipografía en unidades relativas (rem) y diseño adaptable a zoom de 200%.
+ *  - Integración armónica posterior a Bootstrap 5 (sin sobrescritura destructiva).
+ *  - Sin uso de !important, salvo en utilidades universales de accesibilidad justificadas.
+ * ==============================================================================
+ */
+
+/* ==============================================================================
+   (1) VARIABLES CSS DEL SISTEMA DE DISEÑO (:root)
+   ============================================================================== */
+:root {
+  /* ----------------------------------------------------------------------------
+     1.1 PALETA DE COLORES Y ROLES SEMÁNTICOS (WCAG 2.1 AA)
+     ---------------------------------------------------------------------------- */
+  /* Primario: Azul institucional con contraste alto (ratio 6.7:1 sobre blanco) */
+  --color-primary: #1d4ed8;
+  --color-primary-hover: #1e40af;       /* Ratio 8.7:1 sobre blanco */
+  --color-primary-active: #1e3a8a;      /* Ratio > 11:1 sobre blanco */
+  --color-primary-subtle: #eff6ff;      /* Fondo suave para tarjetas o llamadas */
+  --color-primary-border: #93c5fd;
+
+  /* Texto: Máxima legibilidad y contraste garantizado */
+  --color-text-main: #1e293b;           /* Slate 800 - Ratio 14.6:1 sobre blanco, 14.0:1 sobre slate-50 */
+  --color-text-muted: #475569;          /* Slate 600 - Ratio 7.6:1 sobre blanco (supera AA de 4.5:1) */
+  --color-text-inverse: #ffffff;        /* Ratio 6.7:1 sobre primario */
+  --color-text-link: #1d4ed8;           /* Enlace accesible (ratio 6.7:1) */
+  --color-text-link-hover: #172554;     /* Enlace interactuado con alto contraste */
+
+  /* Fondos de interfaz: Reducción de fatiga visual y jerarquía limpia */
+  --color-bg-body: #f8fafc;             /* Slate 50: fondo base suave y neutro */
+  --color-bg-surface: #ffffff;          /* Blanco puro para tarjetas, encabezados y paneles */
+  --color-bg-subtle: #f1f5f9;           /* Slate 100: fondo para bloques de citas y destacados */
+  --color-bg-muted: #e2e8f0;            /* Slate 200: divisores y fondos atenuados */
+
+  /* Bordes estructurales */
+  --color-border: #cbd5e1;              /* Slate 300: contraste suficiente */
+  --color-border-subtle: #e2e8f0;       /* Slate 200: bordes suaves de tarjetas */
+  --color-border-strong: #64748b;       /* Slate 500: bordes con énfasis */
+
+  /* Estados y Alertas (ratios > 5:1 sobre fondo claro) */
+  --color-success: #166534;             /* Verde accesible (ratio 7.1:1) */
+  --color-success-bg: #f0fdf4;
+  --color-warning: #854d0e;             /* Ámbar oscuro (ratio 6.8:1) */
+  --color-warning-bg: #fefce8;
+  --color-danger: #991b1b;              /* Rojo de alta legibilidad (ratio 8.3:1) */
+  --color-danger-bg: #fef2f2;
+  --color-info: #0e7490;                /* Azul petróleo accesible (ratio 5.4:1) */
+  --color-info-bg: #ecfeff;
+
+  /* ----------------------------------------------------------------------------
+     1.2 FOCO VISIBLE (WCAG 2.4.7 y 2.4.11 / 2.4.13 Focus Appearance)
+     Anillo de foco prominente con doble separación visual para todo fondo.
+     ---------------------------------------------------------------------------- */
+  --focus-ring-color: #2563eb;          /* Azul vibrante con fuerte contraste */
+  --focus-ring-width: 3px;
+  --focus-ring-offset: 3px;
+  --focus-ring-style: solid;
+  --focus-ring-glow: rgba(37, 99, 235, 0.25);
+
+  /* ----------------------------------------------------------------------------
+     1.3 TIPOGRAFÍA Y ESCALA RELATIVA (rem)
+     Unidades relativas para garantizar compatibilidad con zoom de 200%.
+     ---------------------------------------------------------------------------- */
+  --font-family-base: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-family-heading: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-family-mono: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  --font-size-xs: 0.75rem;              /* ~12px */
+  --font-size-sm: 0.875rem;             /* ~14px */
+  --font-size-base: 1rem;               /* ~16px (respeta configuración del navegador) */
+  --font-size-md: 1.125rem;             /* ~18px */
+  --font-size-lg: 1.25rem;              /* ~20px */
+  --font-size-xl: 1.5rem;               /* ~24px */
+  --font-size-2xl: 1.875rem;            /* ~30px */
+  --font-size-3xl: 2.25rem;             /* ~36px */
+
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Alturas de línea adaptadas (WCAG recomienda mínimo 1.5 para párrafos) */
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.6;
+  --line-height-relaxed: 1.75;
+
+  /* ----------------------------------------------------------------------------
+     1.4 ESCALA DE ESPACIADO MODULAR
+     ---------------------------------------------------------------------------- */
+  --spacing-1: 0.25rem;                 /* 4px */
+  --spacing-2: 0.5rem;                  /* 8px */
+  --spacing-3: 0.75rem;                 /* 12px */
+  --spacing-4: 1rem;                    /* 16px */
+  --spacing-5: 1.5rem;                  /* 24px */
+  --spacing-6: 2rem;                    /* 32px */
+  --spacing-8: 3rem;                    /* 48px */
+  --spacing-10: 4rem;                   /* 64px */
+
+  /* ----------------------------------------------------------------------------
+     1.5 RADIOS DE BORDE Y SOMBRAS SUAVES
+     ---------------------------------------------------------------------------- */
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.5rem;
+  --border-radius-lg: 0.75rem;
+  --border-radius-full: 9999px;
+
+  --box-shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
+  --box-shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.08), 0 2px 4px -2px rgba(15, 23, 42, 0.06);
+  --box-shadow-lg: 0 10px 15px -3px rgba(15, 23, 42, 0.08), 0 4px 6px -4px rgba(15, 23, 42, 0.04);
+
+  /* Transición suave para cambios de estado interactivo */
+  --transition-fast: 150ms ease;
+  --transition-normal: 200ms ease-in-out;
+}
+
+/* ==============================================================================
+   (2) REGLAS BASE RESPETUOSAS Y ARMONIZADAS CON BOOTSTRAP
+   ============================================================================== */
+
+html {
+  font-size: 100%;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-main);
+  background-color: var(--color-bg-body);
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+footer {
+  margin-top: auto;
+}
+
+/* Títulos y párrafos con ruptura segura en palabras largas */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-heading);
+  color: var(--color-text-main);
+  line-height: var(--line-height-tight);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+p {
+  color: var(--color-text-main);
+  line-height: var(--line-height-normal);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/* Enlaces con subrayado accesible y contraste reforzado */
+a {
+  color: var(--color-text-link);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1.5px;
+  transition: color var(--transition-fast), text-decoration-color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-text-link-hover);
+  text-decoration-thickness: 2px;
+}
+
+/* Enlaces de navegación de Bootstrap conservan su formato de barra sin subrayado */
+.navbar .nav-link,
+.navbar-brand,
+.btn {
+  text-decoration: none;
+}
+
+.navbar .nav-link:hover,
+.navbar-brand:hover {
+  text-decoration: none;
+}
+
+/* Citas destacadas */
+blockquote {
+  margin: var(--spacing-4) 0;
+  padding: var(--spacing-4) var(--spacing-5);
+  background-color: var(--color-bg-subtle);
+  border-left: 4px solid var(--color-primary);
+  border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  font-style: italic;
+  color: var(--color-text-main);
+}
+
+blockquote footer {
+  font-style: normal;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+blockquote cite {
+  font-weight: var(--font-weight-semibold);
+  font-style: normal;
+  color: var(--color-text-main);
+}
+
+/* ==============================================================================
+   (3) FOCO CLARAMENTE VISIBLE (WCAG 2.4.7 y 2.4.11)
+   ============================================================================== */
+
+:focus-visible {
+  outline: var(--focus-ring-width) var(--focus-ring-style) var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+  border-radius: var(--border-radius-sm);
+  box-shadow: 0 0 0 calc(var(--focus-ring-offset) + 1px) var(--color-bg-surface);
+}
+
+/* Foco en componentes nativos y de Bootstrap */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+.btn:focus-visible,
+.navbar-toggler:focus-visible,
+.nav-link:focus-visible,
+[tabindex]:focus-visible {
+  outline: var(--focus-ring-width) var(--focus-ring-style) var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+}
+
+/* Eliminación de halo difuso por defecto de Bootstrap solo si :focus-visible provee la alternativa accesible */
+.btn:focus,
+.btn:focus-visible {
+  box-shadow: 0 0 0 var(--focus-ring-offset) var(--color-bg-surface), 
+              0 0 0 calc(var(--focus-ring-offset) + var(--focus-ring-width)) var(--focus-ring-color);
+  outline: none;
+}
+
+/* Enlace de salto accesible para navegación con teclado */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: var(--spacing-4);
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  padding: var(--spacing-3) var(--spacing-5);
+  font-weight: var(--font-weight-semibold);
+  border-radius: var(--border-radius-md);
+  text-decoration: none;
+  z-index: 9999;
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  top: var(--spacing-4);
+  color: var(--color-text-inverse);
+  outline: var(--focus-ring-width) solid #ffffff;
+  outline-offset: 2px;
+  box-shadow: var(--box-shadow-lg);
+}
+
+/* ==============================================================================
+   (4) ARMONIZACIÓN DE COMPONENTES CON BOOTSTRAP 5 (Estilo coherente de index.html)
+   ============================================================================== */
+
+/* Mejora de accesibilidad en botón primario de Bootstrap (Contraste 6.7:1) */
+.btn-primary {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-text-inverse);
+  transition: background-color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+  color: var(--color-text-inverse);
+}
+
+.btn-primary:active {
+  background-color: var(--color-primary-active);
+  border-color: var(--color-primary-active);
+}
+
+.btn-outline-primary {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+/* Tarjetas coherentes y accesibles */
+.card {
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--color-border-subtle);
+  background-color: var(--color-bg-surface);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.card:hover {
+  box-shadow: var(--box-shadow-md);
+}
+
+/* Encabezados de sección y hero banners para subpáginas */
+.page-hero-banner {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: #ffffff;
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-6);
+  margin-bottom: var(--spacing-6);
+  box-shadow: var(--box-shadow-sm);
+}
+
+.page-hero-banner h1 {
+  color: #ffffff;
+}
+
+.page-hero-banner .lead {
+  color: #cbd5e1;
+}
+
+/* Breadcrumbs accesibles */
+.breadcrumb {
+  background-color: var(--color-bg-subtle);
+  padding: var(--spacing-2) var(--spacing-4);
+  border-radius: var(--border-radius-md);
+  margin-bottom: var(--spacing-4);
+  font-size: var(--font-size-sm);
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.breadcrumb-item a {
+  color: var(--color-text-link);
+  text-decoration: none;
+}
+
+.breadcrumb-item a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb-item.active {
+  color: var(--color-text-muted);
+  font-weight: var(--font-weight-medium);
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  color: var(--color-text-muted);
+  content: "/";
+  padding: 0 var(--spacing-2);
+}
+
+/* Avatar de iniciales para tarjetas de profesores */
+.avatar-circle {
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--border-radius-full);
+  background-color: var(--color-primary-subtle);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-md);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 2px solid var(--color-primary-border);
+}
+
+/* Caja de evidencias de práctica áulica */
+.evidence-box {
+  background-color: var(--color-primary-subtle);
+  border-left: 4px solid var(--color-primary);
+  border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+  padding: var(--spacing-3) var(--spacing-4);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-main);
+  margin-top: var(--spacing-3);
+}
+
+/* Etiquetas y badges accesibles */
+.tag-badge {
+  display: inline-block;
+  padding: var(--spacing-1) var(--spacing-3);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  border-radius: var(--border-radius-full);
+  background-color: var(--color-primary-subtle);
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary-border);
+}
+
+/* Píldoras de navegación rápida en página */
+.quick-nav-pill {
+  display: inline-block;
+  padding: var(--spacing-2) var(--spacing-4);
+  margin-right: var(--spacing-2);
+  margin-bottom: var(--spacing-2);
+  border-radius: var(--border-radius-full);
+  background-color: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-main);
+  text-decoration: none;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  transition: all var(--transition-fast);
+}
+
+.quick-nav-pill:hover {
+  background-color: var(--color-primary-subtle);
+  border-color: var(--color-primary-border);
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+/* Estado activo en navegación principal */
+.navbar .nav-link.active {
+  color: #ffffff;
+  font-weight: var(--font-weight-semibold);
+}
+
+/* ==============================================================================
+   (5) UTILIDADES DE ACCESIBILIDAD JUSTIFICADAS
+   ============================================================================== */
+
+/**
+ * JUSTIFICACIÓN DE !important:
+ * La clase .visually-hidden es el estándar W3C para contenido destinado únicamente
+ * a lectores de pantalla. Se usa !important de forma justificada para impedir
+ * que reglas en cascada de Bootstrap o elementos padre modifiquen posición o visibilidad.
+ */
+.visually-hidden-accessible {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* ==============================================================================
+   (6) PREFERENCIAS DEL USUARIO
+   ============================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -3,171 +3,358 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mi Trayectoria Docente - Portafolio docente</title>
+    <title>Mi Trayectoria Docente - Prof. Martín Alejandro Gómez</title>
+
+    <!-- Framework base: Bootstrap 5.3.3 por CDN con contingencia local -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+      onerror="this.onerror=null; this.href='../css/bootstrap.min.css';"
+    />
+    <!-- Hoja de estilos del proyecto: Carga posterior a Bootstrap -->
+    <link rel="stylesheet" href="../styles.css" />
   </head>
   <body>
-    <header>
-      <div>
-        <p>Portafolio docente</p>
-        <p>Profesorado en Educación Primaria</p>
-      </div>
+    <!-- Enlace de accesibilidad para teclado -->
+    <a href="#contenido-principal" class="skip-link">Saltar al contenido principal</a>
+
+    <!-- Barra de navegación principal -->
+    <header class="bg-dark shadow-sm">
+      <nav class="navbar navbar-expand-lg navbar-dark container py-3" aria-label="Navegación principal">
+        <a class="navbar-brand fw-semibold text-white" href="../index.html">Portafolio Docente</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navegacionPrincipal"
+          aria-controls="navegacionPrincipal"
+          aria-expanded="false"
+          aria-label="Abrir o cerrar navegación"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navegacionPrincipal">
+          <ul class="navbar-nav ms-auto gap-2">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="profesores.html">Profesores</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="profesor.html">Perfil Docente</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="trayectoria_docente.html">Trayectoria Docente</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </header>
 
-    <main>
-      <!-- ==========================================
-           BREADCRUMB EN UNA SOLA LÍNEA Y SIN NUMERACIÓN (HTML PURO)
-           Al usar elementos inline (<a> y <strong>) dentro de <p>,
-           se muestra horizontalmente sin necesidad de CSS.
-           ========================================== -->
-      <nav aria-label="Migas de pan">
-        <p>
-          <a href="index.html">Inicio</a> /
-          <a href="profesores.html">Listado de Profesores</a> /
-          <a href="profesor.html">Prof. Martín Alejandro Gómez</a> /
-          <strong aria-current="page">Mi Trayectoria Docente</strong>
-        </p>
-      </nav>
+    <!-- Contenido principal -->
+    <main id="contenido-principal" tabindex="-1" class="py-5">
+      <div class="container">
+        <!-- Navegación de migas de pan (Breadcrumbs) -->
+        <nav aria-label="Migas de pan" class="mb-4">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="../index.html">Inicio</a></li>
+            <li class="breadcrumb-item"><a href="profesores.html">Profesores</a></li>
+            <li class="breadcrumb-item"><a href="profesor.html">Perfil Docente</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Mi Trayectoria Docente</li>
+          </ol>
+        </nav>
 
-      <section id="inicio-trayectoria" aria-labelledby="titulo-principal">
-        <h1 id="titulo-principal">Prof. Martín Alejandro Gómez - Mi Trayectoria Docente</h1>
-        <p>Espacio de documentación pedagógica donde se sistematizan las evidencias de práctica áulica, las reflexiones críticas sobre la enseñanza, los antecedentes curriculares y las secuencias didácticas implementadas durante el trayecto formativo.</p>
-      </section>
+        <!-- Cabecera de Trayectoria Docente -->
+        <section id="inicio-trayectoria" class="page-hero-banner" aria-labelledby="titulo-principal">
+          <div class="row align-items-center">
+            <div class="col-lg-10">
+              <span class="badge bg-primary text-uppercase px-3 py-2 mb-3 fw-semibold">Sistematización Pedagógica</span>
+              <h1 id="titulo-principal" class="display-5 fw-bold text-white mb-2">Prof. Martín Alejandro Gómez — Mi Trayectoria Docente</h1>
+              <p class="fs-5 text-light opacity-75 mb-3">Profesorado en Informática · Práctica Docente III</p>
+              <p class="lead mb-0 text-light">
+                Espacio de documentación pedagógica donde se sistematizan las evidencias de práctica áulica, las reflexiones críticas sobre la enseñanza, los antecedentes curriculares y las secuencias didácticas implementadas durante el trayecto formativo.
+              </p>
+            </div>
+          </div>
+        </section>
 
-      <nav aria-label="Navegación de trayectoria docente">
-        <h2>Secciones de Mi Trayectoria Docente</h2>
-        <ul>
-          <li><a href="#registros">Registros</a></li>
-          <li><a href="#reflexiones">Reflexiones</a></li>
-          <li><a href="#cv">Curriculum Vitae (CV)</a></li>
-          <li><a href="#planificaciones">Planificaciones</a></li>
-        </ul>
-      </nav>
+        <!-- Barra de navegación rápida por secciones -->
+        <nav aria-label="Navegación de trayectoria docente" class="card shadow-sm border-light-subtle p-3 mb-5">
+          <div class="d-flex align-items-center flex-wrap gap-2">
+            <span class="text-muted small fw-semibold me-2">Secciones:</span>
+            <a href="#registros" class="quick-nav-pill">📋 Registros</a>
+            <a href="#reflexiones" class="quick-nav-pill">💡 Reflexiones</a>
+            <a href="#cv" class="quick-nav-pill">📄 Curriculum Vitae</a>
+            <a href="#planificaciones" class="quick-nav-pill">📝 Planificaciones</a>
+          </div>
+        </nav>
 
-      <section id="registros" aria-labelledby="titulo-registros">
-        <h2 id="titulo-registros">Registros</h2>
-        <p>Recopilación de observaciones de clase, bitácoras de campo y evidencias de las intervenciones pedagógicas realizadas en el nivel secundario.</p>
+        <!-- 1. REGISTROS -->
+        <section id="registros" class="mb-5" aria-labelledby="titulo-registros">
+          <div class="d-flex justify-content-between align-items-center mb-3 border-bottom pb-2">
+            <h2 id="titulo-registros" class="h3 fw-bold text-dark mb-0">
+              📋 Registros de Campo y Práctica
+            </h2>
+            <a href="#inicio-trayectoria" class="small text-muted text-decoration-none">↑ Volver arriba</a>
+          </div>
+          <p class="text-muted mb-4">
+            Recopilación de observaciones de clase, bitácoras de campo y evidencias de las intervenciones pedagógicas realizadas en el nivel secundario.
+          </p>
 
-        <article>
-          <h3>Observación de clase: Resolución de problemas y algoritmos</h3>
-          <p>Fecha: <time datetime="2026-04-16">16 de abril de 2026</time> | Curso: 2° Año</p>
-          <p>Se registró la dinámica grupal durante la introducción al diseño de algoritmos mediante actividades desconectadas. Los estudiantes debatieron las instrucciones paso a paso y validaron sus propias secuencias antes de pasar a la puesta en común en el pizarrón.</p>
-          <p>Evidencia de práctica: Registro fotográfico de las producciones grupales en papel afiche y planilla de seguimiento de participación.</p>
-        </article>
+          <div class="row g-4">
+            <!-- Registro 1 -->
+            <div class="col-12 col-lg-4">
+              <article class="card h-100 shadow-sm border-light-subtle p-4 d-flex flex-column">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="badge bg-primary-subtle text-primary border border-primary-subtle">2° Año</span>
+                  <time datetime="2026-04-16" class="text-muted small">16/04/2026</time>
+                </div>
+                <h3 class="h5 fw-bold text-dark mb-2">Resolución de problemas y algoritmos</h3>
+                <p class="text-secondary small flex-grow-1">
+                  Se registró la dinámica grupal durante la introducción al diseño de algoritmos mediante actividades desconectadas. Los estudiantes debatieron las instrucciones paso a paso y validaron sus propias secuencias antes de pasar a la puesta en común en el pizarrón.
+                </p>
+                <div class="evidence-box">
+                  <strong>Evidencia de práctica:</strong> Registro fotográfico de producciones grupales en afiche y planilla de seguimiento.
+                </div>
+              </article>
+            </div>
 
-        <article>
-          <h3>Bitácora de campo: Práctica en el laboratorio de informática</h3>
-          <p>Fecha: <time datetime="2026-05-21">21 de mayo de 2026</time> | Curso: 3° Año</p>
-          <p>Crónica detallada del desarrollo de la clase sobre estructuras condicionales. Se documentaron las consultas frecuentes surgidas durante la codificación y las estrategias de andamiaje utilizadas para acompañar a los grupos con distintos ritmos de trabajo.</p>
-          <p>Evidencia de práctica: Archivos de ejercicios resueltos por los estudiantes y notas de campo del docente orientador.</p>
-        </article>
+            <!-- Registro 2 -->
+            <div class="col-12 col-lg-4">
+              <article class="card h-100 shadow-sm border-light-subtle p-4 d-flex flex-column">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="badge bg-primary-subtle text-primary border border-primary-subtle">3° Año</span>
+                  <time datetime="2026-05-21" class="text-muted small">21/05/2026</time>
+                </div>
+                <h3 class="h5 fw-bold text-dark mb-2">Práctica en laboratorio de informática</h3>
+                <p class="text-secondary small flex-grow-1">
+                  Crónica detallada del desarrollo de la clase sobre estructuras condicionales. Se documentaron las consultas frecuentes surgidas durante la codificación y las estrategias de andamiaje utilizadas para acompañar a los grupos con distintos ritmos de trabajo.
+                </p>
+                <div class="evidence-box">
+                  <strong>Evidencia de práctica:</strong> Archivos de ejercicios resueltos y notas de campo del docente orientador.
+                </div>
+              </article>
+            </div>
 
-        <article>
-          <h3>Registro de jornada: Taller de ciudadanía y convivencia digital</h3>
-          <p>Fecha: <time datetime="2026-06-18">18 de junio de 2026</time> | Curso: 1° Año</p>
-          <p>Sistematización del intercambio oral a partir del análisis de casos sobre privacidad en redes sociales y huella digital. Los grupos elaboraron acuerdos de convivencia para el uso responsable de los entornos virtuales escolares.</p>
-          <p>Evidencia de práctica: Documento colaborativo redactado por el curso y rúbrica de co-evaluación grupal.</p>
-        </article>
+            <!-- Registro 3 -->
+            <div class="col-12 col-lg-4">
+              <article class="card h-100 shadow-sm border-light-subtle p-4 d-flex flex-column">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="badge bg-primary-subtle text-primary border border-primary-subtle">1° Año</span>
+                  <time datetime="2026-06-18" class="text-muted small">18/06/2026</time>
+                </div>
+                <h3 class="h5 fw-bold text-dark mb-2">Taller de ciudadanía y convivencia digital</h3>
+                <p class="text-secondary small flex-grow-1">
+                  Sistematización del intercambio oral a partir del análisis de casos sobre privacidad en redes sociales y huella digital. Los grupos elaboraron acuerdos de convivencia para el uso responsable de entornos virtuales escolares.
+                </p>
+                <div class="evidence-box">
+                  <strong>Evidencia de práctica:</strong> Documento colaborativo redactado por el curso y rúbrica de co-evaluación grupal.
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
 
-        <p><a href="#inicio-trayectoria">Volver arriba</a></p>
-      </section>
+        <!-- 2. REFLEXIONES -->
+        <section id="reflexiones" class="mb-5" aria-labelledby="titulo-reflexiones">
+          <div class="d-flex justify-content-between align-items-center mb-3 border-bottom pb-2">
+            <h2 id="titulo-reflexiones" class="h3 fw-bold text-dark mb-0">
+              💡 Reflexiones sobre la Práctica
+            </h2>
+            <a href="#inicio-trayectoria" class="small text-muted text-decoration-none">↑ Volver arriba</a>
+          </div>
+          <p class="text-muted mb-4">
+            Análisis pedagógicos y miradas autocríticas sobre la propia práctica, la gestión del aula y la construcción del rol docente.
+          </p>
 
-      <section id="reflexiones" aria-labelledby="titulo-reflexiones">
-        <h2 id="titulo-reflexiones">Reflexiones</h2>
-        <p>Análisis pedagógicos y miradas autocríticas sobre la propia práctica, la gestión del aula y la construcción del rol docente.</p>
+          <!-- Cita pedagógica -->
+          <blockquote class="my-4">
+            <p class="mb-2 fs-5">
+              "La reflexión sobre la propia práctica permite reconstruir la experiencia áulica, cuestionar los supuestos de enseñanza y transformar cada intervención en una oportunidad de aprendizaje profesional."
+            </p>
+            <footer>— Cuaderno de bitácora de <cite>Práctica Docente III</cite></footer>
+          </blockquote>
 
-        <blockquote>
-          <p>"La reflexión sobre la propia práctica permite reconstruir la experiencia áulica, cuestionar los supuestos de enseñanza y transformar cada intervención en una oportunidad de aprendizaje profesional."</p>
-          <footer>— Cuaderno de bitácora de <cite>Práctica Docente III</cite></footer>
-        </blockquote>
+          <div class="row g-4">
+            <div class="col-12 col-md-4">
+              <article class="card h-100 shadow-sm border-light-subtle p-4">
+                <h3 class="h5 fw-bold text-primary mb-2">De la planificación escrita al aula</h3>
+                <p class="text-secondary mb-0">
+                  El contraste entre el diseño previo de la clase y su implementación real evidenció la necesidad de mantener una planificación flexible. Ajustar los tiempos de exposición teórica permitió priorizar el trabajo práctico y la experimentación directa de los estudiantes en las computadoras.
+                </p>
+              </article>
+            </div>
 
-        <article>
-          <h3>De la planificación escrita a la toma de decisiones en el aula</h3>
-          <p>El contraste entre el diseño previo de la clase y su implementación real evidenció la necesidad de mantener una planificación flexible. Ajustar los tiempos de exposición teórica permitió priorizar el trabajo práctico y la experimentación directa de los estudiantes en las computadoras.</p>
-        </article>
+            <div class="col-12 col-md-4">
+              <article class="card h-100 shadow-sm border-light-subtle p-4">
+                <h3 class="h5 fw-bold text-primary mb-2">El error como oportunidad didáctica</h3>
+                <p class="text-secondary mb-0">
+                  Durante las sesiones de programación, abordar los errores de código de manera colectiva en el proyector transformó la frustración individual en un ejercicio de análisis grupal. Esta estrategia fortaleció la autonomía de los estudiantes para revisar y depurar sus propias producciones.
+                </p>
+              </article>
+            </div>
 
-        <article>
-          <h3>El error técnico y lógico como oportunidad didáctica</h3>
-          <p>Durante las sesiones de programación, abordar los errores de código de manera colectiva en el proyector transformó la frustración individual en un ejercicio de análisis grupal. Esta estrategia fortaleció la autonomía de los estudiantes para revisar y depurar sus propias producciones.</p>
-        </article>
+            <div class="col-12 col-md-4">
+              <article class="card h-100 shadow-sm border-light-subtle p-4">
+                <h3 class="h5 fw-bold text-primary mb-2">Inclusión y diversidad de saberes</h3>
+                <p class="text-secondary mb-0">
+                  Reconocer la heterogeneidad de trayectorias previas en el manejo de herramientas informáticas impulsó el diseño de consignas escalonadas y el trabajo en parejas pedagógicas entre pares, logrando una participación equitativa y sostenida en todo el grupo.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
 
-        <article>
-          <h3>Estrategias de inclusión frente a la diversidad de saberes digitales</h3>
-          <p>Reconocer la heterogeneidad de trayectorias previas en el manejo de herramientas informáticas impulsó el diseño de consignas escalonadas y el trabajo en parejas pedagógicas entre pares, logrando una participación equitativa y sostenida en todo el grupo.</p>
-        </article>
+        <!-- 3. CURRICULUM VITAE -->
+        <section id="cv" class="mb-5" aria-labelledby="titulo-cv">
+          <div class="d-flex justify-content-between align-items-center mb-3 border-bottom pb-2">
+            <h2 id="titulo-cv" class="h3 fw-bold text-dark mb-0">
+              📄 Curriculum Vitae (CV)
+            </h2>
+            <a href="#inicio-trayectoria" class="small text-muted text-decoration-none">↑ Volver arriba</a>
+          </div>
+          <p class="text-muted mb-4">
+            Detalle de antecedentes docentes, cargos desempeñados, talleres dictados y trayectos de formación continua.
+          </p>
 
-        <p><a href="#inicio-trayectoria">Volver arriba</a></p>
-      </section>
+          <div class="row g-4">
+            <div class="col-12 col-md-4">
+              <article class="card h-100 shadow-sm border-light-subtle p-4">
+                <h3 class="h5 fw-bold text-dark border-bottom pb-2 mb-3">Antecedentes y cargos</h3>
+                <ul class="list-unstyled mb-0 d-flex flex-column gap-2 text-secondary small">
+                  <li>• Practicante de residencia en el espacio de Informática — Escuela de Educación Secundaria N° 4 (2026).</li>
+                  <li>• Auxiliar docente en el Taller de Alfabetización Digital — Centro Educativo Comunitario (2025 - 2026).</li>
+                  <li>• Tutor estudiantil de acompañamiento a ingresantes — Instituto Superior de Formación Docente (2025).</li>
+                </ul>
+              </article>
+            </div>
 
-      <section id="cv" aria-labelledby="titulo-cv">
-        <h2 id="titulo-cv">Curriculum Vitae (CV)</h2>
-        <p>Detalle de antecedentes docentes, cargos desempeñados, talleres dictados y trayectos de formación continua.</p>
+            <div class="col-12 col-md-4">
+              <article class="card h-100 shadow-sm border-light-subtle p-4">
+                <h3 class="h5 fw-bold text-dark border-bottom pb-2 mb-3">Talleres y extensión</h3>
+                <ul class="list-unstyled mb-0 d-flex flex-column gap-2 text-secondary small">
+                  <li>• Facilitador del taller "Iniciación al Pensamiento Computacional en el Aula" — Jornadas Institucionales (2026).</li>
+                  <li>• Expositor en el encuentro "Creación de Materiales Didácticos con Software Libre" (2025).</li>
+                  <li>• Colaborador pedagógico en la Muestra Anual de Proyectos Escolares de Tecnología (2024).</li>
+                </ul>
+              </article>
+            </div>
 
-        <article>
-          <h3>Antecedentes y cargos docentes</h3>
-          <ul>
-            <li>Practicante de residencia en el espacio de Informática - Escuela de Educación Secundaria N° 4 (2026).</li>
-            <li>Auxiliar docente en el Taller de Alfabetización Digital - Centro Educativo Comunitario (2025 - 2026).</li>
-            <li>Tutor estudiantil de acompañamiento a ingresantes - Instituto Superior de Formación Docente (2025).</li>
-          </ul>
-        </article>
+            <div class="col-12 col-md-4">
+              <article class="card h-100 shadow-sm border-light-subtle p-4">
+                <h3 class="h5 fw-bold text-dark border-bottom pb-2 mb-3">Formación continua</h3>
+                <ul class="list-unstyled mb-0 d-flex flex-column gap-2 text-secondary small">
+                  <li>• Profesorado en Informática — Instituto Superior de Formación Docente (En curso, 3° año).</li>
+                  <li>• Actualización en Accesibilidad Web y Recursos Educativos Abiertos (2026).</li>
+                  <li>• Seminario de Evaluación Formativa en Entornos Digitales (2025).</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+        </section>
 
-        <article>
-          <h3>Talleres dictados y actividades de extensión</h3>
-          <ul>
-            <li>Facilitador del taller "Iniciación al Pensamiento Computacional en el Aula" - Jornadas Institucionales de Práctica Docente (2026).</li>
-            <li>Expositor en el encuentro "Creación de Materiales Didácticos con Software Libre" (2025).</li>
-            <li>Colaborador pedagógico en la Muestra Anual de Proyectos Escolares de Tecnología (2024).</li>
-          </ul>
-        </article>
+        <!-- 4. PLANIFICACIONES -->
+        <section id="planificaciones" class="mb-5" aria-labelledby="titulo-planificaciones">
+          <div class="d-flex justify-content-between align-items-center mb-3 border-bottom pb-2">
+            <h2 id="titulo-planificaciones" class="h3 fw-bold text-dark mb-0">
+              📝 Planificaciones y Secuencias Didácticas
+            </h2>
+            <a href="#inicio-trayectoria" class="small text-muted text-decoration-none">↑ Volver arriba</a>
+          </div>
+          <p class="text-muted mb-4">
+            Propuestas de enseñanza y secuencias didácticas estructuradas con sus respectivos objetivos, contenidos y actividades.
+          </p>
 
-        <article>
-          <h3>Formación académica y continua</h3>
-          <ul>
-            <li>Profesorado en Informática - Instituto Superior de Formación Docente (En curso, 3° año).</li>
-            <li>Actualización en Accesibilidad Web y Recursos Educativos Abiertos (2026).</li>
-            <li>Seminario de Evaluación Formativa en Entornos Digitales (2025).</li>
-          </ul>
-        </article>
+          <div class="row g-4">
+            <!-- Secuencia 1 -->
+            <div class="col-12 col-lg-4">
+              <article class="card h-100 shadow-sm border-light-subtle p-4 d-flex flex-column">
+                <span class="badge bg-primary text-uppercase px-2 py-1 mb-2 align-self-start">Secuencia 1</span>
+                <h3 class="h5 fw-bold text-dark mb-2">Pensamiento algorítmico y secuencial</h3>
+                <p class="text-muted small mb-3"><strong>Destinatarios:</strong> 2° Año | <strong>Carga:</strong> 3 clases (80 min c/u)</p>
+                <div class="mb-3">
+                  <h4 class="h6 fw-bold text-primary mb-1">Objetivos:</h4>
+                  <p class="text-secondary small mb-0">Descomponer problemas cotidianos en instrucciones precisas y representarlos mediante pseudocódigo.</p>
+                </div>
+                <div class="mb-3">
+                  <h4 class="h6 fw-bold text-primary mb-1">Contenidos:</h4>
+                  <p class="text-secondary small mb-0">Concepto de algoritmo, datos de entrada/salida, variables y secuencias de ejecución lineal.</p>
+                </div>
+                <div class="mt-auto pt-3 border-top">
+                  <h4 class="h6 fw-bold text-primary mb-1">Actividades:</h4>
+                  <p class="text-secondary small mb-0">Dinámica de instrucciones desconectadas, resolución guiada y puesta en común de alternativas.</p>
+                </div>
+              </article>
+            </div>
 
-        <p><a href="#inicio-trayectoria">Volver arriba</a></p>
-      </section>
+            <!-- Secuencia 2 -->
+            <div class="col-12 col-lg-4">
+              <article class="card h-100 shadow-sm border-light-subtle p-4 d-flex flex-column">
+                <span class="badge bg-primary text-uppercase px-2 py-1 mb-2 align-self-start">Secuencia 2</span>
+                <h3 class="h5 fw-bold text-dark mb-2">Maquetación web con HTML5 semántico</h3>
+                <p class="text-muted small mb-3"><strong>Destinatarios:</strong> 4° Año | <strong>Carga:</strong> 4 clases (80 min c/u)</p>
+                <div class="mb-3">
+                  <h4 class="h6 fw-bold text-primary mb-1">Objetivos:</h4>
+                  <p class="text-secondary small mb-0">Estructurar documentos web respetando jerarquía de títulos, regiones semánticas y criterios de accesibilidad.</p>
+                </div>
+                <div class="mb-3">
+                  <h4 class="h6 fw-bold text-primary mb-1">Contenidos:</h4>
+                  <p class="text-secondary small mb-0">Estructura HTML5, etiquetas semánticas (header, nav, main, section, footer) y accesibilidad web.</p>
+                </div>
+                <div class="mt-auto pt-3 border-top">
+                  <h4 class="h6 fw-bold text-primary mb-1">Actividades:</h4>
+                  <p class="text-secondary small mb-0">Análisis de portales educativos, construcción de sitio estático y validación sintáctica de código.</p>
+                </div>
+              </article>
+            </div>
 
-      <section id="planificaciones" aria-labelledby="titulo-planificaciones">
-        <h2 id="titulo-planificaciones">Planificaciones</h2>
-        <p>Propuestas de enseñanza y secuencias didácticas estructuradas con sus respectivos objetivos, contenidos y actividades.</p>
+            <!-- Secuencia 3 -->
+            <div class="col-12 col-lg-4">
+              <article class="card h-100 shadow-sm border-light-subtle p-4 d-flex flex-column">
+                <span class="badge bg-primary text-uppercase px-2 py-1 mb-2 align-self-start">Secuencia 3</span>
+                <h3 class="h5 fw-bold text-dark mb-2">Seguridad informática y huella digital</h3>
+                <p class="text-muted small mb-3"><strong>Destinatarios:</strong> 1° Año | <strong>Carga:</strong> 3 clases (80 min c/u)</p>
+                <div class="mb-3">
+                  <h4 class="h6 fw-bold text-primary mb-1">Objetivos:</h4>
+                  <p class="text-secondary small mb-0">Identificar riesgos digitales, aplicar medidas de resguardo de datos y promover convivencia responsable.</p>
+                </div>
+                <div class="mb-3">
+                  <h4 class="h6 fw-bold text-primary mb-1">Contenidos:</h4>
+                  <p class="text-secondary small mb-0">Huella digital, privacidad en redes, contraseñas seguras, prevención de phishing y ciudadanía digital.</p>
+                </div>
+                <div class="mt-auto pt-3 border-top">
+                  <h4 class="h6 fw-bold text-primary mb-1">Actividades:</h4>
+                  <p class="text-secondary small mb-0">Estudio de casos, configuración de opciones de privacidad y elaboración grupal de afiches escolares.</p>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
 
-        <article>
-          <h3>Secuencia didáctica 1: Pensamiento algorítmico y estructuras secuenciales</h3>
-          <p>Curso destinatario: 2° Año | Tiempo estimado: 3 clases de 80 minutos.</p>
-          <p>Objetivos: Que los estudiantes logren descomponer problemas cotidianos en instrucciones precisas y representarlos mediante pseudocódigo y diagramas simples.</p>
-          <p>Contenidos: Concepto de algoritmo, datos de entrada y salida, variables y secuencias de ejecución lineal.</p>
-          <p>Actividades: Dinámica grupal de instrucciones desconectadas, resolución de problemas guiados en entorno de pseudocódigo y puesta en común de soluciones alternativas.</p>
-        </article>
-
-        <article>
-          <h3>Secuencia didáctica 2: Maquetación web con HTML5 semántico y accesible</h3>
-          <p>Curso destinatario: 4° Año | Tiempo estimado: 4 clases de 80 minutos.</p>
-          <p>Objetivos: Que los estudiantes estructuren documentos web respetando la jerarquía de títulos, las regiones semánticas y los criterios básicos de accesibilidad.</p>
-          <p>Contenidos: Estructura de un documento HTML, etiquetas de sección (header, nav, main, section, article, footer), listas, enlaces y atributos de accesibilidad.</p>
-          <p>Actividades: Análisis de la estructura de portales educativos, construcción de una página estática para un proyecto escolar y validación sintáctica del código.</p>
-        </article>
-
-        <article>
-          <h3>Secuencia didáctica 3: Seguridad informática y cuidado de la identidad digital</h3>
-          <p>Curso destinatario: 1° Año | Tiempo estimado: 3 clases de 80 minutos.</p>
-          <p>Objetivos: Que los estudiantes identifiquen riesgos en entornos digitales, apliquen medidas de resguardo de datos personales y promuevan prácticas de convivencia responsable.</p>
-          <p>Contenidos: Huella digital, privacidad en redes, gestión de contraseñas seguras, prevención de engaños virtuales (phishing) y ciudadanía digital.</p>
-          <p>Actividades: Estudio de casos a partir de situaciones cotidianas, configuración práctica de opciones de privacidad y elaboración grupal de afiches informativos para la escuela.</p>
-        </article>
-
-        <p><a href="#inicio-trayectoria">Volver arriba</a></p>
-      </section>
+        <div class="text-center mt-5">
+          <a href="#inicio-trayectoria" class="btn btn-outline-primary px-4 py-2 fw-semibold">
+            ↑ Volver al inicio de la trayectoria
+          </a>
+        </div>
+      </div>
     </main>
 
-    <footer>
-      <p>Práctica Docente III</p>
-      <p>Profesorado en Informática</p>
-      <p>Portafolio institucional destinado a la documentación, seguimiento y reflexión pedagógica de la formación docente.</p>
+    <!-- Pie de página institucional -->
+    <footer class="bg-dark text-white-50 py-4 mt-auto">
+      <div class="container text-center">
+        <p class="text-white mb-1 fw-semibold">Práctica Docente III · Profesorado en Informática</p>
+        <p class="mb-0 small">Portafolio institucional destinado a la documentación, seguimiento y reflexión pedagógica de la formación docente.</p>
+      </div>
     </footer>
+
+    <!-- Bootstrap 5 JavaScript Bundle -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

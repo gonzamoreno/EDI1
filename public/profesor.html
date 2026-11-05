@@ -3,117 +3,212 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Perfil docente - Portafolio docente</title>
+    <title>Perfil docente - Prof. Laura Victoria Méndez</title>
+
+    <!-- Framework base: Bootstrap 5.3.3 por CDN con contingencia local -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+      onerror="this.onerror=null; this.href='../css/bootstrap.min.css';"
+    />
+    <!-- Hoja de estilos del proyecto: Carga posterior a Bootstrap -->
+    <link rel="stylesheet" href="../styles.css" />
   </head>
   <body>
-    <!-- ==========================================
-         ENCABEZADO GLOBAL (Preservado de index.html)
-         ========================================== -->
-    <header>
-      <div>
-        <p>Portafolio docente</p>
-        <p>Profesorado en Educación Primaria</p>
-      </div>
+    <!-- Enlace de accesibilidad para teclado -->
+    <a href="#contenido-principal" class="skip-link">Saltar al contenido principal</a>
 
-      <nav aria-label="Navegación principal">
-        <ul>
-          <li><a href="../index.html">Inicio</a></li>
-          <li><a href="index.html#sobre-mi">Sobre mí</a></li>
-          <li><a href="index.html#mi-recorrido">Mi recorrido</a></li>
-          <li><a href="index.html#planificaciones">Planificaciones</a></li>
-          <li><a href="index.html#recursos">Recursos</a></li>
-          <li><a href="trayectoria_academica.html">Trayectoria Académica</a></li>
-          <li><a href="index.html#reflexiones">Reflexiones</a></li>
-          <li><a href="profesores.html">Portafolio colectivo</a></li>
-        </ul>
+    <!-- Barra de navegación principal -->
+    <header class="bg-dark shadow-sm">
+      <nav class="navbar navbar-expand-lg navbar-dark container py-3" aria-label="Navegación principal">
+        <a class="navbar-brand fw-semibold text-white" href="../index.html">Portafolio Docente</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navegacionPrincipal"
+          aria-controls="navegacionPrincipal"
+          aria-expanded="false"
+          aria-label="Abrir o cerrar navegación"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navegacionPrincipal">
+          <ul class="navbar-nav ms-auto gap-2">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="profesores.html">Profesores</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="trayectoria_academica.html">Trayectoria Académica</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="trayectoria_docente.html">Trayectoria Docente</a>
+            </li>
+          </ul>
+        </div>
       </nav>
     </header>
 
-    <!-- ==========================================
-         CONTENIDO PRINCIPAL: DETALLE DEL PERFIL
-         ========================================== -->
-    <main>
-      <!-- Enlace de regreso al índice: conserva sentido semántico y foco inicial -->
-      <nav aria-label="Navegación de retorno">
-        <p><a href="profesores.html">Volver al portafolio colectivo (Listado de profesores)</a></p>
-      </nav>
+    <!-- Contenido principal -->
+    <main id="contenido-principal" tabindex="-1" class="py-5">
+      <div class="container">
+        <!-- Navegación de migas de pan (Breadcrumbs) -->
+        <nav aria-label="Migas de pan" class="mb-4">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="../index.html">Inicio</a></li>
+            <li class="breadcrumb-item"><a href="profesores.html">Profesores</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Prof. Laura Victoria Méndez</li>
+          </ol>
+        </nav>
 
-      <!-- 1. PRESENTACIÓN (Mantiene el patrón de #inicio y el único <h1>) -->
-      <!-- [JS-FUTURO]: Componente de cabecera del perfil (nombre, rol y biografía) -->
-      <section id="presentacion" aria-labelledby="titulo-principal">
-        <h1 id="titulo-principal">Prof. Laura Victoria Méndez</h1>
-        <p>Docente en formación del Profesorado en Informática - Práctica Docente III.</p>
-        <p>Enfocada en el diseño de propuestas didácticas inclusivas que integran el pensamiento computacional, la programación y el uso crítico de recursos digitales en el aula.</p>
-      </section>
+        <!-- 1. PRESENTACIÓN: Cabecera de perfil docente -->
+        <section id="presentacion" class="page-hero-banner" aria-labelledby="titulo-principal">
+          <div class="row align-items-center g-4">
+            <div class="col-auto">
+              <span class="avatar-circle fs-2" style="width: 5rem; height: 5rem;" aria-hidden="true">LM</span>
+            </div>
+            <div class="col-12 col-md">
+              <span class="badge bg-primary text-uppercase px-3 py-2 mb-2 fw-semibold">Perfil Docente</span>
+              <h1 id="titulo-principal" class="display-5 fw-bold text-white mb-2">Prof. Laura Victoria Méndez</h1>
+              <p class="fs-5 text-light opacity-75 mb-3">Docente en formación del Profesorado en Informática — Práctica Docente III</p>
+              <p class="lead mb-4 text-light">
+                Enfocada en el diseño de propuestas didácticas inclusivas que integran el pensamiento computacional, la programación y el uso crítico de recursos digitales en el aula.
+              </p>
+              <div class="d-flex flex-wrap gap-2">
+                <a href="trayectoria_academica.html" class="btn btn-primary fw-semibold">
+                  Ver Trayectoria Académica →
+                </a>
+                <a href="trayectoria_docente.html" class="btn btn-outline-light fw-semibold">
+                  Ver Trayectoria Docente
+                </a>
+                <a href="#contacto" class="btn btn-secondary fw-semibold">
+                  Contacto
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
 
-      <!-- 2. FORTALEZAS -->
-      <!-- [JS-FUTURO]: Componente de lista dinámica (iteración de array a nodos <li>) -->
-      <section id="fortalezas" aria-labelledby="titulo-fortalezas">
-        <h2 id="titulo-fortalezas">Fortalezas</h2>
-        <ul>
-          <li>Planificación de secuencias didácticas mediadas por tecnologías digitales.</li>
-          <li>Creación y adaptación de recursos educativos abiertos y accesibles.</li>
-          <li>Trabajo colaborativo en parejas pedagógicas y reflexión sobre la práctica.</li>
-          <li>Acompañamiento personalizado a las trayectorias estudiantiles.</li>
-        </ul>
-      </section>
+        <div class="row g-4 mt-2">
+          <!-- Columna Izquierda: Experiencia y Formación -->
+          <div class="col-12 col-lg-8">
+            <!-- 3. EXPERIENCIA -->
+            <section id="experiencia" class="card shadow-sm border-light-subtle mb-4 p-4" aria-labelledby="titulo-experiencia">
+              <h2 id="titulo-experiencia" class="h4 fw-bold text-dark border-bottom pb-3 mb-4">
+                Experiencia en Docencia y Extensión
+              </h2>
 
-      <!-- 3. EXPERIENCIA (Reutiliza la anatomía de <article> de index.html) -->
-      <!-- [JS-FUTURO]: Componente de listado de artículos para antecedentes docentes -->
-      <section id="experiencia" aria-labelledby="titulo-experiencia">
-        <h2 id="titulo-experiencia">Experiencia</h2>
+              <article class="mb-4 pb-4 border-bottom">
+                <h3 class="h5 fw-bold text-primary mb-1">Prácticas de enseñanza en nivel secundario</h3>
+                <p class="text-muted small mb-2 fw-medium">Escuela de Educación Secundaria N° 12 · 2025 - 2026</p>
+                <p class="text-secondary mb-0">
+                  Diseño de planificaciones, implementación de clases de informática y elaboración de registros reflexivos de práctica.
+                </p>
+              </article>
 
-        <article>
-          <h3>Prácticas de enseñanza en nivel secundario</h3>
-          <p>Escuela de Educación Secundaria N° 12 (2025 - 2026)</p>
-          <p>Diseño de planificaciones, implementación de clases de informática y elaboración de registros reflexivos de práctica.</p>
-        </article>
+              <article>
+                <h3 class="h5 fw-bold text-primary mb-1">Tutorías en taller de robótica y programación inicial</h3>
+                <p class="text-muted small mb-2 fw-medium">Espacio de Extensión Institucional · 2024 - 2025</p>
+                <p class="text-secondary mb-0">
+                  Facilitación de actividades lúdicas de pensamiento lógico y resolución de problemas en entornos colaborativos.
+                </p>
+              </article>
+            </section>
 
-        <article>
-          <h3>Tutorías en taller de robótica y programación inicial</h3>
-          <p>Espacio de Extensión Institucional (2024 - 2025)</p>
-          <p>Facilitación de actividades lúdicas de pensamiento lógico y resolución de problemas en entornos colaborativos.</p>
-        </article>
-      </section>
+            <!-- 4. FORMACIÓN -->
+            <section id="formacion" class="card shadow-sm border-light-subtle mb-4 p-4" aria-labelledby="titulo-formacion">
+              <h2 id="titulo-formacion" class="h4 fw-bold text-dark border-bottom pb-3 mb-4">
+                Formación y Actualización Continua
+              </h2>
 
-      <!-- 4. FORMACIÓN (Reutiliza la anatomía de <article> de index.html) -->
-      <!-- [JS-FUTURO]: Componente de listado de artículos para trayectoria académica -->
-      <section id="formacion" aria-labelledby="titulo-formacion">
-        <h2 id="titulo-formacion">Formación</h2>
+              <article class="mb-4 pb-4 border-bottom">
+                <h3 class="h5 fw-bold text-primary mb-1">Profesorado en Informática</h3>
+                <p class="text-muted small mb-2 fw-medium">Instituto Superior de Formación Docente · En curso</p>
+                <p class="text-secondary mb-0">
+                  Formación pedagógica, didáctica específica y desarrollo del trayecto de práctica docente.
+                </p>
+              </article>
 
-        <article>
-          <h3>Profesorado en Informática</h3>
-          <p>Instituto Superior de Formación Docente (En curso)</p>
-          <p>Formación pedagógica, didáctica específica y desarrollo del trayecto de práctica docente.</p>
-        </article>
+              <article>
+                <h3 class="h5 fw-bold text-primary mb-1">Seminario de Recursos Digitales para la Enseñanza</h3>
+                <p class="text-muted small mb-2 fw-medium">Jornadas de Actualización Pedagógica · 2025</p>
+                <p class="text-secondary mb-0">
+                  Capacitación intensiva en curaduría de materiales didácticos, aplicaciones interactivas y evaluación formativa.
+                </p>
+              </article>
+            </section>
+          </div>
 
-        <article>
-          <h3>Seminario de Recursos Digitales para la Enseñanza</h3>
-          <p>Jornadas de Actualización Pedagógica (2025)</p>
-          <p>Capacitación intensiva en curaduría de materiales didácticos, aplicaciones interactivas y evaluación formativa.</p>
-        </article>
-      </section>
+          <!-- Columna Derecha: Fortalezas y Contacto -->
+          <div class="col-12 col-lg-4">
+            <!-- 2. FORTALEZAS -->
+            <section id="fortalezas" class="card shadow-sm border-light-subtle mb-4 p-4" aria-labelledby="titulo-fortalezas">
+              <h2 id="titulo-fortalezas" class="h4 fw-bold text-dark border-bottom pb-3 mb-3">
+                Fortalezas Pedagógicas
+              </h2>
+              <ul class="list-unstyled mb-0 d-flex flex-column gap-3">
+                <li class="d-flex align-items-start gap-2">
+                  <span class="text-primary fw-bold" aria-hidden="true">✔</span>
+                  <span class="text-secondary">Planificación de secuencias didácticas mediadas por tecnologías digitales.</span>
+                </li>
+                <li class="d-flex align-items-start gap-2">
+                  <span class="text-primary fw-bold" aria-hidden="true">✔</span>
+                  <span class="text-secondary">Creación y adaptación de recursos educativos abiertos y accesibles.</span>
+                </li>
+                <li class="d-flex align-items-start gap-2">
+                  <span class="text-primary fw-bold" aria-hidden="true">✔</span>
+                  <span class="text-secondary">Trabajo colaborativo en parejas pedagógicas y reflexión sobre la práctica.</span>
+                </li>
+                <li class="d-flex align-items-start gap-2">
+                  <span class="text-primary fw-bold" aria-hidden="true">✔</span>
+                  <span class="text-secondary">Acompañamiento personalizado a las trayectorias estudiantiles.</span>
+                </li>
+              </ul>
+            </section>
 
-      <!-- 5. CONTACTO -->
-      <!-- [JS-FUTURO]: Componente de enlaces y vías de contacto del perfil -->
-      <section id="contacto" aria-labelledby="titulo-contacto">
-        <h2 id="titulo-contacto">Contacto</h2>
-        <p>Espacio de comunicación para el intercambio de producciones, recursos didácticos y consultas pedagógicas:</p>
-        <ul>
-          <li><a href="mailto:laura.mendez@ejemplo.edu.ar">Correo electrónico: laura.mendez@ejemplo.edu.ar</a></li>
-          <li><a href="https://github.com">Repositorio de recursos didácticos</a></li>
-          <li><a href="profesores.html">Regresar al listado general de profesores</a></li>
-        </ul>
-      </section>
+            <!-- 5. CONTACTO -->
+            <section id="contacto" class="card shadow-sm border-light-subtle mb-4 p-4" aria-labelledby="titulo-contacto">
+              <h2 id="titulo-contacto" class="h4 fw-bold text-dark border-bottom pb-3 mb-3">
+                Canales de Contacto
+              </h2>
+              <p class="text-muted small mb-3">
+                Espacio de comunicación para el intercambio de producciones, recursos didácticos y consultas pedagógicas:
+              </p>
+              <div class="d-grid gap-2">
+                <a href="mailto:laura.mendez@ejemplo.edu.ar" class="btn btn-outline-primary btn-sm text-start py-2">
+                  ✉ Correo institucional
+                </a>
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm text-start py-2">
+                  ⌨ Repositorio de recursos (GitHub)
+                </a>
+                <a href="profesores.html" class="btn btn-light border btn-sm text-start py-2 mt-2">
+                  ← Regresar al listado de profesores
+                </a>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
     </main>
 
-    <!-- ==========================================
-         PIE DE PÁGINA GLOBAL (Preservado de index.html)
-         ========================================== -->
-    <footer>
-      <p>Práctica Docente III</p>
-      <p>Profesorado en Informática</p>
-      <p>Portafolio institucional destinado a la documentación, seguimiento y reflexión pedagógica de la formación docente.</p>
+    <!-- Pie de página institucional -->
+    <footer class="bg-dark text-white-50 py-4 mt-auto">
+      <div class="container text-center">
+        <p class="text-white mb-1 fw-semibold">Práctica Docente III · Profesorado en Informática</p>
+        <p class="mb-0 small">Portafolio institucional destinado a la documentación, seguimiento y reflexión pedagógica de la formación docente.</p>
+      </div>
     </footer>
+
+    <!-- Bootstrap 5 JavaScript Bundle -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

@@ -10,9 +10,14 @@
       rel="stylesheet"
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
+      onerror="this.onerror=null; this.href='css/bootstrap.min.css';"
     />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <!-- Enlace de accesibilidad para teclado -->
+    <a href="#contenido-principal" class="skip-link">Saltar al contenido principal</a>
+
     <!-- Barra de navegación principal -->
     <header class="position-absolute top-0 start-0 w-100 z-2">
       <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Navegación principal">
@@ -40,7 +45,7 @@
       </nav>
     </header>
 
-    <main>
+    <main id="contenido-principal" tabindex="-1">
       <!-- Portada Hero a pantalla completa con imagen y superposición oscura -->
       <section
         class="position-relative d-flex min-vh-100 align-items-center justify-content-center text-center text-white"

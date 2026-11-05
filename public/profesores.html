@@ -1,101 +1,254 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <!-- Define la codificación de caracteres para admitir tildes y caracteres especiales -->
     <meta charset="UTF-8" />
-    <!-- Configuración de viewport para asegurar adaptabilidad responsiva sin desbordes -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Índice de profesores - Portafolio colectivo</title>
+
+    <!-- Framework base: Bootstrap 5.3.3 por CDN con contingencia local -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+      onerror="this.onerror=null; this.href='../css/bootstrap.min.css';"
+    />
+    <!-- Hoja de estilos del proyecto: Carga posterior a Bootstrap -->
+    <link rel="stylesheet" href="../styles.css" />
   </head>
   <body>
-    <!-- ==========================================
-         CONTENIDO PRINCIPAL: ÍNDICE DE PROFESORES
-         ========================================== -->
-    <main>
-      <section id="indice-profesores" aria-labelledby="titulo-principal">
-        <h1 id="titulo-principal">Índice de profesores</h1>
+    <!-- Enlace de accesibilidad para teclado -->
+    <a href="#contenido-principal" class="skip-link">Saltar al contenido principal</a>
 
-        <!-- Enlace de retorno al portafolio principal -->
-        <nav aria-label="Navegación de retorno">
-          <p><a href="../index.html">← Volver al inicio (Portafolio principal)</a></p>
+    <!-- Barra de navegación principal -->
+    <header class="bg-dark shadow-sm">
+      <nav class="navbar navbar-expand-lg navbar-dark container py-3" aria-label="Navegación principal">
+        <a class="navbar-brand fw-semibold text-white" href="../index.html">Portafolio Docente</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navegacionPrincipal"
+          aria-controls="navegacionPrincipal"
+          aria-expanded="false"
+          aria-label="Abrir o cerrar navegación"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navegacionPrincipal">
+          <ul class="navbar-nav ms-auto gap-2">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="profesores.html">Profesores</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Contenido principal -->
+    <main id="contenido-principal" tabindex="-1" class="py-5">
+      <div class="container">
+        <!-- Navegación de migas de pan (Breadcrumbs) -->
+        <nav aria-label="Migas de pan" class="mb-4">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="../index.html">Inicio</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Profesores</li>
+          </ol>
         </nav>
 
-        <p>
-          Bienvenido al portafolio colectivo. Aquí puedes consultar el perfil de cada docente, sus áreas de especialización pedagógica y propuestas de enseñanza en el marco de la formación docente.
-        </p>
+        <!-- Banner de cabecera de la sección -->
+        <section class="page-hero-banner" aria-labelledby="titulo-principal">
+          <div class="row align-items-center">
+            <div class="col-lg-9">
+              <span class="badge bg-primary text-uppercase px-3 py-2 mb-3 fw-semibold">Portafolio colectivo</span>
+              <h1 id="titulo-principal" class="display-5 fw-bold text-white mb-3">Índice de profesores</h1>
+              <p class="lead mb-0">
+                Bienvenido al portafolio colectivo. Aquí puedes consultar el perfil de cada docente, sus áreas de especialización pedagógica y propuestas de enseñanza en el marco de la formación docente.
+              </p>
+            </div>
+          </div>
+        </section>
 
-        <!-- Lista semántica de tarjetas de profesores -->
-        <ul>
-          <!-- Tarjeta 1: Lautaro Curruhuinca -->
-          <li>
-            <article aria-labelledby="prof-1">
-              <h2 id="prof-1">Prof. Lautaro Curruhuinca</h2>
-              <p><strong>Área:</strong> Programación y Pensamiento Computacional</p>
-              <p>Desarrollo de aplicaciones educativas, lógica de programación y proyectos colaborativos de software para la escuela secundaria.</p>
-              <p><a href="profesor.html?id=1">Ver perfil de Prof. Lautaro Curruhuinca</a></p>
-            </article>
-          </li>
+        <!-- Cuadrícula de tarjetas de profesores -->
+        <section aria-labelledby="subtitulo-listado" class="mt-4">
+          <h2 id="subtitulo-listado" class="visually-hidden-accessible">Listado de docentes participantes</h2>
+          <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            <!-- Tarjeta 1: Lautaro Curruhuinca -->
+            <div class="col">
+              <article class="card h-100 shadow-sm border-light-subtle d-flex flex-column" aria-labelledby="prof-1">
+                <div class="card-body p-4 d-flex flex-column">
+                  <div class="d-flex align-items-center gap-3 mb-3">
+                    <span class="avatar-circle" aria-hidden="true">LC</span>
+                    <div>
+                      <h3 id="prof-1" class="h5 fw-bold mb-0 text-dark">Prof. Lautaro Curruhuinca</h3>
+                      <small class="text-muted">Docente en formación</small>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <span class="tag-badge">Programación y Pensamiento Computacional</span>
+                  </div>
+                  <p class="text-muted flex-grow-1">
+                    Desarrollo de aplicaciones educativas, lógica de programación y proyectos colaborativos de software para la escuela secundaria.
+                  </p>
+                  <div class="pt-3 border-top mt-auto">
+                    <a href="profesor.html?id=1" class="btn btn-outline-primary btn-sm w-100 fw-semibold">
+                      Ver perfil completo →
+                    </a>
+                  </div>
+                </div>
+              </article>
+            </div>
 
-          <!-- Tarjeta 2: Juan Vilugron -->
-          <li>
-            <article aria-labelledby="prof-2">
-              <h2 id="prof-2">Prof. Juan Vilugron</h2>
-              <p><strong>Área:</strong> Arquitectura de Computadoras y Redes Escolares</p>
-              <p>Implementación de redes locales, configuración de entornos virtuales de aprendizaje y mantenimiento de equipamiento informático educativo.</p>
-              <p><a href="profesor.html?id=2">Ver perfil de Prof. Juan Vilugron</a></p>
-            </article>
-          </li>
+            <!-- Tarjeta 2: Juan Vilugron -->
+            <div class="col">
+              <article class="card h-100 shadow-sm border-light-subtle d-flex flex-column" aria-labelledby="prof-2">
+                <div class="card-body p-4 d-flex flex-column">
+                  <div class="d-flex align-items-center gap-3 mb-3">
+                    <span class="avatar-circle" aria-hidden="true">JV</span>
+                    <div>
+                      <h3 id="prof-2" class="h5 fw-bold mb-0 text-dark">Prof. Juan Vilugron</h3>
+                      <small class="text-muted">Docente en formación</small>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <span class="tag-badge">Arquitectura de Computadoras y Redes</span>
+                  </div>
+                  <p class="text-muted flex-grow-1">
+                    Implementación de redes locales, configuración de entornos virtuales de aprendizaje y mantenimiento de equipamiento informático educativo.
+                  </p>
+                  <div class="pt-3 border-top mt-auto">
+                    <a href="profesor.html?id=2" class="btn btn-outline-primary btn-sm w-100 fw-semibold">
+                      Ver perfil completo →
+                    </a>
+                  </div>
+                </div>
+              </article>
+            </div>
 
-          <!-- Tarjeta 3: Carolina Melis -->
-          <li>
-            <article aria-labelledby="prof-3">
-              <h2 id="prof-3">Prof. Carolina Melis</h2>
-              <p><strong>Área:</strong> Tecnologías de la Información y Comunicación (TIC)</p>
-              <p>Integración de herramientas digitales en el aula, mediaciones pedagógicas y estrategias transversales de alfabetización digital escolar.</p>
-              <p><a href="profesor.html?id=3">Ver perfil de Prof. Carolina Melis</a></p>
-            </article>
-          </li>
+            <!-- Tarjeta 3: Carolina Melis -->
+            <div class="col">
+              <article class="card h-100 shadow-sm border-light-subtle d-flex flex-column" aria-labelledby="prof-3">
+                <div class="card-body p-4 d-flex flex-column">
+                  <div class="d-flex align-items-center gap-3 mb-3">
+                    <span class="avatar-circle" aria-hidden="true">CM</span>
+                    <div>
+                      <h3 id="prof-3" class="h5 fw-bold mb-0 text-dark">Prof. Carolina Melis</h3>
+                      <small class="text-muted">Docente en formación</small>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <span class="tag-badge">TIC y Mediaciones Pedagógicas</span>
+                  </div>
+                  <p class="text-muted flex-grow-1">
+                    Integración de herramientas digitales en el aula, mediaciones pedagógicas y estrategias transversales de alfabetización digital escolar.
+                  </p>
+                  <div class="pt-3 border-top mt-auto">
+                    <a href="profesor.html?id=3" class="btn btn-outline-primary btn-sm w-100 fw-semibold">
+                      Ver perfil completo →
+                    </a>
+                  </div>
+                </div>
+              </article>
+            </div>
 
-          <!-- Tarjeta 4: Rosauro Fara -->
-          <li>
-            <article aria-labelledby="prof-4">
-              <h2 id="prof-4">Prof. Rosauro Fara</h2>
-              <p><strong>Área:</strong> Robótica Educativa y Sistemas Embebidos</p>
-              <p>Prototipado electrónico con hardware libre, programación de sensores y diseño de proyectos interdisciplinarios de automatización.</p>
-              <p><a href="profesor.html?id=4">Ver perfil de Prof. Rosauro Fara</a></p>
-            </article>
-          </li>
+            <!-- Tarjeta 4: Rosauro Fara -->
+            <div class="col">
+              <article class="card h-100 shadow-sm border-light-subtle d-flex flex-column" aria-labelledby="prof-4">
+                <div class="card-body p-4 d-flex flex-column">
+                  <div class="d-flex align-items-center gap-3 mb-3">
+                    <span class="avatar-circle" aria-hidden="true">RF</span>
+                    <div>
+                      <h3 id="prof-4" class="h5 fw-bold mb-0 text-dark">Prof. Rosauro Fara</h3>
+                      <small class="text-muted">Docente en formación</small>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <span class="tag-badge">Robótica Educativa y Embebidos</span>
+                  </div>
+                  <p class="text-muted flex-grow-1">
+                    Prototipado electrónico con hardware libre, programación de sensores y diseño de proyectos interdisciplinarios de automatización.
+                  </p>
+                  <div class="pt-3 border-top mt-auto">
+                    <a href="profesor.html?id=4" class="btn btn-outline-primary btn-sm w-100 fw-semibold">
+                      Ver perfil completo →
+                    </a>
+                  </div>
+                </div>
+              </article>
+            </div>
 
-          <!-- Tarjeta 5: Yoana Benitez -->
-          <li>
-            <article aria-labelledby="prof-5">
-              <h2 id="prof-5">Prof. Yoana Benitez</h2>
-              <p><strong>Área:</strong> Recursos Educativos Digitales y Curaduría</p>
-              <p>Selección, diseño y producción de materiales didácticos multimedia, aplicaciones interactivas y recursos de acceso abierto para la enseñanza.</p>
-              <p><a href="profesor.html?id=5">Ver perfil de Prof. Yoana Benitez</a></p>
-            </article>
-          </li>
+            <!-- Tarjeta 5: Yoana Benitez -->
+            <div class="col">
+              <article class="card h-100 shadow-sm border-light-subtle d-flex flex-column" aria-labelledby="prof-5">
+                <div class="card-body p-4 d-flex flex-column">
+                  <div class="d-flex align-items-center gap-3 mb-3">
+                    <span class="avatar-circle" aria-hidden="true">YB</span>
+                    <div>
+                      <h3 id="prof-5" class="h5 fw-bold mb-0 text-dark">Prof. Yoana Benitez</h3>
+                      <small class="text-muted">Docente en formación</small>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <span class="tag-badge">Recursos Educativos Digitales</span>
+                  </div>
+                  <p class="text-muted flex-grow-1">
+                    Selección, diseño y producción de materiales didácticos multimedia, aplicaciones interactivas y recursos de acceso abierto para la enseñanza.
+                  </p>
+                  <div class="pt-3 border-top mt-auto">
+                    <a href="profesor.html?id=5" class="btn btn-outline-primary btn-sm w-100 fw-semibold">
+                      Ver perfil completo →
+                    </a>
+                  </div>
+                </div>
+              </article>
+            </div>
 
-          <!-- Tarjeta 6: Patricia Cheuqueman -->
-          <li>
-            <article aria-labelledby="prof-6">
-              <h2 id="prof-6">Prof. Patricia Cheuqueman</h2>
-              <p><strong>Área:</strong> Práctica Docente y Diseño Curricular en Informática</p>
-              <p>Planificación de secuencias didácticas, seguimiento formativo de trayectorias estudiantiles y elaboración de registros reflexivos de la práctica.</p>
-              <p><a href="profesor.html?id=6">Ver perfil de Prof. Patricia Cheuqueman</a></p>
-            </article>
-          </li>
-        </ul>
-      </section>
+            <!-- Tarjeta 6: Patricia Cheuqueman -->
+            <div class="col">
+              <article class="card h-100 shadow-sm border-light-subtle d-flex flex-column" aria-labelledby="prof-6">
+                <div class="card-body p-4 d-flex flex-column">
+                  <div class="d-flex align-items-center gap-3 mb-3">
+                    <span class="avatar-circle" aria-hidden="true">PC</span>
+                    <div>
+                      <h3 id="prof-6" class="h5 fw-bold mb-0 text-dark">Prof. Patricia Cheuqueman</h3>
+                      <small class="text-muted">Docente en formación</small>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <span class="tag-badge">Práctica Docente y Diseño Curricular</span>
+                  </div>
+                  <p class="text-muted flex-grow-1">
+                    Planificación de secuencias didácticas, seguimiento formativo de trayectorias estudiantiles y elaboración de registros reflexivos de la práctica.
+                  </p>
+                  <div class="pt-3 border-top mt-auto">
+                    <a href="profesor.html?id=6" class="btn btn-outline-primary btn-sm w-100 fw-semibold">
+                      Ver perfil completo →
+                    </a>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+      </div>
     </main>
 
-    <!-- ==========================================
-         PIE DE PÁGINA GLOBAL
-         ========================================== -->
-    <footer>
-      <p>Práctica Docente III</p>
-      <p>Profesorado en Informática</p>
-      <p>Portafolio institucional destinado a la documentación, seguimiento y reflexión pedagógica de la formación docente.</p>
+    <!-- Pie de página institucional -->
+    <footer class="bg-dark text-white-50 py-4 mt-auto">
+      <div class="container text-center">
+        <p class="text-white mb-1 fw-semibold">Práctica Docente III · Profesorado en Informática</p>
+        <p class="mb-0 small">Portafolio institucional destinado a la documentación, seguimiento y reflexión pedagógica de la formación docente.</p>
+      </div>
     </footer>
+
+    <!-- Bootstrap 5 JavaScript Bundle -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
