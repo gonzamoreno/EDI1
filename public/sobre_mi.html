@@ -69,8 +69,53 @@
         <!-- Cabecera de presentación con tema pastel -->
         <section class="page-hero-banner" aria-labelledby="sobre-mi-titulo">
           <div class="row align-items-center g-4">
-            <div class="col-auto">
-              <span class="avatar-circle fs-2" style="width: 5.5rem; height: 5.5rem; background: var(--color-sage-subtle); color: var(--color-sage); border-color: var(--color-sage-border);" aria-hidden="true">MF</span>
+            <div class="col-auto text-center">
+              <div class="avatar-upload-wrapper">
+                <div
+                  id="avatar-circle-display"
+                  class="avatar-circle avatar-circle-lg avatar-circle-clickable"
+                  title="Haz clic para cargar o cambiar tu foto de perfil"
+                  tabindex="0"
+                  role="button"
+                  aria-label="Cargar foto de perfil"
+                >
+                  <span id="avatar-initials-text" class="avatar-initials" style="color: var(--color-sage);">MF</span>
+                  <img id="avatar-img-element" class="avatar-img d-none" alt="Foto de perfil de Prof. Martín Fernández" />
+                </div>
+
+                <!-- Botón flotante accesible con ícono de cámara -->
+                <label for="input-foto-perfil" class="avatar-upload-badge" style="background: linear-gradient(135deg, var(--color-sage) 0%, #3d886d 100%);" title="Subir o cambiar foto de perfil">
+                  <span class="visually-hidden-accessible">Subir foto de perfil</span>
+                  <span aria-hidden="true">📷</span>
+                </label>
+                <input
+                  type="file"
+                  id="input-foto-perfil"
+                  class="visually-hidden-accessible"
+                  accept="image/png, image/jpeg, image/webp, image/gif"
+                />
+
+                <!-- Opciones de acción directa -->
+                <div class="mt-2 d-flex flex-column align-items-center">
+                  <button
+                    type="button"
+                    id="btn-subir-foto-accion"
+                    class="btn btn-outline-light btn-sm py-1 px-3 mt-1 fw-semibold"
+                    style="font-size: 0.78rem;"
+                  >
+                    📷 Cargar foto
+                  </button>
+                  <button
+                    type="button"
+                    id="btn-quitar-foto"
+                    class="btn btn-link text-light text-decoration-none small py-0 mt-1 d-none opacity-75"
+                    style="font-size: 0.72rem;"
+                    title="Restablecer iniciales predeterminadas"
+                  >
+                    × Quitar foto
+                  </button>
+                </div>
+              </div>
             </div>
             <div class="col-12 col-md">
               <span class="badge badge-pastel-sage text-uppercase mb-2">Perfil Profesional</span>
@@ -198,5 +243,76 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+
+    <!-- Script de carga y persistencia de foto de perfil -->
+    <script>
+      const inputFoto = document.getElementById("input-foto-perfil");
+      const avatarCircle = document.getElementById("avatar-circle-display");
+      const avatarImg = document.getElementById("avatar-img-element");
+      const avatarInitials = document.getElementById("avatar-initials-text");
+      const btnSubirFoto = document.getElementById("btn-subir-foto-accion");
+      const btnQuitarFoto = document.getElementById("btn-quitar-foto");
+
+      const storageKey = "foto_perfil_martin-fernandez";
+
+      function aplicarFoto(dataUrl) {
+        if (dataUrl) {
+          avatarImg.src = dataUrl;
+          avatarImg.classList.remove("d-none");
+          avatarInitials.classList.add("d-none");
+          btnQuitarFoto.classList.remove("d-none");
+          btnSubirFoto.textContent = "📷 Cambiar foto";
+        } else {
+          avatarImg.src = "";
+          avatarImg.classList.add("d-none");
+          avatarInitials.classList.remove("d-none");
+          btnQuitarFoto.classList.add("d-none");
+          btnSubirFoto.textContent = "📷 Cargar foto";
+        }
+      }
+
+      const fotoGuardada = localStorage.getItem(storageKey);
+      if (fotoGuardada) {
+        aplicarFoto(fotoGuardada);
+      }
+
+      avatarCircle.addEventListener("click", () => inputFoto.click());
+      avatarCircle.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          inputFoto.click();
+        }
+      });
+      btnSubirFoto.addEventListener("click", () => inputFoto.click());
+
+      inputFoto.addEventListener("change", (e) => {
+        const file = e.target.files && e.target.files[0];
+        if (!file) return;
+
+        if (!file.type.startsWith("image/")) {
+          alert("Por favor selecciona un archivo de imagen válido (JPEG, PNG, WebP o GIF).");
+          return;
+        }
+
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          const dataUrl = event.target.result;
+          try {
+            localStorage.setItem(storageKey, dataUrl);
+          } catch (err) {
+            console.warn("No se pudo persistir en localStorage:", err);
+          }
+          aplicarFoto(dataUrl);
+        };
+        reader.readAsDataURL(file);
+      });
+
+      btnQuitarFoto.addEventListener("click", (e) => {
+        e.stopPropagation();
+        localStorage.removeItem(storageKey);
+        inputFoto.value = "";
+        aplicarFoto(null);
+      });
+    </script>
   </body>
 </html>
