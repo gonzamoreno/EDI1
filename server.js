@@ -5,6 +5,7 @@ const fs = require("node:fs")
 const path = require("node:path")
 const getProfesores = require("./api/profesores")
 const getProfesorById = require("./api/profesores/[id]")
+const getTrayectoriaAcademica = require("./api/trayectoria-academica")
 
 const PORT = Number(process.env.PORT) || 8000
 const publicRoot = __dirname
@@ -58,6 +59,14 @@ const server = http.createServer(async (request, response) => {
       return
     }
 
+    if (requestUrl.pathname === "/api/trayectoria-academica") {
+      await getTrayectoriaAcademica(
+        { method: request.method, query: { id_profesor: requestUrl.searchParams.get("id_profesor") } },
+        createApiResponse(response),
+      )
+      return
+    }
+
     if (segments.length === 3 && segments[0] === "api" && segments[1] === "profesores") {
       await getProfesorById(
         { method: request.method, query: { id: segments[2] } },
@@ -66,9 +75,9 @@ const server = http.createServer(async (request, response) => {
       return
     }
   } catch (error) {
-    console.error("Error ejecutando el endpoint de profesores:", error.message)
+    console.error("Error ejecutando un endpoint de la API:", error.message)
     if (!response.headersSent) {
-      sendJson(response, 500, { error: "No se pudieron obtener los profesores" })
+      sendJson(response, 500, { error: "No se pudo completar la solicitud" })
     }
     return
   }
