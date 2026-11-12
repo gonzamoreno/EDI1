@@ -17,7 +17,7 @@ debe incluir las columnas `id_profesor`, `año`, `curso`, `asignatura` e
 
 ## API de recursos
 
-`GET /api/recursos?id_profesor=<id>` devuelve como JSON el profesor y sus
-registros de `public.recursos`, ordenados por nombre. La tabla debe incluir las
-columnas `id_profesor`, `nombre`, `descripcion` y `url`, según el script SQL
-de ejemplo.
+`GET /api/recursos?id_profesor=<id>` devuelve como JSON el nombre y contacto
+del profesor, además de sus registros de `public.recursos`, ordenados por
+nombre. La tabla `recursos` debe incluir `id_profesor`, `nombre`, `descripcion`
+y `url`; `contacto` se obtiene de la tabla `profesores`.

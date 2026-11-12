@@ -8,7 +8,7 @@
   <body>
     <!-- Encabezado del sitio -->
     <header id="inicio">
-      <h1>Recursos Educativos</h1>
+      <h1 id="titulo-recursos">Recursos Educativos</h1>
 
       <nav aria-label="Migas de pan">
         <p>
@@ -33,123 +33,13 @@
       <!-- Introducción general -->
       <section id="introduccion-recursos" aria-labelledby="introduccion-recursos-titulo">
         <h2 id="introduccion-recursos-titulo">Compartiendo materiales para la enseñanza</h2>
-        <p>
-          Este espacio reúne materiales, actividades y herramientas diseñadas para apoyar la
-          enseñanza de Ciencias Naturales y Tecnología en la educación secundaria. El objetivo
-          es facilitar propuestas prácticas, accesibles y alineadas con metodologías activas,
-          la innovación pedagógica y el uso responsable de la tecnología en el aula.
-        </p>
+        <p>Materiales y herramientas educativas compartidos por el docente.</p>
       </section>
 
-      <!-- Recursos de programación -->
-      <section id="recursos-programacion" aria-labelledby="programacion-titulo">
-        <h2 id="programacion-titulo">Recursos de Programación</h2>
-
-        <article>
-          <h3>Guía de Python para Principiantes</h3>
-          <p>Introducción al lenguaje Python con ejercicios sencillos, variables, estructuras y actividades para aprender a programar desde cero.</p>
-        </article>
-
-        <article>
-          <h3>Introducción al Pensamiento Computacional</h3>
-          <p>Material didáctico para comprender algoritmos, resolución de problemas, abstracción y lógica computacional.</p>
-        </article>
-
-        <article>
-          <h3>Manual de Algoritmos Básicos</h3>
-          <p>Guía práctica con secuencias, decisiones y repeticiones para desarrollar competencias de programación elemental.</p>
-        </article>
-      </section>
-
-      <!-- Recursos de ciencias naturales -->
-      <section id="recursos-ciencias" aria-labelledby="ciencias-titulo">
-        <h2 id="ciencias-titulo">Recursos de Ciencias Naturales</h2>
-
-        <article>
-          <h3>Laboratorios Virtuales</h3>
-          <p>Propuestas interactivas para explorar conceptos de biología, química y física en entornos simulados.</p>
-        </article>
-
-        <article>
-          <h3>Atlas Interactivo de Ecosistemas</h3>
-          <p>Recursos visuales para estudiar biodiversidad, cadenas alimentarias, hábitats y equilibrio ambiental.</p>
-        </article>
-
-        <article>
-          <h3>Simulaciones de Física</h3>
-          <p>Actividades digitales para analizar movimiento, fuerza, energía y fenómenos físicos a partir de ejemplos cotidianos.</p>
-        </article>
-      </section>
-
-      <!-- Recursos de tecnología -->
-      <section id="recursos-tecnologia" aria-labelledby="tecnologia-titulo">
-        <h2 id="tecnologia-titulo">Recursos de Tecnología</h2>
-
-        <article>
-          <h3>Diseño e Impresión 3D</h3>
-          <p>Orientaciones para crear prototipos sencillos, comprender el diseño asistido y aplicar la innovación tecnológica.</p>
-        </article>
-
-        <article>
-          <h3>Introducción a Arduino</h3>
-          <p>Material básico para aprender electrónica, sensores, actuadores y proyectos creativos con microcontroladores.</p>
-        </article>
-
-        <article>
-          <h3>Fundamentos de Redes</h3>
-          <p>Recursos para trabajar conceptos de conectividad, protocolos, seguridad y funcionamiento de redes digitales.</p>
-        </article>
-      </section>
-
-      <!-- Material descargable -->
-      <section id="material-descargable" aria-labelledby="material-titulo">
-        <h2 id="material-titulo">Material Descargable</h2>
-
-        <article>
-          <h3>Planificación de secuencias didácticas</h3>
-          <p>Modelo de planificaciones para abordar contenidos de ciencias y tecnología con enfoque activo.</p>
-          <p><a href="#">Ver recurso</a> | <a href="#">Descargar</a></p>
-        </article>
-
-        <article>
-          <h3>Rúbrica de proyectos interdisciplinarios</h3>
-          <p>Instrumento para evaluar participación, creatividad, trabajo colaborativo y resultados esperados.</p>
-          <p><a href="#">Ver recurso</a> | <a href="#">Descargar</a></p>
-        </article>
-
-        <article>
-          <h3>Guía de innovación educativa</h3>
-          <p>Recurso práctico para diseñar actividades con aplicación de tecnologías y aprendizaje basado en proyectos.</p>
-          <p><a href="#">Ver recurso</a> | <a href="#">Descargar</a></p>
-        </article>
-      </section>
-
-      <!-- Recurso destacado -->
-      <section id="recurso-del-mes" aria-labelledby="recurso-mes-titulo">
-        <h2 id="recurso-mes-titulo">Recurso del Mes</h2>
-
-        <article>
-          <h3>Kit de Actividades de Inteligencia Artificial para Secundaria</h3>
-          <p>
-            Este recurso propone una serie de actividades para introducir a los estudiantes en
-            conceptos básicos de inteligencia artificial, desde la ética y la comprensión del
-            funcionamiento de algoritmos hasta la resolución de problemas cotidianos mediante
-            herramientas digitales sencillas.
-          </p>
-
-          <h4>Objetivos</h4>
-          <ul>
-            <li>Familiarizar a los estudiantes con conceptos clave de IA.</li>
-            <li>Desarrollar pensamiento crítico sobre su uso responsable.</li>
-            <li>Integrar la inteligencia artificial en proyectos interdisciplinarios.</li>
-            <li>Promover la reflexión ética y social en torno a la tecnología.</li>
-          </ul>
-
-          <h4>Destinatarios</h4>
-          <p>Estudiantes de educación secundaria, docentes de ciencias y tecnología y equipos institucionales interesados en innovación pedagógica.</p>
-
-          <p><a href="#">Acceder al recurso</a></p>
-        </article>
+      <section id="recursos-docente" aria-labelledby="recursos-docente-titulo">
+        <h2 id="recursos-docente-titulo">Recursos del docente</h2>
+        <p id="estado-recursos" role="status" aria-live="polite">Cargando recursos...</p>
+        <div id="lista-recursos"></div>
       </section>
     </main>
 
@@ -163,8 +53,145 @@
 
     <!-- Pie de página con contacto -->
     <footer id="contacto">
-      <p>Contacto: martin.fernandez@docenteeduca.ar | +54 9 11 4567-8901</p>
+      <p id="contacto-docente">Contacto del docente: Cargando...</p>
       <p>© 2026 Portafolio Docente. Todos los derechos reservados.</p>
     </footer>
+    <script>
+      const idProfesor = new URLSearchParams(window.location.search).get("id_profesor")
+        || new URLSearchParams(window.location.search).get("id")
+      const tituloRecursos = document.getElementById("titulo-recursos")
+      const estadoRecursos = document.getElementById("estado-recursos")
+      const listaRecursos = document.getElementById("lista-recursos")
+      const contactoDocente = document.getElementById("contacto-docente")
+
+      function mostrarError(error) {
+        console.error("Error al cargar los recursos:", error)
+        estadoRecursos.setAttribute("role", "alert")
+        estadoRecursos.textContent = error instanceof Error
+          ? error.message
+          : "No se pudieron cargar los recursos. Inténtalo nuevamente más tarde."
+      }
+
+      function crearEnlaceRecurso(url, nombre) {
+        if (typeof url !== "string" || !url.trim()) {
+          return null
+        }
+
+        let destino
+        try {
+          destino = new URL(url.trim(), window.location.href)
+        } catch {
+          return null
+        }
+
+        if (destino.protocol !== "http:" && destino.protocol !== "https:") {
+          return null
+        }
+
+        const enlace = document.createElement("a")
+        enlace.href = destino.href
+        enlace.textContent = `Acceder al recurso: ${nombre}`
+        return enlace
+      }
+
+      function renderizarRecursos(recursos) {
+        const fragmento = document.createDocumentFragment()
+
+        recursos.forEach((recurso) => {
+          const articulo = document.createElement("article")
+          const titulo = document.createElement("h3")
+          const descripcion = document.createElement("p")
+          const enlace = crearEnlaceRecurso(recurso.url, recurso.nombre)
+
+          titulo.textContent = recurso.nombre
+          descripcion.textContent = recurso.descripcion || "Sin descripción disponible."
+          articulo.append(titulo, descripcion)
+
+          if (enlace) {
+            articulo.append(enlace)
+          } else {
+            const estadoEnlace = document.createElement("p")
+            estadoEnlace.textContent = "Enlace no disponible."
+            articulo.append(estadoEnlace)
+          }
+
+          fragmento.append(articulo)
+        })
+
+        listaRecursos.replaceChildren(fragmento)
+      }
+
+      async function cargarContactoDocente(idCodificado) {
+        try {
+          const response = await fetch(`/api/profesores/${idCodificado}`)
+          if (!response.ok) {
+            throw new Error(`La solicitud de contacto falló con estado ${response.status}`)
+          }
+
+          const profesor = await response.json()
+          if (!profesor || (profesor.contacto != null && typeof profesor.contacto !== "string")) {
+            throw new Error("La respuesta del perfil no contiene un contacto válido")
+          }
+
+          contactoDocente.textContent = profesor.contacto?.trim()
+            ? `Contacto: ${profesor.contacto.trim()}`
+            : "Contacto del docente no disponible."
+        } catch (error) {
+          console.error("Error al cargar el contacto del docente:", error)
+          contactoDocente.textContent = "No se pudo cargar el contacto del docente."
+        }
+      }
+
+      async function cargarRecursos() {
+        if (!idProfesor) {
+          estadoRecursos.setAttribute("role", "alert")
+          estadoRecursos.textContent = "Selecciona un profesor desde el listado para consultar sus recursos."
+          contactoDocente.textContent = "Contacto del docente no disponible."
+          return
+        }
+
+        const idCodificado = encodeURIComponent(idProfesor)
+
+        try {
+          const response = await fetch(`/api/recursos?id_profesor=${idCodificado}`)
+          if (!response.ok) {
+            const mensaje = response.status === 404
+              ? "El servidor no reconoce la API de recursos (404). Reinicia el servidor y vuelve a intentarlo."
+              : `No se pudieron cargar los recursos (error ${response.status}). Inténtalo nuevamente más tarde.`
+            throw new Error(mensaje)
+          }
+
+          const datos = await response.json()
+          if (
+            !datos ||
+            !datos.profesor ||
+            typeof datos.profesor.nombre !== "string" ||
+            (datos.profesor.contacto != null && typeof datos.profesor.contacto !== "string") ||
+            !Array.isArray(datos.recursos) ||
+            datos.recursos.some((recurso) =>
+              !recurso ||
+              typeof recurso !== "object" ||
+              typeof recurso.nombre !== "string" ||
+              (recurso.descripcion != null && typeof recurso.descripcion !== "string") ||
+              (recurso.url != null && typeof recurso.url !== "string")
+            )
+          ) {
+            throw new Error("La respuesta del servidor no tiene el formato esperado")
+          }
+
+          tituloRecursos.textContent = `Recursos Educativos - ${datos.profesor.nombre}`
+          document.title = `Recursos Educativos - ${datos.profesor.nombre}`
+          renderizarRecursos(datos.recursos)
+          estadoRecursos.textContent = datos.recursos.length
+            ? ""
+            : "No hay recursos disponibles para este profesor."
+          await cargarContactoDocente(idCodificado)
+        } catch (error) {
+          mostrarError(error)
+        }
+      }
+
+      cargarRecursos()
+    </script>
   </body>
 </html>

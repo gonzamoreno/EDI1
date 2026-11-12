@@ -30,7 +30,7 @@
           <li><a href="trayectoria_docente.html" data-trayectoria-docente-link>Trayectoria Docente</a></li>
           <li><a href="sobre_mi.html">Sobre mí</a></li>
           <li><a href="capacitaciones.html">Capacitaciones</a></li>
-          <li><a href="recursos.html">Recursos</a></li>
+          <li><a href="recursos.html" data-recursos-link>Recursos</a></li>
           
         </ul>
       </nav>
@@ -123,6 +123,7 @@
     <script>
       const idProfesor = new URLSearchParams(window.location.search).get("id")
       const enlaceTrayectoria = document.querySelector("[data-trayectoria-link]")
+      const enlaceRecursos = document.querySelector("[data-recursos-link]")
       const tituloProfesor = document.getElementById("titulo-principal")
       const estadoPerfil = document.getElementById("estado-perfil")
       const fotoProfesor = document.getElementById("foto-profesor")
@@ -148,6 +149,7 @@
         }
 
         enlaceTrayectoria.href = `trayectoria_academica.html?id_profesor=${encodeURIComponent(idProfesor)}`
+        enlaceRecursos.href = `recursos.html?id_profesor=${encodeURIComponent(idProfesor)}`
 
         try {
           const response = await fetch(`/api/profesores/${encodeURIComponent(idProfesor)}`)
