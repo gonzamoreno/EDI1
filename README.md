@@ -14,3 +14,10 @@ debe incluir las columnas `id_profesor`, `año`, `curso`, `asignatura`,
 y sus registros de `public.trayectoria_docente`, ordenados por año. La tabla
 debe incluir las columnas `id_profesor`, `año`, `curso`, `asignatura` e
 `institucion`, según el script SQL de ejemplo.
+
+## API de recursos
+
+`GET /api/recursos?id_profesor=<id>` devuelve como JSON el profesor y sus
+registros de `public.recursos`, ordenados por nombre. La tabla debe incluir las
+columnas `id_profesor`, `nombre`, `descripcion` y `url`, según el script SQL
+de ejemplo.

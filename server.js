@@ -7,6 +7,7 @@ const getProfesores = require("./api/profesores")
 const getProfesorById = require("./api/profesores/[id]")
 const getTrayectoriaAcademica = require("./api/trayectoria-academica")
 const getTrayectoriaDocente = require("./api/trayectoria-docente")
+const getRecursos = require("./api/recursos")
 
 const PORT = Number(process.env.PORT) || 8000
 const publicRoot = __dirname
@@ -70,6 +71,14 @@ const server = http.createServer(async (request, response) => {
 
     if (requestUrl.pathname === "/api/trayectoria-docente") {
       await getTrayectoriaDocente(
+        { method: request.method, query: { id_profesor: requestUrl.searchParams.get("id_profesor") } },
+        createApiResponse(response),
+      )
+      return
+    }
+
+    if (requestUrl.pathname === "/api/recursos") {
+      await getRecursos(
         { method: request.method, query: { id_profesor: requestUrl.searchParams.get("id_profesor") } },
         createApiResponse(response),
       )
