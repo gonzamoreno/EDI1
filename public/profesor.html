@@ -20,7 +20,7 @@
         <p>
           <a href="../index.html">Inicio</a> /
           <a href="profesores.html">Listado de Profesores</a> /
-          <strong aria-current="page">Prof. Laura Victoria Méndez</strong>
+          <strong aria-current="page" data-profesor-breadcrumb>Perfil docente</strong>
         </p>
       </nav>
 
@@ -44,21 +44,17 @@
       <!-- 1. PRESENTACIÓN (Mantiene el patrón de #inicio y el único <h1>) -->
       <!-- [JS-FUTURO]: Componente de cabecera del perfil (nombre, rol y biografía) -->
       <section id="presentacion" aria-labelledby="titulo-principal">
-        <h1 id="titulo-principal">Prof. Laura Victoria Méndez</h1>
-        <p>Docente en formación del Profesorado en Informática - Práctica Docente III.</p>
-        <p>Enfocada en el diseño de propuestas didácticas inclusivas que integran el pensamiento computacional, la programación y el uso crítico de recursos digitales en el aula.</p>
+        <img id="foto-profesor" alt="" hidden />
+        <h1 id="titulo-principal">Perfil docente</h1>
+        <p id="estado-perfil" role="status" aria-live="polite">Cargando perfil docente...</p>
+        <p id="sobre-profesor"></p>
       </section>
 
       <!-- 2. FORTALEZAS -->
       <!-- [JS-FUTURO]: Componente de lista dinámica (iteración de array a nodos <li>) -->
       <section id="fortalezas" aria-labelledby="titulo-fortalezas">
         <h2 id="titulo-fortalezas">Fortalezas</h2>
-        <ul>
-          <li>Planificación de secuencias didácticas mediadas por tecnologías digitales.</li>
-          <li>Creación y adaptación de recursos educativos abiertos y accesibles.</li>
-          <li>Trabajo colaborativo en parejas pedagógicas y reflexión sobre la práctica.</li>
-          <li>Acompañamiento personalizado a las trayectorias estudiantiles.</li>
-        </ul>
+        <ul id="lista-fortalezas"></ul>
       </section>
 
       <!-- 3. EXPERIENCIA (Reutiliza la anatomía de <article> de index.html) -->
@@ -102,10 +98,7 @@
       <section id="contacto" aria-labelledby="titulo-contacto">
         <h2 id="titulo-contacto">Contacto</h2>
         <p>Espacio de comunicación para el intercambio de producciones, recursos didácticos y consultas pedagógicas:</p>
-        <ul>
-          <li><a href="mailto:laura.mendez@ejemplo.edu.ar">Correo electrónico: laura.mendez@ejemplo.edu.ar</a></li>
-          <li><a href="https://github.com">Repositorio de recursos didácticos</a></li>
-        </ul>
+        <ul id="datos-contacto"></ul>
       </section>
 
       <hr />
@@ -114,7 +107,7 @@
         <p>
           <a href="../index.html">Inicio</a> /
           <a href="profesores.html">Listado de Profesores</a> /
-          <strong aria-current="page">Prof. Laura Victoria Méndez</strong>
+          <strong aria-current="page" data-profesor-breadcrumb>Perfil docente</strong>
         </p>
       </nav>
     </main>
@@ -130,10 +123,98 @@
     <script>
       const idProfesor = new URLSearchParams(window.location.search).get("id")
       const enlaceTrayectoria = document.querySelector("[data-trayectoria-link]")
+      const tituloProfesor = document.getElementById("titulo-principal")
+      const estadoPerfil = document.getElementById("estado-perfil")
+      const fotoProfesor = document.getElementById("foto-profesor")
+      const sobreProfesor = document.getElementById("sobre-profesor")
+      const listaFortalezas = document.getElementById("lista-fortalezas")
+      const datosContacto = document.getElementById("datos-contacto")
+      const nombresBreadcrumb = document.querySelectorAll("[data-profesor-breadcrumb]")
 
-      if (idProfesor) {
-        enlaceTrayectoria.href = `trayectoria_academica.html?id_profesor=${encodeURIComponent(idProfesor)}`
+      fotoProfesor.addEventListener("error", () => {
+        fotoProfesor.hidden = true
+      })
+
+      function mostrarError(mensaje, error) {
+        console.error("Error al cargar el perfil docente:", error)
+        estadoPerfil.setAttribute("role", "alert")
+        estadoPerfil.textContent = mensaje
       }
+
+      async function cargarPerfil() {
+        if (!idProfesor) {
+          mostrarError("No se indicó el profesor que se desea consultar.", new Error("Falta el parámetro id"))
+          return
+        }
+
+        enlaceTrayectoria.href = `trayectoria_academica.html?id_profesor=${encodeURIComponent(idProfesor)}`
+
+        try {
+          const response = await fetch(`/api/profesores/${encodeURIComponent(idProfesor)}`)
+          if (!response.ok) {
+            throw new Error(`La solicitud falló con estado ${response.status}`)
+          }
+
+          const profesor = await response.json()
+          if (
+            !profesor ||
+            profesor.id_profesor == null ||
+            typeof profesor.nombre !== "string" ||
+            ["foto", "sobre_mi", "contacto", "fortalezas"].some((campo) =>
+              profesor[campo] != null && typeof profesor[campo] !== "string"
+            )
+          ) {
+            throw new Error("La respuesta del servidor no tiene el formato esperado")
+          }
+
+          tituloProfesor.textContent = profesor.nombre
+          document.title = `Perfil docente - ${profesor.nombre}`
+          nombresBreadcrumb.forEach((elemento) => {
+            elemento.textContent = profesor.nombre
+          })
+
+          if (profesor.foto?.trim()) {
+            fotoProfesor.src = profesor.foto.trim()
+            fotoProfesor.alt = `Foto de ${profesor.nombre}`
+            fotoProfesor.hidden = false
+          }
+
+          sobreProfesor.textContent = profesor.sobre_mi?.trim() || "No hay una presentación disponible."
+
+          const fortalezas = profesor.fortalezas
+            ?.split(";")
+            .map((fortaleza) => fortaleza.trim())
+            .filter(Boolean) || []
+          listaFortalezas.replaceChildren()
+          fortalezas.forEach((fortaleza) => {
+            const elemento = document.createElement("li")
+            elemento.textContent = fortaleza
+            listaFortalezas.append(elemento)
+          })
+          if (!fortalezas.length) {
+            const elemento = document.createElement("li")
+            elemento.textContent = "No hay fortalezas registradas."
+            listaFortalezas.append(elemento)
+          }
+
+          datosContacto.replaceChildren()
+          if (profesor.contacto?.trim()) {
+            const elemento = document.createElement("li")
+            elemento.textContent = profesor.contacto.trim()
+            datosContacto.append(elemento)
+          } else {
+            const elemento = document.createElement("li")
+            elemento.textContent = "No hay datos de contacto disponibles."
+            datosContacto.append(elemento)
+          }
+
+          estadoPerfil.textContent = ""
+        } catch (error) {
+          mostrarError("No se pudo cargar el perfil docente. Inténtalo nuevamente más tarde.", error)
+        }
+      }
+
+      cargarPerfil()
     </script>
   </body>
 </html>
