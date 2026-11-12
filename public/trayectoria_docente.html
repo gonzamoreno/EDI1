@@ -23,14 +23,14 @@
         <p>
           <a href="../index.html">Inicio</a> /
           <a href="profesores.html">Listado de Profesores</a> /
-          <a href="profesor.html">Prof. Martín Alejandro Gómez</a> /
+          <a href="profesor.html" data-profesor-link>Perfil docente</a> /
           <strong aria-current="page">Mi Trayectoria Docente</strong>
         </p>
       </nav>
 
       <nav aria-label="Navegación principal">
         <ul>
-          <li><a href="trayectoria_academica.html">Trayectoria Académica</a></li>
+          <li><a href="trayectoria_academica.html" data-trayectoria-academica-link>Trayectoria Académica</a></li>
           <li><a href="sobre_mi.html">Sobre mí</a></li>
           <li><a href="capacitaciones.html">Capacitaciones</a></li>
           <li><a href="recursos.html">Recursos</a></li>
@@ -38,7 +38,7 @@
       </nav>
 
       <section id="inicio-trayectoria" aria-labelledby="titulo-principal">
-        <h1 id="titulo-principal">Prof. Martín Alejandro Gómez - Mi Trayectoria Docente</h1>
+        <h1 id="titulo-principal">Mi Trayectoria Docente</h1>
         <p>Espacio de documentación pedagógica donde se sistematizan las evidencias de práctica áulica, las reflexiones críticas sobre la enseñanza, los antecedentes curriculares y las secuencias didácticas implementadas durante el trayecto formativo.</p>
       </section>
 
@@ -55,27 +55,8 @@
       <section id="registros" aria-labelledby="titulo-registros">
         <h2 id="titulo-registros">Registros</h2>
         <p>Recopilación de observaciones de clase, bitácoras de campo y evidencias de las intervenciones pedagógicas realizadas en el nivel secundario.</p>
-
-        <article>
-          <h3>Observación de clase: Resolución de problemas y algoritmos</h3>
-          <p>Fecha: <time datetime="2026-04-16">16 de abril de 2026</time> | Curso: 2° Año</p>
-          <p>Se registró la dinámica grupal durante la introducción al diseño de algoritmos mediante actividades desconectadas. Los estudiantes debatieron las instrucciones paso a paso y validaron sus propias secuencias antes de pasar a la puesta en común en el pizarrón.</p>
-          <p>Evidencia de práctica: Registro fotográfico de las producciones grupales en papel afiche y planilla de seguimiento de participación.</p>
-        </article>
-
-        <article>
-          <h3>Bitácora de campo: Práctica en el laboratorio de informática</h3>
-          <p>Fecha: <time datetime="2026-05-21">21 de mayo de 2026</time> | Curso: 3° Año</p>
-          <p>Crónica detallada del desarrollo de la clase sobre estructuras condicionales. Se documentaron las consultas frecuentes surgidas durante la codificación y las estrategias de andamiaje utilizadas para acompañar a los grupos con distintos ritmos de trabajo.</p>
-          <p>Evidencia de práctica: Archivos de ejercicios resueltos por los estudiantes y notas de campo del docente orientador.</p>
-        </article>
-
-        <article>
-          <h3>Registro de jornada: Taller de ciudadanía y convivencia digital</h3>
-          <p>Fecha: <time datetime="2026-06-18">18 de junio de 2026</time> | Curso: 1° Año</p>
-          <p>Sistematización del intercambio oral a partir del análisis de casos sobre privacidad en redes sociales y huella digital. Los grupos elaboraron acuerdos de convivencia para el uso responsable de los entornos virtuales escolares.</p>
-          <p>Evidencia de práctica: Documento colaborativo redactado por el curso y rúbrica de co-evaluación grupal.</p>
-        </article>
+        <p id="estado-registros" role="status" aria-live="polite">Cargando registros de trayectoria docente...</p>
+        <div id="lista-registros"></div>
 
         <p><a href="#inicio-trayectoria">Volver arriba</a></p>
       </section>
@@ -178,5 +159,87 @@
       <p>Profesorado en Informática</p>
       <p>Portafolio institucional destinado a la documentación, seguimiento y reflexión pedagógica de la formación docente.</p>
     </footer>
+    <script>
+      const parametros = new URLSearchParams(window.location.search)
+      const idProfesor = parametros.get("id_profesor") || parametros.get("id")
+      const tituloTrayectoria = document.getElementById("titulo-principal")
+      const estadoRegistros = document.getElementById("estado-registros")
+      const listaRegistros = document.getElementById("lista-registros")
+      const enlaceProfesor = document.querySelector("[data-profesor-link]")
+      const enlaceTrayectoriaAcademica = document.querySelector("[data-trayectoria-academica-link]")
+
+      function mostrarError(error) {
+        console.error("Error al cargar la trayectoria docente:", error)
+        estadoRegistros.setAttribute("role", "alert")
+        estadoRegistros.textContent = "No se pudo cargar la trayectoria docente. Inténtalo nuevamente más tarde."
+      }
+
+      function renderizarRegistros(registros) {
+        const fragmento = document.createDocumentFragment()
+
+        registros.forEach((registro) => {
+          const articulo = document.createElement("article")
+          const titulo = document.createElement("h3")
+          const detalles = document.createElement("p")
+
+          titulo.textContent = registro.asignatura || registro.curso || "Registro docente"
+          detalles.textContent = [registro.año, registro.curso, registro.institucion]
+            .filter(Boolean)
+            .join(" | ")
+          articulo.append(titulo, detalles)
+          fragmento.append(articulo)
+        })
+
+        listaRegistros.replaceChildren(fragmento)
+      }
+
+      async function cargarTrayectoriaDocente() {
+        if (!idProfesor) {
+          estadoRegistros.setAttribute("role", "alert")
+          estadoRegistros.textContent = "No se indicó el profesor cuya trayectoria se desea consultar."
+          return
+        }
+
+        const idCodificado = encodeURIComponent(idProfesor)
+        enlaceProfesor.href = `profesor.html?id=${idCodificado}`
+        enlaceTrayectoriaAcademica.href = `trayectoria_academica.html?id_profesor=${idCodificado}`
+
+        try {
+          const response = await fetch(`/api/trayectoria-docente?id_profesor=${idCodificado}`)
+          if (!response.ok) {
+            throw new Error(`La solicitud falló con estado ${response.status}`)
+          }
+
+          const datos = await response.json()
+          if (
+            !datos ||
+            !datos.profesor ||
+            typeof datos.profesor.nombre !== "string" ||
+            !Array.isArray(datos.trayectoria_docente) ||
+            datos.trayectoria_docente.some((registro) =>
+              !registro ||
+              typeof registro !== "object" ||
+              ["año", "curso", "asignatura", "institucion"].some((campo) =>
+                registro[campo] != null && typeof registro[campo] !== "string"
+              )
+            )
+          ) {
+            throw new Error("La respuesta del servidor no tiene el formato esperado")
+          }
+
+          tituloTrayectoria.textContent = `${datos.profesor.nombre} - Mi Trayectoria Docente`
+          document.title = `Mi Trayectoria Docente - ${datos.profesor.nombre}`
+          enlaceProfesor.textContent = datos.profesor.nombre
+          renderizarRegistros(datos.trayectoria_docente)
+          estadoRegistros.textContent = datos.trayectoria_docente.length
+            ? ""
+            : "No hay registros de trayectoria docente para este profesor."
+        } catch (error) {
+          mostrarError(error)
+        }
+      }
+
+      cargarTrayectoriaDocente()
+    </script>
   </body>
 </html>
