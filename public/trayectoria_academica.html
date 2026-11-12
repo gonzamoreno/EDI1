@@ -19,7 +19,7 @@
         <p>
           <a href="../index.html">Inicio</a> /
           <a href="profesores.html">Listado de Profesores</a> /
-          <a href="profesor.html">Prof. Martín Alejandro Gómez</a> /
+          <a href="profesor.html" data-profesor-link data-profesor-breadcrumb>Prof. Martín Alejandro Gómez</a> /
           <strong aria-current="page">Mi Trayectoria Academica</strong>
         </p>
       </nav>
@@ -38,59 +38,16 @@
      
       <article aria-labelledby="nombre-profesora">
         <header>
-          <h1 id="nombre-profesora">Prof. Laura Victoria Méndez</h1>
-          <p>Trayectoria académica ficticia</p>
+          <h1 id="nombre-profesora">Trayectoria académica</h1>
+          <p>Recorrido de formación docente.</p>
         </header>
 
-        <section aria-labelledby="titulo-pesi">
-          <h2 id="titulo-pesi">PESI (Profesorado de Educación Secundaria en Informática)</h2>
-          <p>Recorrido de formación docente organizado por año de cursada.</p>
+        <p id="estado-trayectoria" role="status" aria-live="polite">Cargando trayectoria académica...</p>
+        <div id="programas-academicos"></div>
 
-          <!-- [JS-FUTURO]: Componente de trayectoria anual, renderizado desde datos de cursada. -->
-          <section aria-labelledby="primer-anio">
-            <h3 id="primer-anio">1° Año</h3>
-            <ul>
-              <li>Pedagogía General</li>
-              <li>Didáctica General</li>
-              <li>Introducción a la Informática</li>
-              <li>Matemática para la Computación I</li>
-            </ul>
-          </section>
-
-          <!-- [JS-FUTURO]: Cada cohorte puede generarse a partir de una colección de materias. -->
-          <section aria-labelledby="segundo-anio">
-            <h3 id="segundo-anio">2° Año</h3>
-            <ul>
-              <li>Psicología Educacional</li>
-              <li>Programación I</li>
-              <li>Didáctica de la Informática I</li>
-              <li>Matemática para la Computación II</li>
-            </ul>
-          </section>
-
-          <section aria-labelledby="tercer-anio">
-            <h3 id="tercer-anio">3° Año</h3>
-            <ul>
-              <li>Historia y Política de la Educación</li>
-              <li>Programación II</li>
-              <li>Redes y Sistemas Operativos</li>
-              <li>Práctica Docente III</li>
-            </ul>
-          </section>
-
-          <section aria-labelledby="cuarto-anio">
-            <h3 id="cuarto-anio">4° Año</h3>
-            <ul>
-              <li>Residencia y Práctica Docente IV</li>
-              <li>Ética y Legislación Informática</li>
-              <li>Proyecto de Integración Tecnológica</li>
-              <li>Seminario de Educación, Tecnología y Sociedad</li>
-            </ul>
-          </section>
-        </section>
         <section>
            <nav aria-label="Navegación de retorno">
-            <p><a href="profesor.html">Volver a profesor</a></p>
+            <p><a href="profesor.html" data-profesor-link>Volver a profesor</a></p>
            </nav> 
         </section>
       </article>
@@ -102,5 +59,162 @@
       <p>Profesorado en Informática</p>
       <p>Portafolio institucional destinado a la documentación, seguimiento y reflexión pedagógica de la formación docente.</p>
     </footer>
+    <script>
+      const parametros = new URLSearchParams(window.location.search)
+      const idProfesor = parametros.get("id_profesor") || parametros.get("id")
+      const tituloProfesora = document.getElementById("nombre-profesora")
+      const estadoTrayectoria = document.getElementById("estado-trayectoria")
+      const programasAcademicos = document.getElementById("programas-academicos")
+      const enlacesProfesor = document.querySelectorAll("[data-profesor-link]")
+      const enlaceBreadcrumbProfesor = document.querySelector("[data-profesor-breadcrumb]")
+
+      function texto(valor) {
+        if (typeof valor === "string") {
+          return valor.trim()
+        }
+        return typeof valor === "number" && Number.isFinite(valor) ? String(valor) : ""
+      }
+
+      function mostrarError(mensaje, error) {
+        console.error("Error al cargar la trayectoria académica:", error)
+        estadoTrayectoria.setAttribute("role", "alert")
+        estadoTrayectoria.textContent = mensaje
+      }
+
+      function crearDetalle(etiqueta, valor) {
+        const valorVisible = texto(valor)
+        if (!valorVisible) {
+          return null
+        }
+
+        const detalle = document.createElement("p")
+        const nombreCampo = document.createElement("strong")
+        nombreCampo.textContent = `${etiqueta}: `
+        detalle.append(nombreCampo, document.createTextNode(valorVisible))
+        return detalle
+      }
+
+      function renderizarTrayectoria(datos) {
+        const grupos = new Map()
+        const compararAnios = (anioA, anioB) =>
+          anioA.localeCompare(anioB, "es", { numeric: true })
+
+        datos.trayectoria_academica.forEach((registro) => {
+          const nombreCurso = texto(registro.curso) || "Formación académica"
+          const anio = texto(registro.año) || "Período no especificado"
+
+          if (!grupos.has(nombreCurso)) {
+            grupos.set(nombreCurso, new Map())
+          }
+
+          const anios = grupos.get(nombreCurso)
+          if (!anios.has(anio)) {
+            anios.set(anio, [])
+          }
+          anios.get(anio).push(registro)
+        })
+
+        const programasOrdenados = [...grupos.entries()].sort(([, aniosA], [, aniosB]) => {
+          const anioA = [...aniosA.keys()].sort(compararAnios)[0]
+          const anioB = [...aniosB.keys()].sort(compararAnios)[0]
+          return compararAnios(anioA, anioB)
+        })
+
+        programasOrdenados.forEach(([nombreCurso, anios]) => {
+          const numeroPrograma = programasAcademicos.childElementCount + 1
+          const programa = document.createElement("section")
+          const tituloPrograma = document.createElement("h2")
+          const descripcionPrograma = document.createElement("p")
+          tituloPrograma.textContent = nombreCurso
+          tituloPrograma.id = `programa-${numeroPrograma}`
+          programa.setAttribute("aria-labelledby", tituloPrograma.id)
+          descripcionPrograma.textContent = "Recorrido de formación docente organizado por año de cursada."
+          programa.append(tituloPrograma, descripcionPrograma)
+
+          const aniosOrdenados = [...anios.entries()].sort(([anioA], [anioB]) =>
+            compararAnios(anioA, anioB),
+          )
+
+          aniosOrdenados.forEach(([anio, registros], indiceAnio) => {
+            const seccionAnio = document.createElement("section")
+            const tituloAnio = document.createElement("h3")
+            const listaAsignaturas = document.createElement("ul")
+            tituloAnio.textContent = /^[1-4]$/.test(anio) ? `${anio}° Año` : anio
+            tituloAnio.id = `anio-${numeroPrograma}-${indiceAnio + 1}`
+            seccionAnio.setAttribute("aria-labelledby", tituloAnio.id)
+
+            registros.forEach((registro) => {
+              const asignatura = document.createElement("li")
+              const nombreAsignatura = document.createElement("strong")
+              nombreAsignatura.textContent = texto(registro.asignatura) || texto(registro.curso) || "Formación académica"
+              asignatura.append(nombreAsignatura)
+
+              const detalles = [
+                crearDetalle("Institución", registro.institucion),
+                crearDetalle("Nota", registro.nota),
+                crearDetalle("Temario", registro.temario),
+              ].filter(Boolean)
+              asignatura.append(...detalles)
+              listaAsignaturas.append(asignatura)
+            })
+
+            seccionAnio.append(tituloAnio, listaAsignaturas)
+            programa.append(seccionAnio)
+          })
+
+          programasAcademicos.append(programa)
+        })
+      }
+
+      async function cargarTrayectoria() {
+        if (!idProfesor) {
+          estadoTrayectoria.setAttribute("role", "alert")
+          estadoTrayectoria.textContent = "No se indicó el profesor cuya trayectoria se desea consultar."
+          return
+        }
+
+        enlacesProfesor.forEach((enlace) => {
+          enlace.href = `profesor.html?id=${encodeURIComponent(idProfesor)}`
+        })
+
+        try {
+          const response = await fetch(`/api/trayectoria-academica?id_profesor=${encodeURIComponent(idProfesor)}`)
+          if (!response.ok) {
+            throw new Error(`La solicitud falló con estado ${response.status}`)
+          }
+
+          const datos = await response.json()
+          if (
+            !datos ||
+            !datos.profesor ||
+            typeof datos.profesor.nombre !== "string" ||
+            !Array.isArray(datos.trayectoria_academica) ||
+            datos.trayectoria_academica.some((registro) =>
+              !registro ||
+              typeof registro !== "object" ||
+              ["curso", "año", "asignatura", "institucion", "nota", "temario"].some((campo) =>
+                registro[campo] != null &&
+                typeof registro[campo] !== "string" &&
+                typeof registro[campo] !== "number"
+              )
+            )
+          ) {
+            throw new Error("La respuesta del servidor no tiene el formato esperado")
+          }
+
+          tituloProfesora.textContent = datos.profesor.nombre
+          document.title = `Trayectoria académica - ${datos.profesor.nombre}`
+          enlaceBreadcrumbProfesor.textContent = datos.profesor.nombre
+          renderizarTrayectoria(datos)
+          estadoTrayectoria.textContent = datos.trayectoria_academica.length
+            ? ""
+            : "No hay registros académicos disponibles para este profesor."
+        } catch (error) {
+          mostrarError("No se pudo cargar la trayectoria académica. Inténtalo nuevamente más tarde.", error)
+        }
+      }
+
+      cargarTrayectoria()
+    </script>
   </body>
 </html>
