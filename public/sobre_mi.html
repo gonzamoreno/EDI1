@@ -3,18 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sobre mí | Prof. Martín Fernández</title>
+    <title>Sobre mí | Portafolio Docente</title>
   </head>
   <body>
     <!-- Encabezado principal del portafolio docente -->
     <header id="inicio">
-      <h1>Prof. Martín Fernández</h1>
-      <p>Docente de Ciencias Naturales y Tecnología</p>
+      <h1 id="nombre-profesor">Sobre mí</h1>
+      <p>Perfil profesional</p>
 
       <nav aria-label="Migas de pan">
         <p>
           <a href="../index.html">Inicio</a> /
           <a href="profesores.html">Listado de Profesores</a> /
+          <a href="profesor.html" data-enlace-perfil>Perfil docente</a> /
           <strong aria-current="page">Sobre mí</strong>
         </p>
       </nav>
@@ -26,10 +27,10 @@
       <!-- Navegación principal -->
       <nav aria-label="Navegación principal">
         <ul>
-          <li><a href="trayectoria_academica.html">Trayectoria Académica</a></li>
-          <li><a href="trayectoria_docente.html">Trayectoria Docente</a></li>
-          <li><a href="capacitaciones.html">Capacitaciones</a></li>
-          <li><a href="recursos.html">Recursos</a></li>
+          <li><a href="trayectoria_academica.html" data-seccion-profesor>Trayectoria Académica</a></li>
+          <li><a href="trayectoria_docente.html" data-seccion-profesor>Trayectoria Docente</a></li>
+          <li><a href="capacitaciones.html" data-seccion-profesor>Capacitaciones</a></li>
+          <li><a href="recursos.html" data-seccion-profesor>Recursos</a></li>
         </ul>
       </nav>
     </header>
@@ -38,83 +39,26 @@
       <!-- Sección de presentación personal -->
       <section id="sobre-mi" aria-labelledby="sobre-mi-titulo">
         <h2 id="sobre-mi-titulo">Acerca de mí</h2>
-
-        <p>
-          Soy un docente de secundaria con más de doce años de experiencia en la enseñanza
-          de Ciencias Naturales y Tecnología. Durante mi trayectoria he trabajado con
-          estudiantes de distintos niveles, promoviendo ambientes de aprendizaje dinámicos,
-          colaborativos y centrados en la curiosidad y la reflexión.
-        </p>
-
-        <p>
-          Me apasiona acompañar a los jóvenes en la construcción de conocimientos con sentido,
-          conectando la teoría con situaciones del mundo real y favoreciendo la participación
-          activa en clase. Mi práctica docente se orienta a la innovación educativa, la
-          integración de herramientas digitales y la creación de experiencias que estimulen
-          la creatividad y el pensamiento crítico.
-        </p>
-
-        <p>
-          Además, considero que la educación debe ser interdisciplinaria y transformadora.
-          Por ello, me interesa trabajar en proyectos colaborativos, fortalecer la
-          alfabetización digital y promover la formación continua como eje fundamental para
-          mejorar la calidad pedagógica y la respuesta a las necesidades actuales de la
-          comunidad escolar.
-        </p>
-      </section>
-
-      <!-- Sección de trayectoria docente -->
-      <section id="trayectoria-docente" aria-labelledby="trayectoria-docente-titulo">
-        <h2 id="trayectoria-docente-titulo">Trayectoria Docente</h2>
-        <article>
-          <h3>Experiencia en educación secundaria</h3>
-          <p>
-            He desarrollado mi labor docente en instituciones de nivel medio, donde he
-            enseñado contenidos de biología, química, física y tecnología aplicada. En ese
-            marco, he diseñado secuencias didácticas orientadas a la investigación, la
-            resolución de problemas y el uso responsable de la tecnología en el aula.
-          </p>
-        </article>
+        <p id="estado-perfil" role="status" aria-live="polite">Cargando información del perfil...</p>
+        <p id="descripcion-profesor"></p>
       </section>
 
       <!-- Sección de competencias profesionales -->
       <section id="competencias-profesionales" aria-labelledby="competencias-titulo">
         <h2 id="competencias-titulo">Competencias Profesionales</h2>
-        <ul>
-          <li>Diseño Curricular</li>
-          <li>Tecnología Educativa</li>
-          <li>Programación Básica</li>
-          <li>Robótica Educativa</li>
-          <li>Gestión de Proyectos Escolares</li>
-          <li>Educación STEM</li>
-          <li>Aprendizaje Basado en Proyectos</li>
-        </ul>
+        <ul id="lista-competencias"></ul>
       </section>
 
       <!-- Sección de objetivos profesionales -->
       <section id="objetivos-profesionales" aria-labelledby="objetivos-titulo">
         <h2 id="objetivos-titulo">Objetivos Profesionales</h2>
-        <ul>
-          <li>Fortalecer la alfabetización digital de estudiantes y docentes.</li>
-          <li>Integrar la inteligencia artificial como herramienta pedagógica responsable.</li>
-          <li>Propiciar el desarrollo del pensamiento crítico y la resolución de problemas.</li>
-          <li>Impulsar proyectos interdisciplinarios entre áreas científicas y tecnológicas.</li>
-          <li>Mejorar continuamente las prácticas de enseñanza mediante tecnología.</li>
-        </ul>
+        <ul id="lista-objetivos"></ul>
       </section>
 
       <!-- Sección de contacto -->
       <section id="contacto" aria-labelledby="contacto-titulo">
         <h2 id="contacto-titulo">Contacto</h2>
-        <ul>
-          <li><strong>Correo electrónico:</strong> martin.fernandez@docenteeduca.ar</li>
-          <li><strong>Teléfono:</strong> +54 9 11 4567-8901</li>
-          <li><strong>Ciudad:</strong> Córdoba, Argentina</li>
-          <li>
-            <strong>LinkedIn:</strong>
-            <a href="#">linkedin.com/in/martin-fernandez-docente</a>
-          </li>
-        </ul>
+        <ul id="datos-contacto"></ul>
       </section>
     </main>
 
@@ -122,13 +66,109 @@
       <p>
         <a href="../index.html">Inicio</a> /
         <a href="profesores.html">Listado de Profesores</a> /
+        <a href="profesor.html" data-enlace-perfil>Perfil docente</a> /
         <strong aria-current="page">Sobre mí</strong>
       </p>
     </nav>
 
     <!-- Pie de página -->
     <footer>
-      <p>© 2026 Prof. Martín Fernández. Todos los derechos reservados.</p>
+      <p>© 2026 Portafolio Docente. Todos los derechos reservados.</p>
     </footer>
+    <script>
+      const parametros = new URLSearchParams(window.location.search)
+      const idProfesor = parametros.get("id") || parametros.get("id_profesor")
+      const nombreProfesor = document.getElementById("nombre-profesor")
+      const estadoPerfil = document.getElementById("estado-perfil")
+      const descripcionProfesor = document.getElementById("descripcion-profesor")
+      const listaCompetencias = document.getElementById("lista-competencias")
+      const listaObjetivos = document.getElementById("lista-objetivos")
+      const datosContacto = document.getElementById("datos-contacto")
+      const enlacesPerfil = document.querySelectorAll("[data-enlace-perfil]")
+      const enlacesSeccion = document.querySelectorAll("[data-seccion-profesor]")
+
+      function renderizarLista(lista, contenido, mensajeVacio) {
+        const elementos = contenido
+          ?.split(";")
+          .flatMap((item) => item.split(/\r?\n/))
+          .map((item) => item.trim())
+          .filter(Boolean) || []
+
+        lista.replaceChildren()
+        elementos.forEach((contenidoItem) => {
+          const item = document.createElement("li")
+          item.textContent = contenidoItem
+          lista.append(item)
+        })
+
+        if (!elementos.length) {
+          const item = document.createElement("li")
+          item.textContent = mensajeVacio
+          lista.append(item)
+        }
+      }
+
+      async function cargarPerfil() {
+        if (!idProfesor) {
+          estadoPerfil.setAttribute("role", "alert")
+          estadoPerfil.textContent = "No se indicó el profesor que se desea consultar."
+          return
+        }
+
+        const idCodificado = encodeURIComponent(idProfesor)
+        enlacesPerfil.forEach((enlace) => {
+          enlace.href = `profesor.html?id=${idCodificado}`
+        })
+        enlacesSeccion.forEach((enlace) => {
+          const separador = enlace.href.includes("?") ? "&" : "?"
+          enlace.href += `${separador}id_profesor=${idCodificado}`
+        })
+
+        try {
+          const response = await fetch(`/api/profesores/${idCodificado}`)
+          if (!response.ok) {
+            throw new Error(`La solicitud falló con estado ${response.status}`)
+          }
+
+          const profesor = await response.json()
+          if (
+            !profesor ||
+            typeof profesor.nombre !== "string" ||
+            ["sobre_mi", "competencias_profesionales", "fortalezas", "objetivos_profesionales", "contacto"].some((campo) =>
+              profesor[campo] != null && typeof profesor[campo] !== "string"
+            )
+          ) {
+            throw new Error("La respuesta del servidor no tiene el formato esperado")
+          }
+
+          nombreProfesor.textContent = profesor.nombre
+          document.title = `Sobre mí | ${profesor.nombre}`
+          descripcionProfesor.textContent = profesor.sobre_mi?.trim() || "No hay una presentación disponible."
+          renderizarLista(
+            listaCompetencias,
+            profesor.competencias_profesionales || profesor.fortalezas,
+            "No hay competencias profesionales registradas.",
+          )
+          renderizarLista(
+            listaObjetivos,
+            profesor.objetivos_profesionales,
+            "No hay objetivos profesionales registrados.",
+          )
+
+          datosContacto.replaceChildren()
+          const contacto = profesor.contacto?.trim()
+          const elementoContacto = document.createElement("li")
+          elementoContacto.textContent = contacto || "No hay datos de contacto disponibles."
+          datosContacto.append(elementoContacto)
+          estadoPerfil.textContent = ""
+        } catch (error) {
+          console.error("Error al cargar la información del perfil:", error)
+          estadoPerfil.setAttribute("role", "alert")
+          estadoPerfil.textContent = "No se pudo cargar la información del perfil. Inténtalo nuevamente más tarde."
+        }
+      }
+
+      cargarPerfil()
+    </script>
   </body>
 </html>
