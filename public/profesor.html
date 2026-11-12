@@ -27,7 +27,7 @@
       <nav aria-label="Navegación principal">
         <ul>
           <li><a href="trayectoria_academica.html" data-trayectoria-link>Trayectoria Académica</a></li>
-          <li><a href="trayectoria_docente.html">Trayectoria Docente</a></li>        
+          <li><a href="trayectoria_docente.html" data-trayectoria-docente-link>Trayectoria Docente</a></li>
           <li><a href="sobre_mi.html">Sobre mí</a></li>
           <li><a href="capacitaciones.html">Capacitaciones</a></li>
           <li><a href="recursos.html">Recursos</a></li>
@@ -215,6 +215,11 @@
       }
 
       cargarPerfil()
+      const enlaceTrayectoriaDocente = document.querySelector("[data-trayectoria-docente-link]")
+
+      if (idProfesor) {
+        enlaceTrayectoriaDocente.href = `trayectoria_docente.html?id_profesor=${encodeURIComponent(idProfesor)}`
+      }
     </script>
   </body>
-</html>
+  </html>
