@@ -4,17 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Perfil docente - Portafolio docente</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+      onerror="this.onerror=null; this.href='../css/bootstrap.min.css';"
+    />
+    <link rel="stylesheet" href="../styles.css" />
   </head>
-  <body>
+  <body class="section-page">
     <!-- ==========================================
          ENCABEZADO GLOBAL (Preservado de index.html)
          ========================================== -->
-    <header>
-      <div>
-        <p>Portafolio docente</p>
-        <p>Profesorado en Educación Primaria</p>
-      </div>
-
+    <header class="container py-4">
       <!-- Enlace de regreso al índice: conserva sentido semántico y foco inicial -->
       <nav aria-label="Migas de pan">
         <p>
@@ -24,14 +27,13 @@
         </p>
       </nav>
 
-      <nav aria-label="Navegación principal">
-        <ul>
-          <li><a href="trayectoria_academica.html" data-trayectoria-link>Trayectoria Académica</a></li>
-          <li><a href="trayectoria_docente.html" data-trayectoria-docente-link>Trayectoria Docente</a></li>
-          <li><a href="sobre_mi.html" data-sobre-mi-link>Sobre mí</a></li>
-          <li><a href="capacitaciones.html" data-capacitaciones-link>Capacitaciones</a></li>
-          <li><a href="recursos.html" data-recursos-link>Recursos</a></li>
-          
+      <nav class="section-top-nav" aria-label="Navegación principal">
+        <ul class="nav nav-pills flex-wrap gap-2">
+          <li class="nav-item"><a class="nav-link" href="trayectoria_academica.html" data-trayectoria-link>Trayectoria Académica</a></li>
+          <li class="nav-item"><a class="nav-link" href="trayectoria_docente.html" data-trayectoria-docente-link>Trayectoria Docente</a></li>
+          <li class="nav-item"><a class="nav-link" href="sobre_mi.html" data-sobre-mi-link>Sobre mí</a></li>
+          <li class="nav-item"><a class="nav-link" href="capacitaciones.html" data-capacitaciones-link>Capacitaciones</a></li>
+          <li class="nav-item"><a class="nav-link" href="recursos.html" data-recursos-link>Recursos</a></li>
         </ul>
       </nav>
     </header>
@@ -39,27 +41,29 @@
     <!-- ==========================================
          CONTENIDO PRINCIPAL: DETALLE DEL PERFIL
          ========================================== -->
-    <main>
+    <main class="container py-5">
 
       <!-- 1. PRESENTACIÓN (Mantiene el patrón de #inicio y el único <h1>) -->
       <!-- [JS-FUTURO]: Componente de cabecera del perfil (nombre, rol y biografía) -->
-      <section id="presentacion" aria-labelledby="titulo-principal">
-        <img id="foto-profesor" alt="" hidden />
-        <h1 id="titulo-principal">Perfil docente</h1>
+      <section id="presentacion" class="page-hero-banner" aria-labelledby="titulo-principal">
+        <div class="d-flex align-items-center gap-3 mb-3">
+          <span id="avatar-profesor" class="avatar-circle" aria-hidden="true">PD</span>
+          <h1 id="titulo-principal" class="flex-grow-1 mb-0">Perfil docente</h1>
+        </div>
         <p id="estado-perfil" role="status" aria-live="polite">Cargando perfil docente...</p>
-        <p id="sobre-profesor"></p>
+        <p id="sobre-profesor" class="lead mb-0"></p>
       </section>
 
       <!-- 2. FORTALEZAS -->
       <!-- [JS-FUTURO]: Componente de lista dinámica (iteración de array a nodos <li>) -->
-      <section id="fortalezas" aria-labelledby="titulo-fortalezas">
+      <section id="fortalezas" class="card card-pastel-peach mb-4 p-4" aria-labelledby="titulo-fortalezas">
         <h2 id="titulo-fortalezas">Competencias Profesionales</h2>
-        <ul id="lista-fortalezas"></ul>
+        <ul id="lista-fortalezas" class="list-unstyled mb-0 d-flex flex-column gap-2"></ul>
       </section>
 
       <!-- 3. EXPERIENCIA (Reutiliza la anatomía de <article> de index.html) -->
       <!-- [JS-FUTURO]: Componente de listado de artículos para antecedentes docentes -->
-      <section id="experiencia" aria-labelledby="titulo-experiencia">
+      <section id="experiencia" class="card card-pastel-sage mb-4 p-4" aria-labelledby="titulo-experiencia">
         <h2 id="titulo-experiencia">Experiencia</h2>
 
         <article>
@@ -77,7 +81,7 @@
 
       <!-- 4. FORMACIÓN (Reutiliza la anatomía de <article> de index.html) -->
       <!-- [JS-FUTURO]: Componente de listado de artículos para trayectoria académica -->
-      <section id="formacion" aria-labelledby="titulo-formacion">
+      <section id="formacion" class="card card-pastel-indigo mb-4 p-4" aria-labelledby="titulo-formacion">
         <h2 id="titulo-formacion">Formación</h2>
 
         <article>
@@ -95,7 +99,7 @@
 
       <!-- 5. CONTACTO -->
       <!-- [JS-FUTURO]: Componente de enlaces y vías de contacto del perfil -->
-      <section id="contacto" aria-labelledby="titulo-contacto">
+      <section id="contacto" class="card card-pastel-lavender mb-4 p-4" aria-labelledby="titulo-contacto">
         <h2 id="titulo-contacto">Contacto</h2>
         <p>Espacio de comunicación para el intercambio de producciones, recursos didácticos y consultas pedagógicas:</p>
         <ul id="datos-contacto"></ul>
@@ -115,10 +119,12 @@
     <!-- ==========================================
          PIE DE PÁGINA GLOBAL (Preservado de index.html)
          ========================================== -->
-    <footer>
-      <p>Práctica Docente III</p>
-      <p>Profesorado en Informática</p>
-      <p>Portafolio institucional destinado a la documentación, seguimiento y reflexión pedagógica de la formación docente.</p>
+    <footer class="site-footer-pastel py-4 mt-auto">
+      <div class="container text-center">
+        <p class="footer-title mb-1 fw-semibold">Práctica Docente III · EDI 1 · Profesorado de Educación Secundaria en Informática · ISFD 15 · VLA</p>
+        <p class="mb-1 small">Portafolio institucional destinado a la documentación, seguimiento y reflexión pedagógica de la formación docente.</p>
+        <p class="mb-0 small">© 2026 Portafolio Docente. Todos los derechos reservados.</p>
+      </div>
     </footer>
     <script src="email-display.js"></script>
     <script>
@@ -129,15 +135,40 @@
       const enlaceCapacitaciones = document.querySelector("[data-capacitaciones-link]")
       const tituloProfesor = document.getElementById("titulo-principal")
       const estadoPerfil = document.getElementById("estado-perfil")
-      const fotoProfesor = document.getElementById("foto-profesor")
+      const avatarProfesor = document.getElementById("avatar-profesor")
       const sobreProfesor = document.getElementById("sobre-profesor")
       const listaFortalezas = document.getElementById("lista-fortalezas")
       const datosContacto = document.getElementById("datos-contacto")
       const nombresBreadcrumb = document.querySelectorAll("[data-profesor-breadcrumb]")
 
-      fotoProfesor.addEventListener("error", () => {
-        fotoProfesor.hidden = true
-      })
+      function obtenerIniciales(nombre) {
+        const partes = nombre.replace(/^Prof\.\s*/i, "").trim().split(/\s+/).filter(Boolean)
+        if (partes.length >= 2) {
+          return (partes[0][0] + partes[1][0]).toUpperCase()
+        }
+        return partes[0]?.slice(0, 2).toUpperCase() || "PD"
+      }
+
+      function actualizarAvatar(profesor) {
+        const iniciales = obtenerIniciales(profesor.nombre)
+        avatarProfesor.textContent = iniciales
+
+        const fotoGuardada = localStorage.getItem(`foto_perfil_${profesor.id_profesor}`)
+        const foto = profesor.foto?.trim() || fotoGuardada
+        if (!foto) {
+          return
+        }
+
+        const imagen = document.createElement("img")
+        imagen.className = "avatar-img"
+        imagen.alt = ""
+        imagen.addEventListener("error", () => {
+          avatarProfesor.replaceChildren()
+          avatarProfesor.textContent = iniciales
+        }, { once: true })
+        imagen.src = foto
+        avatarProfesor.replaceChildren(imagen)
+      }
 
       function mostrarError(mensaje, error) {
         console.error("Error al cargar el perfil docente:", error)
@@ -180,11 +211,7 @@
             elemento.textContent = profesor.nombre
           })
 
-          if (profesor.foto?.trim()) {
-            fotoProfesor.src = profesor.foto.trim()
-            fotoProfesor.alt = `Foto de ${profesor.nombre}`
-            fotoProfesor.hidden = false
-          }
+          actualizarAvatar(profesor)
 
           sobreProfesor.textContent = profesor.sobre_mi?.trim() || "No hay una presentación disponible."
 
@@ -196,6 +223,7 @@
           fortalezas.forEach((fortaleza) => {
             const elemento = document.createElement("li")
             elemento.textContent = fortaleza
+            elemento.className = "card card-pastel-peach p-3"
             listaFortalezas.append(elemento)
           })
           if (!fortalezas.length) {

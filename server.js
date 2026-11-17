@@ -51,7 +51,9 @@ function serveStatic(response, requestPath) {
     ? "text/html; charset=utf-8"
     : requestedPath.endsWith(".js")
       ? "text/javascript; charset=utf-8"
-      : "application/octet-stream"
+      : requestedPath.endsWith(".css")
+        ? "text/css; charset=utf-8"
+        : "application/octet-stream"
   response.writeHead(200, { "Content-Type": contentType })
   fs.createReadStream(filePath).pipe(response)
 }

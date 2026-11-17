@@ -4,15 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Trayectoria académica - Prof. Laura Victoria Méndez</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+      onerror="this.onerror=null; this.href='../css/bootstrap.min.css';"
+    />
+    <link rel="stylesheet" href="../styles.css" />
   </head>
-  <body>
+  <body class="section-page">
     <!-- Encabezado y navegación global del proyecto -->
-    <header>
-      <div>
-        <p>Portafolio Docente</p>
-        <p>Profesorado de Educación Secundaria en Informática</p>
-      </div>
-
+    <header class="container py-4">
        <nav aria-label="Migas de pan">
         <p>
           <a href="../index.html">Inicio</a> /
@@ -22,22 +25,21 @@
         </p>
       </nav>
 
-      <nav aria-label="Navegación principal">
-        <ul>
-          <li><a href="trayectoria_docente.html" data-trayectoria-docente-link>Trayectoria Docente</a></li>
-          <li><a href="sobre_mi.html" data-sobre-mi-link>Sobre mí</a></li>
-          <li><a href="capacitaciones.html" data-capacitaciones-link>Capacitaciones</a></li>
-          <li><a href="recursos.html" data-recursos-link>Recursos</a></li>
+      <nav class="section-top-nav" aria-label="Navegación principal">
+        <ul class="nav nav-pills flex-wrap gap-2">
+          <li class="nav-item"><a class="nav-link" href="trayectoria_docente.html" data-trayectoria-docente-link>Trayectoria Docente</a></li>
+          <li class="nav-item"><a class="nav-link" href="sobre_mi.html" data-sobre-mi-link>Sobre mí</a></li>
+          <li class="nav-item"><a class="nav-link" href="capacitaciones.html" data-capacitaciones-link>Capacitaciones</a></li>
+          <li class="nav-item"><a class="nav-link" href="recursos.html" data-recursos-link>Recursos</a></li>
         </ul>
       </nav>
     </header>
 
-    <main id="contenido-principal" tabindex="-1">
-     
+    <main id="contenido-principal" tabindex="-1" class="container py-5">
       <article aria-labelledby="nombre-profesora">
-        <header>
+        <header class="page-hero-banner">
           <h1 id="nombre-profesora">Trayectoria académica</h1>
-          <p>Recorrido de formación docente.</p>
+          <p class="lead">Recorrido de formación docente.</p>
         </header>
 
         <p id="estado-trayectoria" role="status" aria-live="polite">Cargando trayectoria académica...</p>
@@ -46,16 +48,18 @@
         <section>
            <nav aria-label="Navegación de retorno">
             <p><a href="profesor.html" data-profesor-link>Volver a profesor</a></p>
-           </nav> 
+           </nav>
         </section>
       </article>
     </main>
 
-    <!-- Pie de página global del proyecto -->
-    <footer>
-      <p>Práctica Docente III</p>
-      <p>Profesorado en Informática</p>
-      <p>Portafolio institucional destinado a la documentación, seguimiento y reflexión pedagógica de la formación docente.</p>
+    <!-- Pie de página institucional -->
+    <footer class="site-footer-pastel py-4 mt-auto">
+      <div class="container text-center">
+        <p class="footer-title mb-1 fw-semibold">Práctica Docente III · EDI 1 · Profesorado de Educación Secundaria en Informática · ISFD 15 · VLA</p>
+        <p class="mb-1 small">Portafolio institucional destinado a la documentación, seguimiento y reflexión pedagógica de la formación docente.</p>
+        <p class="mb-0 small">© 2026 Portafolio Docente. Todos los derechos reservados.</p>
+      </div>
     </footer>
     <script>
       const parametros = new URLSearchParams(window.location.search)
@@ -127,6 +131,8 @@
           const programa = document.createElement("section")
           const tituloPrograma = document.createElement("h2")
           const descripcionPrograma = document.createElement("p")
+          programa.className = "card card-pastel-indigo p-4 mb-4"
+          tituloPrograma.className = "h3 fw-bold text-dark"
           tituloPrograma.textContent = nombreCurso
           tituloPrograma.id = `programa-${numeroPrograma}`
           programa.setAttribute("aria-labelledby", tituloPrograma.id)
@@ -141,6 +147,8 @@
             const seccionAnio = document.createElement("section")
             const tituloAnio = document.createElement("h3")
             const listaAsignaturas = document.createElement("ul")
+            seccionAnio.className = "card card-pastel-sage p-3 mb-3"
+            tituloAnio.className = "h5 fw-bold"
             tituloAnio.textContent = /^[1-4]$/.test(anio) ? `${anio}° Año` : anio
             tituloAnio.id = `anio-${numeroPrograma}-${indiceAnio + 1}`
             seccionAnio.setAttribute("aria-labelledby", tituloAnio.id)

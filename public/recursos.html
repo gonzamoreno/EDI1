@@ -4,11 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Recursos Educativos</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+      onerror="this.onerror=null; this.href='../css/bootstrap.min.css';"
+    />
+    <link rel="stylesheet" href="../styles.css" />
   </head>
-  <body>
+  <body class="section-page">
     <!-- Encabezado del sitio -->
-    <header id="inicio">
-      <h1 id="titulo-recursos">Recursos Educativos</h1>
+    <header id="inicio" class="container py-4">
+      <h1 id="titulo-recursos" class="mb-3">Recursos Educativos</h1>
 
       <nav aria-label="Migas de pan">
         <p>
@@ -19,27 +27,27 @@
       </nav>
 
       <!-- Navegación principal -->
-      <nav aria-label="Navegación principal">
-        <ul>
-          <li><a href="trayectoria_academica.html" data-trayectoria-academica-link>Trayectoria Académica</a></li>
-          <li><a href="trayectoria_docente.html" data-trayectoria-docente-link>Trayectoria Docente</a></li>
-          <li><a href="sobre_mi.html" data-sobre-mi-link>Sobre mí</a></li>
-          <li><a href="capacitaciones.html" data-capacitaciones-link>Capacitaciones</a></li>
+      <nav class="section-top-nav" aria-label="Navegación principal">
+        <ul class="nav nav-pills flex-wrap gap-2">
+          <li class="nav-item"><a class="nav-link" href="trayectoria_academica.html" data-trayectoria-academica-link>Trayectoria Académica</a></li>
+          <li class="nav-item"><a class="nav-link" href="trayectoria_docente.html" data-trayectoria-docente-link>Trayectoria Docente</a></li>
+          <li class="nav-item"><a class="nav-link" href="sobre_mi.html" data-sobre-mi-link>Sobre mí</a></li>
+          <li class="nav-item"><a class="nav-link" href="capacitaciones.html" data-capacitaciones-link>Capacitaciones</a></li>
         </ul>
       </nav>
     </header>
 
-    <main>
+    <main class="container py-5">
       <!-- Introducción general -->
-      <section id="introduccion-recursos" aria-labelledby="introduccion-recursos-titulo">
+      <section id="introduccion-recursos" class="page-hero-banner" aria-labelledby="introduccion-recursos-titulo">
         <h2 id="introduccion-recursos-titulo">Compartiendo materiales para la enseñanza</h2>
-        <p>Materiales y herramientas educativas compartidos por el docente.</p>
+        <p class="lead">Materiales y herramientas educativas compartidos por el docente.</p>
       </section>
 
-      <section id="recursos-docente" aria-labelledby="recursos-docente-titulo">
-        <h2 id="recursos-docente-titulo">Recursos del docente</h2>
+      <section id="recursos-docente" class="card card-pastel-sage p-4 mb-5" aria-labelledby="recursos-docente-titulo">
+        <h2 id="recursos-docente-titulo" class="h4 fw-bold border-bottom pb-3 mb-4">Recursos del docente</h2>
         <p id="estado-recursos" role="status" aria-live="polite">Cargando recursos...</p>
-        <div id="lista-recursos"></div>
+        <div id="lista-recursos" class="row g-4 row-cols-1 row-cols-md-2 row-cols-lg-3"></div>
       </section>
     </main>
 
@@ -51,10 +59,14 @@
       </p>
     </nav>
 
-    <!-- Pie de página con contacto -->
-    <footer id="contacto">
-      <p id="contacto-docente">Contacto del docente: Cargando...</p>
-      <p>© 2026 Portafolio Docente. Todos los derechos reservados.</p>
+    <!-- Pie de página institucional -->
+    <footer id="contacto" class="site-footer-pastel py-4 mt-auto">
+      <div class="container text-center">
+        <p id="contacto-docente" class="mb-2">Contacto del docente: Cargando...</p>
+        <p class="footer-title mb-1 fw-semibold">Práctica Docente III · EDI 1 · Profesorado de Educación Secundaria en Informática · ISFD 15 · VLA</p>
+        <p class="mb-1 small">Portafolio institucional destinado a la documentación, seguimiento y reflexión pedagógica de la formación docente.</p>
+        <p class="mb-0 small">© 2026 Portafolio Docente. Todos los derechos reservados.</p>
+      </div>
     </footer>
     <script src="email-display.js"></script>
     <script>
@@ -107,11 +119,15 @@
         const fragmento = document.createDocumentFragment()
 
         recursos.forEach((recurso) => {
+          const columna = document.createElement("div")
           const articulo = document.createElement("article")
           const titulo = document.createElement("h3")
           const descripcion = document.createElement("p")
           const enlace = crearEnlaceRecurso(recurso.url, recurso.nombre)
 
+          columna.className = "col"
+          articulo.className = "card h-100 card-pastel-indigo p-4"
+          titulo.className = "h5 fw-bold text-dark"
           titulo.textContent = recurso.nombre
           descripcion.textContent = recurso.descripcion || "Sin descripción disponible."
           articulo.append(titulo, descripcion)
@@ -124,7 +140,8 @@
             articulo.append(estadoEnlace)
           }
 
-          fragmento.append(articulo)
+          columna.append(articulo)
+          fragmento.append(columna)
         })
 
         listaRecursos.replaceChildren(fragmento)
