@@ -26,10 +26,10 @@
 
       <nav aria-label="Navegación principal">
         <ul>
-          <li><a href="trayectoria_docente.html">Trayectoria Docente</a></li>
-          <li><a href="sobre_mi.html">Sobre mí</a></li>
-          <li><a href="capacitaciones.html">Capacitaciones</a></li>
-          <li><a href="recursos.html">Recursos</a></li>
+          <li><a href="trayectoria_docente.html" data-trayectoria-docente-link>Trayectoria Docente</a></li>
+          <li><a href="sobre_mi.html" data-sobre-mi-link>Sobre mí</a></li>
+          <li><a href="capacitaciones.html" data-capacitaciones-link>Capacitaciones</a></li>
+          <li><a href="recursos.html" data-recursos-link>Recursos</a></li>
         </ul>
       </nav>
     </header>
@@ -67,6 +67,10 @@
       const programasAcademicos = document.getElementById("programas-academicos")
       const enlacesProfesor = document.querySelectorAll("[data-profesor-link]")
       const enlaceBreadcrumbProfesor = document.querySelector("[data-profesor-breadcrumb]")
+      const enlaceTrayectoriaDocente = document.querySelector("[data-trayectoria-docente-link]")
+      const enlaceSobreMi = document.querySelector("[data-sobre-mi-link]")
+      const enlaceCapacitaciones = document.querySelector("[data-capacitaciones-link]")
+      const enlaceRecursos = document.querySelector("[data-recursos-link]")
 
       function texto(valor) {
         if (typeof valor === "string") {
@@ -176,6 +180,11 @@
         enlacesProfesor.forEach((enlace) => {
           enlace.href = `profesor.html?id=${encodeURIComponent(idProfesor)}`
         })
+        const idCodificado = encodeURIComponent(idProfesor)
+        enlaceTrayectoriaDocente.href = `trayectoria_docente.html?id_profesor=${idCodificado}`
+        enlaceSobreMi.href = `sobre_mi.html?id_profesor=${idCodificado}`
+        enlaceCapacitaciones.href = `capacitaciones.html?id_profesor=${idCodificado}`
+        enlaceRecursos.href = `recursos.html?id_profesor=${idCodificado}`
 
         try {
           const response = await fetch(`/api/trayectoria-academica?id_profesor=${encodeURIComponent(idProfesor)}`)
