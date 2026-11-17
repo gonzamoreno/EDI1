@@ -8,7 +8,7 @@
   <body>
     <!-- Encabezado principal del sitio -->
     <header id="inicio">
-      <h1>Capacitaciones y Formación Continua</h1>
+      <h1 id="titulo-capacitaciones">Capacitaciones y Formación Continua</h1>
 
       <nav aria-label="Migas de pan">
         <p>
@@ -21,10 +21,10 @@
       <!-- Navegación principal -->
       <nav aria-label="Navegación principal">
         <ul>
-          <li><a href="trayectoria_academica.html">Trayectoria Académica</a></li>
-          <li><a href="trayectoria_docente.html">Trayectoria Docente</a></li>
-          <li><a href="sobre_mi.html">Sobre mí</a></li>
-          <li><a href="recursos.html">Recursos</a></li>
+          <li><a href="trayectoria_academica.html" data-trayectoria-academica-link>Trayectoria Académica</a></li>
+          <li><a href="trayectoria_docente.html" data-trayectoria-docente-link>Trayectoria Docente</a></li>
+          <li><a href="sobre_mi.html" data-sobre-mi-link>Sobre mí</a></li>
+          <li><a href="recursos.html" data-recursos-link>Recursos</a></li>
         </ul>
       </nav>
     </header>
@@ -42,126 +42,11 @@
         </p>
       </section>
 
-      <!-- Formación académica -->
-      <section id="formacion-academica" aria-labelledby="formacion-titulo">
-        <h2 id="formacion-titulo">Formación Académica</h2>
-
-        <article>
-          <h3>Profesorado en Ciencias Naturales</h3>
-          <p><strong>Institución:</strong> Universidad Nacional de Córdoba</p>
-          <p><strong>Año de egreso:</strong> 2013</p>
-          <p>
-            Formación orientada al estudio de los contenidos científicos, la didáctica de las
-            ciencias y la construcción de propuestas pedagógicas vinculadas a la observación,
-            la experimentación y la comprensión de fenómenos naturales.
-          </p>
-        </article>
-
-        <article>
-          <h3>Especialización en Tecnología Educativa</h3>
-          <p><strong>Institución:</strong> Instituto Superior de Educación Tecnológica</p>
-          <p><strong>Año de egreso:</strong> 2018</p>
-          <p>
-            Programa de actualización profesional centrado en la integración curricular de
-            tecnologías digitales, diseño de recursos educativos, evaluación digital y gestión
-            de entornos de aprendizaje innovadores.
-          </p>
-        </article>
-      </section>
-
       <!-- Cursos y capacitaciones -->
       <section id="cursos-capacitaciones" aria-labelledby="cursos-titulo">
         <h2 id="cursos-titulo">Cursos y Capacitaciones</h2>
-
-        <article>
-          <h3>Diplomatura en Tecnología Educativa</h3>
-          <p><strong>Institución:</strong> Centro de Investigación y Desarrollo Pedagógico</p>
-          <p><strong>Año:</strong> 2016</p>
-          <p><strong>Horas:</strong> 120 horas</p>
-          <p>Capacitación orientada a la incorporación estratégica de herramientas digitales en la práctica docente.</p>
-        </article>
-
-        <article>
-          <h3>Robótica Aplicada al Aula</h3>
-          <p><strong>Institución:</strong> Laboratorio de Innovación Escolar</p>
-          <p><strong>Año:</strong> 2019</p>
-          <p><strong>Horas:</strong> 80 horas</p>
-          <p>Curso práctico para integrar kits robóticos, resolución de problemas y trabajo colaborativo en proyectos escolares.</p>
-        </article>
-
-        <article>
-          <h3>Programación con Python para Educación</h3>
-          <p><strong>Institución:</strong> Academia de Informática Educativa</p>
-          <p><strong>Año:</strong> 2020</p>
-          <p><strong>Horas:</strong> 90 horas</p>
-          <p>Introducción a la lógica de programación con Python aplicada a contextos educativos y ciencia.</p>
-        </article>
-
-        <article>
-          <h3>Inteligencia Artificial en Procesos Educativos</h3>
-          <p><strong>Institución:</strong> Universidad de Educación Avanzada</p>
-          <p><strong>Año:</strong> 2022</p>
-          <p><strong>Horas:</strong> 60 horas</p>
-          <p>Exploración de usos didácticos de la inteligencia artificial para la personalización del aprendizaje y la mejora pedagógica.</p>
-        </article>
-
-        <article>
-          <h3>Diseño de Proyectos ABP</h3>
-          <p><strong>Institución:</strong> Escuela de Innovación Pedagógica</p>
-          <p><strong>Año:</strong> 2021</p>
-          <p><strong>Horas:</strong> 70 horas</p>
-          <p>Capacitación para planificar y gestionar proyectos basados en problemas reales con enfoque interdisciplinario.</p>
-        </article>
-
-        <article>
-          <h3>Pensamiento Computacional</h3>
-          <p><strong>Institución:</strong> Fundación Educación y Tecnología</p>
-          <p><strong>Año:</strong> 2017</p>
-          <p><strong>Horas:</strong> 50 horas</p>
-          <p>Curso sobre algoritmos, automatización y resolución de problemas aplicados al aula y al aprendizaje STEM.</p>
-        </article>
-
-        <article>
-          <h3>Herramientas Digitales para Docentes</h3>
-          <p><strong>Institución:</strong> Red de Formación Docente</p>
-          <p><strong>Año:</strong> 2023</p>
-          <p><strong>Horas:</strong> 40 horas</p>
-          <p>Actualización en plataformas de gestión, recursos digitales y estrategias de evaluación en entornos virtuales.</p>
-        </article>
-
-        <article>
-          <h3>Gamificación y Aprendizaje Activo</h3>
-          <p><strong>Institución:</strong> Instituto de Metodologías Innovadoras</p>
-          <p><strong>Año:</strong> 2024</p>
-          <p><strong>Horas:</strong> 65 horas</p>
-          <p>Curso orientado a la creación de experiencias motivadoras, lúdicas y participativas en el proceso de enseñanza.</p>
-        </article>
-      </section>
-
-      <!-- Certificaciones destacadas -->
-      <section id="certificaciones-destacadas" aria-labelledby="certificaciones-titulo">
-        <h2 id="certificaciones-titulo">Certificaciones Destacadas</h2>
-
-        <article>
-          <h3>Certificación en Educación STEM</h3>
-          <p><strong>Institución:</strong> Asociación Internacional de Educación Científica</p>
-          <p><strong>Año:</strong> 2022</p>
-          <p>Reconocimiento por la implementación de estrategias integradas de ciencia, tecnología, ingeniería y matemáticas.</p>
-        </article>
-
-        <article>
-          <h3>Certificación en Herramientas de IA para Docentes</h3>
-          <p><strong>Institución:</strong> Instituto de Formación Digital</p>
-          <p><strong>Año:</strong> 2024</p>
-          <p>Certificación enfocada en el uso ético y pedagógico de la inteligencia artificial en el aula.</p>
-        </article>
-
-        <article>
-          <h3>Certificación en Robótica Educativa</h3>
-          <p><strong>Institución:</strong> Red Latinoamericana de Innovación Escolar</p>
-          <p><strong>Año:</strong> 2021</p>
-          <p>Programa de especialización en diseño y ejecución de proyectos robóticos para educación secundaria.</p>
-        </article>
+        <p id="estado-capacitaciones" role="status" aria-live="polite">Cargando capacitaciones...</p>
+        <div id="lista-capacitaciones"></div>
       </section>
     </main>
 
@@ -175,8 +60,124 @@
 
     <!-- Pie de página institucional -->
     <footer id="contacto">
-      <p>Contacto institucional: martin.fernandez@docenteeduca.ar | +54 9 11 4567-8901</p>
+      <p id="contacto-docente">Contacto del docente: Cargando...</p>
       <p>© 2026 Portafolio Docente. Todos los derechos reservados.</p>
     </footer>
+    <script>
+      const idProfesor = new URLSearchParams(window.location.search).get("id_profesor")
+        || new URLSearchParams(window.location.search).get("id")
+      const tituloCapacitaciones = document.getElementById("titulo-capacitaciones")
+      const estadoCapacitaciones = document.getElementById("estado-capacitaciones")
+      const listaCapacitaciones = document.getElementById("lista-capacitaciones")
+      const contactoDocente = document.getElementById("contacto-docente")
+      const enlacesNavegacion = {
+        trayectoriaAcademica: document.querySelector("[data-trayectoria-academica-link]"),
+        trayectoriaDocente: document.querySelector("[data-trayectoria-docente-link]"),
+        sobreMi: document.querySelector("[data-sobre-mi-link]"),
+        recursos: document.querySelector("[data-recursos-link]"),
+      }
+
+      function mostrarError(error) {
+        console.error("Error al cargar las capacitaciones:", error)
+        estadoCapacitaciones.setAttribute("role", "alert")
+        estadoCapacitaciones.textContent = "No se pudieron cargar las capacitaciones. Inténtalo nuevamente más tarde."
+      }
+
+      function crearDetalle(etiqueta, valor) {
+        if (valor == null || String(valor).trim() === "") {
+          return null
+        }
+
+        const detalle = document.createElement("p")
+        const nombreCampo = document.createElement("strong")
+        nombreCampo.textContent = `${etiqueta}: `
+        detalle.append(nombreCampo, document.createTextNode(String(valor).trim()))
+        return detalle
+      }
+
+      function renderizarRegistros(registros) {
+        const fragmento = document.createDocumentFragment()
+
+        registros.forEach((registro) => {
+          const articulo = document.createElement("article")
+          const titulo = document.createElement("h3")
+          titulo.textContent = registro.curso
+          articulo.append(titulo)
+
+          const detalles = [
+            crearDetalle("Institución", registro.institucion),
+            crearDetalle("Año", registro.año),
+            crearDetalle("Nota", registro.nota),
+            crearDetalle("Temario", registro.temario),
+          ].filter(Boolean)
+          articulo.append(...detalles)
+          fragmento.append(articulo)
+        })
+
+        listaCapacitaciones.replaceChildren(fragmento)
+      }
+
+      function cargarEnlaces(idCodificado) {
+        enlacesNavegacion.trayectoriaAcademica.href = `trayectoria_academica.html?id_profesor=${idCodificado}`
+        enlacesNavegacion.trayectoriaDocente.href = `trayectoria_docente.html?id_profesor=${idCodificado}`
+        enlacesNavegacion.sobreMi.href = `sobre_mi.html?id=${idCodificado}`
+        enlacesNavegacion.recursos.href = `recursos.html?id_profesor=${idCodificado}`
+      }
+
+      async function cargarCapacitaciones() {
+        if (!idProfesor) {
+          estadoCapacitaciones.setAttribute("role", "alert")
+          estadoCapacitaciones.textContent = "Selecciona un profesor desde el listado para consultar sus capacitaciones."
+          contactoDocente.textContent = "Contacto del docente no disponible."
+          return
+        }
+
+        const idCodificado = encodeURIComponent(idProfesor)
+        cargarEnlaces(idCodificado)
+
+        try {
+          const response = await fetch(`/api/capacitaciones?id_profesor=${idCodificado}`)
+          if (!response.ok) {
+            throw new Error(`La solicitud falló con estado ${response.status}`)
+          }
+
+          const datos = await response.json()
+          if (
+            !datos ||
+            !datos.profesor ||
+            typeof datos.profesor.nombre !== "string" ||
+            (datos.profesor.contacto != null && typeof datos.profesor.contacto !== "string") ||
+            !Array.isArray(datos.capacitaciones) ||
+            datos.capacitaciones.some((registro) =>
+              !registro ||
+              typeof registro !== "object" ||
+              typeof registro.curso !== "string" ||
+              ["año", "institucion", "nota", "temario"].some((campo) =>
+                registro[campo] != null &&
+                typeof registro[campo] !== "string" &&
+                typeof registro[campo] !== "number"
+              )
+            )
+          ) {
+            throw new Error("La respuesta del servidor no tiene el formato esperado")
+          }
+
+          tituloCapacitaciones.textContent = `Capacitaciones y Formación Continua - ${datos.profesor.nombre}`
+          document.title = `Capacitaciones y Formación Continua - ${datos.profesor.nombre}`
+          renderizarRegistros(datos.capacitaciones)
+          estadoCapacitaciones.textContent = datos.capacitaciones.length
+            ? ""
+            : "No hay capacitaciones disponibles para este profesor."
+          contactoDocente.textContent = datos.profesor.contacto?.trim()
+            ? `Contacto: ${datos.profesor.contacto.trim()}`
+            : "Contacto del docente no disponible."
+        } catch (error) {
+          mostrarError(error)
+          contactoDocente.textContent = "No se pudo cargar el contacto del docente."
+        }
+      }
+
+      cargarCapacitaciones()
+    </script>
   </body>
 </html>

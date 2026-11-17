@@ -29,7 +29,7 @@
           <li><a href="trayectoria_academica.html" data-trayectoria-link>Trayectoria Académica</a></li>
           <li><a href="trayectoria_docente.html" data-trayectoria-docente-link>Trayectoria Docente</a></li>
           <li><a href="sobre_mi.html" data-sobre-mi-link>Sobre mí</a></li>
-          <li><a href="capacitaciones.html">Capacitaciones</a></li>
+          <li><a href="capacitaciones.html" data-capacitaciones-link>Capacitaciones</a></li>
           <li><a href="recursos.html" data-recursos-link>Recursos</a></li>
           
         </ul>
@@ -125,6 +125,7 @@
       const enlaceTrayectoria = document.querySelector("[data-trayectoria-link]")
       const enlaceRecursos = document.querySelector("[data-recursos-link]")
       const enlaceSobreMi = document.querySelector("[data-sobre-mi-link]")
+      const enlaceCapacitaciones = document.querySelector("[data-capacitaciones-link]")
       const tituloProfesor = document.getElementById("titulo-principal")
       const estadoPerfil = document.getElementById("estado-perfil")
       const fotoProfesor = document.getElementById("foto-profesor")
@@ -152,6 +153,7 @@
         enlaceTrayectoria.href = `trayectoria_academica.html?id_profesor=${encodeURIComponent(idProfesor)}`
         enlaceRecursos.href = `recursos.html?id_profesor=${encodeURIComponent(idProfesor)}`
         enlaceSobreMi.href = `sobre_mi.html?id=${encodeURIComponent(idProfesor)}`
+        enlaceCapacitaciones.href = `capacitaciones.html?id_profesor=${encodeURIComponent(idProfesor)}`
 
         try {
           const response = await fetch(`/api/profesores/${encodeURIComponent(idProfesor)}`)
