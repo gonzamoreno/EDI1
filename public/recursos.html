@@ -95,6 +95,10 @@
         const enlace = document.createElement("a")
         enlace.href = destino.href
         enlace.textContent = `Acceder al recurso: ${nombre}`
+        if (destino.origin !== window.location.origin) {
+          enlace.target = "_blank"
+          enlace.rel = "noopener noreferrer"
+        }
         return enlace
       }
 
