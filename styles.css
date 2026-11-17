@@ -401,6 +401,7 @@ header.bg-dark,
 
 .section-top-nav ul {
   flex-wrap: nowrap !important;
+  justify-content: safe center;
   overflow-x: auto;
   scrollbar-width: none;
 }
