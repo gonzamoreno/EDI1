@@ -151,11 +151,16 @@
             avatar.style.borderColor = variant.circleBorder
 
             const fotoGuardada = localStorage.getItem(`foto_perfil_${profesor.id_profesor}`)
-            if (fotoGuardada) {
+            const foto = profesor.foto?.trim() || fotoGuardada
+            if (foto) {
               const img = document.createElement("img")
               img.className = "avatar-img"
-              img.src = fotoGuardada
+              img.src = foto
               img.alt = `Foto de ${profesor.nombre}`
+              img.addEventListener("error", () => {
+                avatar.replaceChildren()
+                avatar.textContent = getInitials(profesor.nombre)
+              }, { once: true })
               avatar.append(img)
             } else {
               avatar.textContent = getInitials(profesor.nombre)
