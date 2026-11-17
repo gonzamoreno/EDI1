@@ -3,9 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Recursos Educativos - Portafolio Docente</title>
-
-    <!-- Framework base: Bootstrap 5.3.3 por CDN con contingencia local -->
+    <title>Recursos Educativos</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -13,248 +11,217 @@
       crossorigin="anonymous"
       onerror="this.onerror=null; this.href='../css/bootstrap.min.css';"
     />
-    <!-- Hoja de estilos del proyecto: Carga posterior a Bootstrap con tema pastel -->
     <link rel="stylesheet" href="../styles.css" />
   </head>
-  <body>
-    <!-- Enlace de accesibilidad para teclado -->
-    <a href="#contenido-principal" class="skip-link">Saltar al contenido principal</a>
+  <body class="section-page">
+    <!-- Encabezado del sitio -->
+    <header id="inicio" class="container py-4">
+      <h1 id="titulo-recursos" class="mb-3">Recursos Educativos</h1>
 
-    <!-- Barra de navegación principal -->
-    <header class="bg-dark shadow-sm">
-      <nav class="navbar navbar-expand-lg navbar-dark container py-3" aria-label="Navegación principal">
-        <a class="navbar-brand fw-bold text-white fs-4" href="../index.html">Portafolio Docente</a>
-        <button
-          class="navbar-toggler border-0 shadow-none"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navegacionPrincipal"
-          aria-controls="navegacionPrincipal"
-          aria-expanded="false"
-          aria-label="Abrir o cerrar navegación"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navegacionPrincipal">
-          <ul class="navbar-nav ms-auto gap-2">
-            <li class="nav-item">
-              <a class="nav-link px-3" href="../index.html">Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link px-3" href="profesores.html">Profesores</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link px-3" href="capacitaciones.html">Capacitaciones</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active px-3" aria-current="page" href="recursos.html">Recursos</a>
-            </li>
-          </ul>
-        </div>
+      <nav aria-label="Migas de pan">
+        <p>
+          <a href="../index.html">Inicio</a> /
+          <a href="profesores.html">Listado de Profesores</a> /
+          <strong aria-current="page">Recursos</strong>
+        </p>
+      </nav>
+
+      <!-- Navegación principal -->
+      <nav class="section-top-nav" aria-label="Navegación principal">
+        <ul class="nav nav-pills flex-wrap gap-2">
+          <li class="nav-item"><a class="nav-link" href="trayectoria_academica.html" data-trayectoria-academica-link>Trayectoria Académica</a></li>
+          <li class="nav-item"><a class="nav-link" href="trayectoria_docente.html" data-trayectoria-docente-link>Trayectoria Docente</a></li>
+          <li class="nav-item"><a class="nav-link" href="sobre_mi.html" data-sobre-mi-link>Sobre mí</a></li>
+          <li class="nav-item"><a class="nav-link" href="capacitaciones.html" data-capacitaciones-link>Capacitaciones</a></li>
+        </ul>
       </nav>
     </header>
 
-    <!-- Contenido principal -->
-    <main id="contenido-principal" tabindex="-1" class="py-5">
-      <div class="container">
-        <!-- Navegación de migas de pan (Breadcrumbs) -->
-        <nav aria-label="Migas de pan" class="mb-4">
-          <ol class="breadcrumb mb-0">
-            <li class="breadcrumb-item"><a href="../index.html">Inicio</a></li>
-            <li class="breadcrumb-item"><a href="profesores.html">Listado de Profesores</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Recursos</li>
-          </ol>
-        </nav>
+    <main class="container py-5">
+      <!-- Introducción general -->
+      <section id="introduccion-recursos" class="page-hero-banner" aria-labelledby="introduccion-recursos-titulo">
+        <h2 id="introduccion-recursos-titulo">Compartiendo materiales para la enseñanza</h2>
+        <p class="lead">Materiales y herramientas educativas compartidos por el docente.</p>
+      </section>
 
-        <!-- Cabecera de Recursos en tono pastel -->
-        <section class="page-hero-banner" aria-labelledby="introduccion-recursos-titulo">
-          <div class="row align-items-center">
-            <div class="col-lg-10">
-              <span class="badge badge-pastel-lavender text-uppercase mb-3">Didáctica Abierta</span>
-              <h1 id="introduccion-recursos-titulo" class="display-5 fw-bold text-white mb-3">Recursos Educativos</h1>
-              <p class="lead mb-0 text-light opacity-90">
-                Materiales, actividades y herramientas diseñadas para apoyar la enseñanza de Ciencias Naturales y Tecnología en educación secundaria, orientados a metodologías activas y aprendizaje significativo.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <!-- Recurso del Mes Destacado -->
-        <section id="recurso-del-mes" class="card card-pastel-honey p-4 p-md-5 mb-5" aria-labelledby="recurso-mes-titulo">
-          <div class="row align-items-center g-4">
-            <div class="col-12 col-lg-8">
-              <span class="badge badge-pastel-honey text-uppercase mb-2">Destacado del Mes</span>
-              <h2 id="recurso-mes-titulo" class="h3 fw-bold text-dark mb-3">
-                Kit de Actividades de Inteligencia Artificial para Secundaria
-              </h2>
-              <p class="text-secondary mb-4">
-                Propone una serie de actividades para introducir a los estudiantes en conceptos básicos de inteligencia artificial, desde la ética y comprensión algorítmica hasta la resolución de problemas cotidianos mediante herramientas accesibles.
-              </p>
-              <div class="row g-3">
-                <div class="col-12 col-md-6">
-                  <h3 class="h6 fw-bold text-dark mb-2">Objetivos pedagógicos:</h3>
-                  <ul class="list-unstyled mb-0 d-flex flex-column gap-1 text-secondary small">
-                    <li>✓ Familiarizar a estudiantes con conceptos clave de IA.</li>
-                    <li>✓ Desarrollar pensamiento crítico sobre su uso ético.</li>
-                  </ul>
-                </div>
-                <div class="col-12 col-md-6">
-                  <h3 class="h6 fw-bold text-dark mb-2">Destinatarios:</h3>
-                  <p class="text-secondary small mb-0">Estudiantes y docentes interesados en innovación educativa interdisciplinaria.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-lg-4 text-center">
-              <div class="p-4 bg-white rounded-4 shadow-sm border border-light-subtle">
-                <span class="fs-1 d-block mb-2">💡</span>
-                <span class="fw-bold d-block text-dark mb-2">Acceso Libre</span>
-                <a href="#material-descargable" class="btn btn-primary btn-sm w-100 fw-semibold">
-                  Explorar materiales ↓
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Recursos de Programación -->
-        <section id="recursos-programacion" class="mb-5" aria-labelledby="programacion-titulo">
-          <div class="d-flex align-items-center gap-2 mb-3 border-bottom pb-2">
-            <span class="badge badge-pastel-indigo">Pensamiento Lógico</span>
-            <h2 id="programacion-titulo" class="h3 fw-bold text-dark mb-0">Recursos de Programación</h2>
-          </div>
-          <div class="row g-4 row-cols-1 row-cols-md-3">
-            <div class="col">
-              <article class="card h-100 card-pastel-indigo p-4">
-                <h3 class="h5 fw-bold text-primary mb-2">Guía de Python</h3>
-                <p class="text-secondary small mb-0">Introducción al lenguaje Python con ejercicios sencillos, variables, estructuras condicionales y actividades para aprender desde cero.</p>
-              </article>
-            </div>
-            <div class="col">
-              <article class="card h-100 card-pastel-indigo p-4">
-                <h3 class="h5 fw-bold text-primary mb-2">Pensamiento Computacional</h3>
-                <p class="text-secondary small mb-0">Material didáctico para comprender algoritmos, descomposición de problemas cotidianos, abstracción y patrones lógicos.</p>
-              </article>
-            </div>
-            <div class="col">
-              <article class="card h-100 card-pastel-indigo p-4">
-                <h3 class="h5 fw-bold text-primary mb-2">Manual de Algoritmos</h3>
-                <p class="text-secondary small mb-0">Guía práctica con secuencias, decisiones y repeticiones para desarrollar competencias de programación elemental.</p>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <!-- Recursos de Ciencias Naturales -->
-        <section id="recursos-ciencias" class="mb-5" aria-labelledby="ciencias-titulo">
-          <div class="d-flex align-items-center gap-2 mb-3 border-bottom pb-2">
-            <span class="badge badge-pastel-sage">Ciencias</span>
-            <h2 id="ciencias-titulo" class="h3 fw-bold text-dark mb-0">Recursos de Ciencias Naturales</h2>
-          </div>
-          <div class="row g-4 row-cols-1 row-cols-md-3">
-            <div class="col">
-              <article class="card h-100 card-pastel-sage p-4">
-                <h3 class="h5 fw-bold mb-2" style="color: var(--color-sage);">Laboratorios Virtuales</h3>
-                <p class="text-secondary small mb-0">Propuestas interactivas para explorar conceptos de biología, química y física en entornos simulados y seguros.</p>
-              </article>
-            </div>
-            <div class="col">
-              <article class="card h-100 card-pastel-sage p-4">
-                <h3 class="h5 fw-bold mb-2" style="color: var(--color-sage);">Atlas de Ecosistemas</h3>
-                <p class="text-secondary small mb-0">Recursos visuales para estudiar biodiversidad, cadenas alimentarias, hábitats y equilibrio ambiental escolar.</p>
-              </article>
-            </div>
-            <div class="col">
-              <article class="card h-100 card-pastel-sage p-4">
-                <h3 class="h5 fw-bold mb-2" style="color: var(--color-sage);">Simulaciones de Física</h3>
-                <p class="text-secondary small mb-0">Actividades digitales para analizar movimiento, fuerza, energía y fenómenos físicos a partir de ejemplos cotidianos.</p>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <!-- Recursos de Tecnología -->
-        <section id="recursos-tecnologia" class="mb-5" aria-labelledby="tecnologia-titulo">
-          <div class="d-flex align-items-center gap-2 mb-3 border-bottom pb-2">
-            <span class="badge badge-pastel-lavender">Tecnología</span>
-            <h2 id="tecnologia-titulo" class="h3 fw-bold text-dark mb-0">Recursos de Tecnología</h2>
-          </div>
-          <div class="row g-4 row-cols-1 row-cols-md-3">
-            <div class="col">
-              <article class="card h-100 card-pastel-lavender p-4">
-                <h3 class="h5 fw-bold mb-2" style="color: var(--color-lavender);">Diseño e Impresión 3D</h3>
-                <p class="text-secondary small mb-0">Orientaciones para crear prototipos sencillos, comprender diseño asistido por computadora y fabricación digital.</p>
-              </article>
-            </div>
-            <div class="col">
-              <article class="card h-100 card-pastel-lavender p-4">
-                <h3 class="h5 fw-bold mb-2" style="color: var(--color-lavender);">Introducción a Arduino</h3>
-                <p class="text-secondary small mb-0">Material básico para aprender electrónica, sensores, actuadores y proyectos creativos con microcontroladores.</p>
-              </article>
-            </div>
-            <div class="col">
-              <article class="card h-100 card-pastel-lavender p-4">
-                <h3 class="h5 fw-bold mb-2" style="color: var(--color-lavender);">Fundamentos de Redes</h3>
-                <p class="text-secondary small mb-0">Recursos para trabajar conectividad, protocolos, seguridad y funcionamiento de redes escolares.</p>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <!-- Material Descargable -->
-        <section id="material-descargable" class="mb-5" aria-labelledby="material-titulo">
-          <div class="d-flex align-items-center gap-2 mb-3 border-bottom pb-2">
-            <span class="badge badge-pastel-peach">Descargas</span>
-            <h2 id="material-titulo" class="h3 fw-bold text-dark mb-0">Material Descargable</h2>
-          </div>
-          <div class="row g-4 row-cols-1 row-cols-md-3">
-            <div class="col">
-              <article class="card h-100 card-pastel-peach p-4 d-flex flex-column">
-                <h3 class="h5 fw-bold mb-2" style="color: var(--color-peach);">Planificación Didáctica</h3>
-                <p class="text-secondary small flex-grow-1">Modelo de secuencias didácticas para abordar contenidos con enfoque activo y evaluación formativa.</p>
-                <div class="pt-3 border-top mt-auto d-flex gap-2">
-                  <a href="#" class="btn btn-pastel-peach btn-sm flex-grow-1">Ver recurso</a>
-                  <a href="#" class="btn btn-outline-primary btn-sm">Descargar</a>
-                </div>
-              </article>
-            </div>
-            <div class="col">
-              <article class="card h-100 card-pastel-peach p-4 d-flex flex-column">
-                <h3 class="h5 fw-bold mb-2" style="color: var(--color-peach);">Rúbrica de Proyectos</h3>
-                <p class="text-secondary small flex-grow-1">Instrumento para evaluar participación, creatividad, trabajo colaborativo y producciones grupales.</p>
-                <div class="pt-3 border-top mt-auto d-flex gap-2">
-                  <a href="#" class="btn btn-pastel-peach btn-sm flex-grow-1">Ver recurso</a>
-                  <a href="#" class="btn btn-outline-primary btn-sm">Descargar</a>
-                </div>
-              </article>
-            </div>
-            <div class="col">
-              <article class="card h-100 card-pastel-peach p-4 d-flex flex-column">
-                <h3 class="h5 fw-bold mb-2" style="color: var(--color-peach);">Guía de Innovación</h3>
-                <p class="text-secondary small flex-grow-1">Recurso práctico para diseñar actividades integrando ABP y tecnologías digitales de acceso libre.</p>
-                <div class="pt-3 border-top mt-auto d-flex gap-2">
-                  <a href="#" class="btn btn-pastel-peach btn-sm flex-grow-1">Ver recurso</a>
-                  <a href="#" class="btn btn-outline-primary btn-sm">Descargar</a>
-                </div>
-              </article>
-            </div>
-          </div>
-        </section>
-      </div>
+      <section id="recursos-docente" class="card card-pastel-sage p-4 mb-5" aria-labelledby="recursos-docente-titulo">
+        <h2 id="recursos-docente-titulo" class="h4 fw-bold border-bottom pb-3 mb-4">Recursos del docente</h2>
+        <p id="estado-recursos" role="status" aria-live="polite">Cargando recursos...</p>
+        <div id="lista-recursos" class="row g-4 row-cols-1 row-cols-md-2 row-cols-lg-3"></div>
+      </section>
     </main>
 
-    <!-- Pie de página institucional en tema pastel -->
-    <footer class="bg-dark text-white-50 py-4 mt-auto">
+    <nav aria-label="Migas de pan">
+      <p>
+        <a href="../index.html">Inicio</a> /
+        <a href="profesores.html">Listado de Profesores</a> /
+        <strong aria-current="page">Recursos</strong>
+      </p>
+    </nav>
+
+    <!-- Pie de página institucional -->
+    <footer id="contacto" class="site-footer-pastel py-4 mt-auto">
       <div class="container text-center">
-        <p class="text-white mb-1 fw-semibold">Práctica Docente III · Profesorado en Informática</p>
-        <p class="mb-0 small">Portafolio institucional destinado a la documentación, seguimiento y reflexión pedagógica de la formación docente.</p>
+        <p id="contacto-docente" class="mb-2">Contacto del docente: Cargando...</p>
+        <p class="footer-title mb-1 fw-semibold">Práctica Docente III · EDI 1 · Profesorado de Educación Secundaria en Informática · ISFD 15 · VLA</p>
+        <p class="mb-1 small">Portafolio institucional destinado a la documentación, seguimiento y reflexión pedagógica de la formación docente.</p>
+        <p class="mb-0 small">© 2026 Portafolio Docente. Todos los derechos reservados.</p>
       </div>
     </footer>
+    <script src="email-display.js"></script>
+    <script>
+      const idProfesor = new URLSearchParams(window.location.search).get("id_profesor")
+        || new URLSearchParams(window.location.search).get("id")
+      const tituloRecursos = document.getElementById("titulo-recursos")
+      const estadoRecursos = document.getElementById("estado-recursos")
+      const listaRecursos = document.getElementById("lista-recursos")
+      const contactoDocente = document.getElementById("contacto-docente")
+      const enlaceTrayectoriaAcademica = document.querySelector("[data-trayectoria-academica-link]")
+      const enlaceTrayectoriaDocente = document.querySelector("[data-trayectoria-docente-link]")
+      const enlaceSobreMi = document.querySelector("[data-sobre-mi-link]")
+      const enlaceCapacitaciones = document.querySelector("[data-capacitaciones-link]")
 
-    <!-- Bootstrap 5 JavaScript Bundle -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
+      function mostrarError(error) {
+        console.error("Error al cargar los recursos:", error)
+        estadoRecursos.setAttribute("role", "alert")
+        estadoRecursos.textContent = error instanceof Error
+          ? error.message
+          : "No se pudieron cargar los recursos. Inténtalo nuevamente más tarde."
+      }
+
+      function crearEnlaceRecurso(url, nombre) {
+        if (typeof url !== "string" || !url.trim()) {
+          return null
+        }
+
+        let destino
+        try {
+          destino = new URL(url.trim(), window.location.href)
+        } catch {
+          return null
+        }
+
+        if (destino.protocol !== "http:" && destino.protocol !== "https:") {
+          return null
+        }
+
+        const enlace = document.createElement("a")
+        enlace.href = destino.href
+        enlace.textContent = `Acceder al recurso: ${nombre}`
+        if (destino.origin !== window.location.origin) {
+          enlace.target = "_blank"
+          enlace.rel = "noopener noreferrer"
+        }
+        return enlace
+      }
+
+      function renderizarRecursos(recursos) {
+        const fragmento = document.createDocumentFragment()
+
+        recursos.forEach((recurso) => {
+          const columna = document.createElement("div")
+          const articulo = document.createElement("article")
+          const titulo = document.createElement("h3")
+          const descripcion = document.createElement("p")
+          const enlace = crearEnlaceRecurso(recurso.url, recurso.nombre)
+
+          columna.className = "col"
+          articulo.className = "card h-100 card-pastel-indigo p-4"
+          titulo.className = "h5 fw-bold text-dark"
+          titulo.textContent = recurso.nombre
+          descripcion.textContent = recurso.descripcion || "Sin descripción disponible."
+          articulo.append(titulo, descripcion)
+
+          if (enlace) {
+            articulo.append(enlace)
+          } else {
+            const estadoEnlace = document.createElement("p")
+            estadoEnlace.textContent = "Enlace no disponible."
+            articulo.append(estadoEnlace)
+          }
+
+          columna.append(articulo)
+          fragmento.append(columna)
+        })
+
+        listaRecursos.replaceChildren(fragmento)
+      }
+
+      async function cargarContactoDocente(idCodificado) {
+        try {
+          const response = await fetch(`/api/profesores/${idCodificado}`)
+          if (!response.ok) {
+            throw new Error(`La solicitud de contacto falló con estado ${response.status}`)
+          }
+
+          const profesor = await response.json()
+          if (!profesor || (profesor.contacto != null && typeof profesor.contacto !== "string")) {
+            throw new Error("La respuesta del perfil no contiene un contacto válido")
+          }
+
+          contactoDocente.textContent = formatearDireccionesCorreo(profesor.contacto?.trim()
+            ? `Contacto: ${profesor.contacto.trim()}`
+            : "Contacto del docente no disponible.")
+        } catch (error) {
+          console.error("Error al cargar el contacto del docente:", error)
+          contactoDocente.textContent = "No se pudo cargar el contacto del docente."
+        }
+      }
+
+      async function cargarRecursos() {
+        if (!idProfesor) {
+          estadoRecursos.setAttribute("role", "alert")
+          estadoRecursos.textContent = "Selecciona un profesor desde el listado para consultar sus recursos."
+          contactoDocente.textContent = "Contacto del docente no disponible."
+          return
+        }
+
+        const idCodificado = encodeURIComponent(idProfesor)
+        enlaceTrayectoriaAcademica.href = `trayectoria_academica.html?id_profesor=${idCodificado}`
+        enlaceTrayectoriaDocente.href = `trayectoria_docente.html?id_profesor=${idCodificado}`
+        enlaceSobreMi.href = `sobre_mi.html?id_profesor=${idCodificado}`
+        enlaceCapacitaciones.href = `capacitaciones.html?id_profesor=${idCodificado}`
+
+        try {
+          const response = await fetch(`/api/recursos?id_profesor=${idCodificado}`)
+          if (!response.ok) {
+            const mensaje = response.status === 404
+              ? "El servidor no reconoce la API de recursos (404). Reinicia el servidor y vuelve a intentarlo."
+              : `No se pudieron cargar los recursos (error ${response.status}). Inténtalo nuevamente más tarde.`
+            throw new Error(mensaje)
+          }
+
+          const datos = await response.json()
+          if (
+            !datos ||
+            !datos.profesor ||
+            typeof datos.profesor.nombre !== "string" ||
+            (datos.profesor.contacto != null && typeof datos.profesor.contacto !== "string") ||
+            !Array.isArray(datos.recursos) ||
+            datos.recursos.some((recurso) =>
+              !recurso ||
+              typeof recurso !== "object" ||
+              typeof recurso.nombre !== "string" ||
+              (recurso.descripcion != null && typeof recurso.descripcion !== "string") ||
+              (recurso.url != null && typeof recurso.url !== "string")
+            )
+          ) {
+            throw new Error("La respuesta del servidor no tiene el formato esperado")
+          }
+
+          tituloRecursos.textContent = `Recursos Educativos - ${datos.profesor.nombre}`
+          document.title = `Recursos Educativos - ${datos.profesor.nombre}`
+          renderizarRecursos(datos.recursos)
+          estadoRecursos.textContent = datos.recursos.length
+            ? ""
+            : "No hay recursos disponibles para este profesor."
+          await cargarContactoDocente(idCodificado)
+        } catch (error) {
+          mostrarError(error)
+        }
+      }
+
+      cargarRecursos()
+    </script>
   </body>
 </html>

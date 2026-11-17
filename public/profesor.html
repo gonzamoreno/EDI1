@@ -3,9 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Perfil docente - Prof. Laura Victoria Méndez</title>
-
-    <!-- Framework base: Bootstrap 5.3.3 por CDN con contingencia local -->
+    <title>Perfil docente - Portafolio docente</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -13,336 +11,227 @@
       crossorigin="anonymous"
       onerror="this.onerror=null; this.href='../css/bootstrap.min.css';"
     />
-    <!-- Hoja de estilos del proyecto: Carga posterior a Bootstrap con tema pastel -->
     <link rel="stylesheet" href="../styles.css" />
   </head>
-  <body>
-    <!-- Enlace de accesibilidad para teclado -->
-    <a href="#contenido-principal" class="skip-link">Saltar al contenido principal</a>
+  <body class="section-page">
+    <!-- ==========================================
+         ENCABEZADO GLOBAL (Preservado de index.html)
+         ========================================== -->
+    <header class="container py-4">
+      <!-- Enlace de regreso al índice: conserva sentido semántico y foco inicial -->
+      <nav aria-label="Migas de pan">
+        <p>
+          <a href="../index.html">Inicio</a> /
+          <a href="profesores.html">Listado de Profesores</a> /
+          <strong aria-current="page" data-profesor-breadcrumb>Perfil docente</strong>
+        </p>
+      </nav>
 
-    <!-- Barra de navegación principal -->
-    <header class="bg-dark shadow-sm">
-      <nav class="navbar navbar-expand-lg navbar-dark container py-3" aria-label="Navegación principal">
-        <a class="navbar-brand fw-bold text-white fs-4" href="../index.html">Portafolio Docente</a>
-        <button
-          class="navbar-toggler border-0 shadow-none"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navegacionPrincipal"
-          aria-controls="navegacionPrincipal"
-          aria-expanded="false"
-          aria-label="Abrir o cerrar navegación"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navegacionPrincipal">
-          <ul class="navbar-nav ms-auto gap-2">
-            <li class="nav-item">
-              <a class="nav-link px-3" href="../index.html">Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link px-3" href="profesores.html">Profesores</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link px-3" href="capacitaciones.html">Capacitaciones</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link px-3" href="recursos.html">Recursos</a>
-            </li>
-          </ul>
-        </div>
+      <nav class="section-top-nav" aria-label="Navegación principal">
+        <ul class="nav nav-pills flex-wrap gap-2">
+          <li class="nav-item"><a class="nav-link" href="trayectoria_academica.html" data-trayectoria-link>Trayectoria Académica</a></li>
+          <li class="nav-item"><a class="nav-link" href="trayectoria_docente.html" data-trayectoria-docente-link>Trayectoria Docente</a></li>
+          <li class="nav-item"><a class="nav-link" href="sobre_mi.html" data-sobre-mi-link>Sobre mí</a></li>
+          <li class="nav-item"><a class="nav-link" href="capacitaciones.html" data-capacitaciones-link>Capacitaciones</a></li>
+          <li class="nav-item"><a class="nav-link" href="recursos.html" data-recursos-link>Recursos</a></li>
+        </ul>
       </nav>
     </header>
 
-    <!-- Contenido principal -->
-    <main id="contenido-principal" tabindex="-1" class="py-5">
-      <div class="container">
-        <!-- Navegación de migas de pan (Breadcrumbs) -->
-        <nav aria-label="Migas de pan" class="mb-4">
-          <ol class="breadcrumb mb-0">
-            <li class="breadcrumb-item"><a href="../index.html">Inicio</a></li>
-            <li class="breadcrumb-item"><a href="profesores.html">Listado de Profesores</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Prof. Laura Victoria Méndez</li>
-          </ol>
-        </nav>
+    <!-- ==========================================
+         CONTENIDO PRINCIPAL: DETALLE DEL PERFIL
+         ========================================== -->
+    <main class="container py-5">
 
-        <!-- 1. PRESENTACIÓN: Cabecera de perfil docente con tema pastel -->
-        <section id="presentacion" class="page-hero-banner" aria-labelledby="titulo-principal">
-          <div class="row align-items-center g-4">
-            <div class="col-auto text-center">
-              <div class="avatar-upload-wrapper">
-                <div
-                  id="avatar-circle-display"
-                  class="avatar-circle avatar-circle-lg avatar-circle-clickable"
-                  title="Haz clic para cargar o cambiar tu foto de perfil"
-                  tabindex="0"
-                  role="button"
-                  aria-label="Cargar foto de perfil"
-                >
-                  <span id="avatar-initials-text" class="avatar-initials">LM</span>
-                  <img id="avatar-img-element" class="avatar-img d-none" alt="Foto de perfil de Prof. Laura Victoria Méndez" />
-                </div>
+      <!-- 1. PRESENTACIÓN (Mantiene el patrón de #inicio y el único <h1>) -->
+      <!-- [JS-FUTURO]: Componente de cabecera del perfil (nombre, rol y biografía) -->
+      <section id="presentacion" class="page-hero-banner" aria-labelledby="titulo-principal">
+        <img id="foto-profesor" class="rounded-circle mb-3" alt="" hidden />
+        <h1 id="titulo-principal">Perfil docente</h1>
+        <p id="estado-perfil" role="status" aria-live="polite">Cargando perfil docente...</p>
+        <p id="sobre-profesor" class="lead mb-0"></p>
+      </section>
 
-                <!-- Botón flotante accesible con ícono de cámara -->
-                <label for="input-foto-perfil" class="avatar-upload-badge" title="Subir o cambiar foto de perfil">
-                  <span class="visually-hidden-accessible">Subir foto de perfil</span>
-                  <span aria-hidden="true">📷</span>
-                </label>
-                <input
-                  type="file"
-                  id="input-foto-perfil"
-                  class="visually-hidden-accessible"
-                  accept="image/png, image/jpeg, image/webp, image/gif"
-                />
+      <!-- 2. FORTALEZAS -->
+      <!-- [JS-FUTURO]: Componente de lista dinámica (iteración de array a nodos <li>) -->
+      <section id="fortalezas" class="card card-pastel-peach mb-4 p-4" aria-labelledby="titulo-fortalezas">
+        <h2 id="titulo-fortalezas">Competencias Profesionales</h2>
+        <ul id="lista-fortalezas" class="list-unstyled mb-0 d-flex flex-column gap-2"></ul>
+      </section>
 
-                <!-- Opciones de acción directa -->
-                <div class="mt-2 d-flex flex-column align-items-center">
-                  <button
-                    type="button"
-                    id="btn-subir-foto-accion"
-                    class="btn btn-outline-light btn-sm py-1 px-3 mt-1 fw-semibold"
-                    style="font-size: 0.78rem;"
-                  >
-                    📷 Cargar foto
-                  </button>
-                  <button
-                    type="button"
-                    id="btn-quitar-foto"
-                    class="btn btn-link text-light text-decoration-none small py-0 mt-1 d-none opacity-75"
-                    style="font-size: 0.72rem;"
-                    title="Restablecer iniciales predeterminadas"
-                  >
-                    × Quitar foto
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-md">
-              <span class="badge badge-pastel-lavender text-uppercase mb-2">Perfil Docente</span>
-              <h1 id="titulo-principal" class="display-5 fw-bold text-white mb-2">Prof. Laura Victoria Méndez</h1>
-              <p class="fs-5 text-light opacity-90 mb-3">Docente en formación del Profesorado en Informática — Práctica Docente III</p>
-              <p class="lead mb-4 text-light opacity-90">
-                Enfocada en el diseño de propuestas didácticas inclusivas que integran el pensamiento computacional, la programación y el uso crítico de recursos digitales en el aula.
-              </p>
-              <div class="d-flex flex-wrap gap-2">
-                <a href="trayectoria_academica.html" class="btn btn-primary fw-semibold">
-                  Ver Trayectoria Académica →
-                </a>
-                <a href="trayectoria_docente.html" class="btn btn-pastel-sage fw-semibold">
-                  Ver Trayectoria Docente
-                </a>
-                <a href="#contacto" class="btn btn-outline-light fw-semibold">
-                  Contacto
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
+      <!-- 3. EXPERIENCIA (Reutiliza la anatomía de <article> de index.html) -->
+      <!-- [JS-FUTURO]: Componente de listado de artículos para antecedentes docentes -->
+      <section id="experiencia" class="card card-pastel-sage mb-4 p-4" aria-labelledby="titulo-experiencia">
+        <h2 id="titulo-experiencia">Experiencia</h2>
 
-        <div class="row g-4 mt-2">
-          <!-- Columna Izquierda: Experiencia y Formación -->
-          <div class="col-12 col-lg-8">
-            <!-- 3. EXPERIENCIA -->
-            <section id="experiencia" class="card card-pastel-sage mb-4 p-4" aria-labelledby="titulo-experiencia">
-              <div class="d-flex align-items-center justify-content-between border-bottom pb-3 mb-4">
-                <h2 id="titulo-experiencia" class="h4 fw-bold text-dark mb-0">
-                  Experiencia en Docencia y Extensión
-                </h2>
-                <span class="badge badge-pastel-sage">Antecedentes</span>
-              </div>
+        <article>
+          <h3>Prácticas de enseñanza en nivel secundario</h3>
+          <p>Escuela de Educación Secundaria N° 12 (2025 - 2026)</p>
+          <p>Diseño de planificaciones, implementación de clases de informática y elaboración de registros reflexivos de práctica.</p>
+        </article>
 
-              <article class="mb-4 pb-4 border-bottom">
-                <h3 class="h5 fw-bold text-primary mb-1">Prácticas de enseñanza en nivel secundario</h3>
-                <p class="text-muted small mb-2 fw-medium">Escuela de Educación Secundaria N° 12 · 2025 - 2026</p>
-                <p class="text-secondary mb-0">
-                  Diseño de planificaciones, implementación de clases de informática y elaboración de registros reflexivos de práctica.
-                </p>
-              </article>
+        <article>
+          <h3>Tutorías en taller de robótica y programación inicial</h3>
+          <p>Espacio de Extensión Institucional (2024 - 2025)</p>
+          <p>Facilitación de actividades lúdicas de pensamiento lógico y resolución de problemas en entornos colaborativos.</p>
+        </article>
+      </section>
 
-              <article>
-                <h3 class="h5 fw-bold text-primary mb-1">Tutorías en taller de robótica y programación inicial</h3>
-                <p class="text-muted small mb-2 fw-medium">Espacio de Extensión Institucional · 2024 - 2025</p>
-                <p class="text-secondary mb-0">
-                  Facilitación de actividades lúdicas de pensamiento lógico y resolución de problemas en entornos colaborativos.
-                </p>
-              </article>
-            </section>
+      <!-- 4. FORMACIÓN (Reutiliza la anatomía de <article> de index.html) -->
+      <!-- [JS-FUTURO]: Componente de listado de artículos para trayectoria académica -->
+      <section id="formacion" class="card card-pastel-indigo mb-4 p-4" aria-labelledby="titulo-formacion">
+        <h2 id="titulo-formacion">Formación</h2>
 
-            <!-- 4. FORMACIÓN -->
-            <section id="formacion" class="card card-pastel-indigo mb-4 p-4" aria-labelledby="titulo-formacion">
-              <div class="d-flex align-items-center justify-content-between border-bottom pb-3 mb-4">
-                <h2 id="titulo-formacion" class="h4 fw-bold text-dark mb-0">
-                  Formación y Trayecto Académico
-                </h2>
-                <span class="badge badge-pastel-indigo">Grado y Actualización</span>
-              </div>
+        <article>
+          <h3>Profesorado en Informática</h3>
+          <p>Instituto Superior de Formación Docente (En curso)</p>
+          <p>Formación pedagógica, didáctica específica y desarrollo del trayecto de práctica docente.</p>
+        </article>
 
-              <article class="mb-4 pb-4 border-bottom">
-                <h3 class="h5 fw-bold text-primary mb-1">Profesorado en Informática</h3>
-                <p class="text-muted small mb-2 fw-medium">Instituto Superior de Formación Docente · En curso</p>
-                <p class="text-secondary mb-0">
-                  Formación pedagógica, didáctica específica y desarrollo del trayecto de práctica docente.
-                </p>
-              </article>
+        <article>
+          <h3>Seminario de Recursos Digitales para la Enseñanza</h3>
+          <p>Jornadas de Actualización Pedagógica (2025)</p>
+          <p>Capacitación intensiva en curaduría de materiales didácticos, aplicaciones interactivas y evaluación formativa.</p>
+        </article>
+      </section>
 
-              <article>
-                <h3 class="h5 fw-bold text-primary mb-1">Seminario de Recursos Digitales para la Enseñanza</h3>
-                <p class="text-muted small mb-2 fw-medium">Jornadas de Actualización Pedagógica · 2025</p>
-                <p class="text-secondary mb-0">
-                  Capacitación intensiva en curaduría de materiales didácticos, aplicaciones interactivas y evaluación formativa.
-                </p>
-              </article>
-            </section>
-          </div>
+      <!-- 5. CONTACTO -->
+      <!-- [JS-FUTURO]: Componente de enlaces y vías de contacto del perfil -->
+      <section id="contacto" class="card card-pastel-lavender mb-4 p-4" aria-labelledby="titulo-contacto">
+        <h2 id="titulo-contacto">Contacto</h2>
+        <p>Espacio de comunicación para el intercambio de producciones, recursos didácticos y consultas pedagógicas:</p>
+        <ul id="datos-contacto"></ul>
+      </section>
 
-          <!-- Columna Derecha: Fortalezas y Contacto -->
-          <div class="col-12 col-lg-4">
-            <!-- 2. FORTALEZAS -->
-            <section id="fortalezas" class="card card-pastel-peach mb-4 p-4" aria-labelledby="titulo-fortalezas">
-              <div class="d-flex align-items-center justify-content-between border-bottom pb-3 mb-3">
-                <h2 id="titulo-fortalezas" class="h4 fw-bold text-dark mb-0">
-                  Fortalezas
-                </h2>
-                <span class="badge badge-pastel-peach">Competencias</span>
-              </div>
-              <ul class="list-unstyled mb-0 d-flex flex-column gap-3">
-                <li class="d-flex align-items-start gap-2">
-                  <span class="badge badge-pastel-peach mt-1">✓</span>
-                  <span class="text-secondary small">Planificación de secuencias didácticas mediadas por tecnologías digitales.</span>
-                </li>
-                <li class="d-flex align-items-start gap-2">
-                  <span class="badge badge-pastel-peach mt-1">✓</span>
-                  <span class="text-secondary small">Creación y adaptación de recursos educativos abiertos y accesibles.</span>
-                </li>
-                <li class="d-flex align-items-start gap-2">
-                  <span class="badge badge-pastel-peach mt-1">✓</span>
-                  <span class="text-secondary small">Trabajo colaborativo en parejas pedagógicas y reflexión sobre la práctica.</span>
-                </li>
-                <li class="d-flex align-items-start gap-2">
-                  <span class="badge badge-pastel-peach mt-1">✓</span>
-                  <span class="text-secondary small">Acompañamiento personalizado a las trayectorias estudiantiles.</span>
-                </li>
-              </ul>
-            </section>
-
-            <!-- 5. CONTACTO -->
-            <section id="contacto" class="card card-pastel-lavender mb-4 p-4" aria-labelledby="titulo-contacto">
-              <div class="d-flex align-items-center justify-content-between border-bottom pb-3 mb-3">
-                <h2 id="titulo-contacto" class="h4 fw-bold text-dark mb-0">
-                  Contacto
-                </h2>
-                <span class="badge badge-pastel-lavender">Canales</span>
-              </div>
-              <p class="text-muted small mb-3">
-                Espacio de comunicación para el intercambio de producciones, recursos didácticos y consultas pedagógicas:
-              </p>
-              <div class="d-grid gap-2">
-                <a href="mailto:laura.mendez@ejemplo.edu.ar" class="btn btn-pastel-lavender btn-sm text-start py-2">
-                  ✉ Correo institucional
-                </a>
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary btn-sm text-start py-2">
-                  ⌨ Repositorio de recursos (GitHub)
-                </a>
-                <a href="profesores.html" class="btn btn-outline-primary btn-sm text-start py-2 mt-2">
-                  ← Regresar al listado general
-                </a>
-              </div>
-            </section>
-          </div>
-        </div>
-      </div>
+      <hr />
+<!-- Enlace de regreso al índice: conserva sentido semántico y foco inicial -->
+      <nav aria-label="Migas de pan">
+        <p>
+          <a href="../index.html">Inicio</a> /
+          <a href="profesores.html">Listado de Profesores</a> /
+          <strong aria-current="page" data-profesor-breadcrumb>Perfil docente</strong>
+        </p>
+      </nav>
     </main>
 
-    <!-- Pie de página institucional en tema pastel -->
-    <footer class="bg-dark text-white-50 py-4 mt-auto">
+    <!-- ==========================================
+         PIE DE PÁGINA GLOBAL (Preservado de index.html)
+         ========================================== -->
+    <footer class="site-footer-pastel py-4 mt-auto">
       <div class="container text-center">
-        <p class="text-white mb-1 fw-semibold">Práctica Docente III · Profesorado en Informática</p>
-        <p class="mb-0 small">Portafolio institucional destinado a la documentación, seguimiento y reflexión pedagógica de la formación docente.</p>
+        <p class="footer-title mb-1 fw-semibold">Práctica Docente III · EDI 1 · Profesorado de Educación Secundaria en Informática · ISFD 15 · VLA</p>
+        <p class="mb-1 small">Portafolio institucional destinado a la documentación, seguimiento y reflexión pedagógica de la formación docente.</p>
+        <p class="mb-0 small">© 2026 Portafolio Docente. Todos los derechos reservados.</p>
       </div>
     </footer>
-
-    <!-- Bootstrap 5 JavaScript Bundle -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
-
-    <!-- Script de carga y persistencia de foto de perfil -->
+    <script src="email-display.js"></script>
     <script>
-      const inputFoto = document.getElementById("input-foto-perfil");
-      const avatarCircle = document.getElementById("avatar-circle-display");
-      const avatarImg = document.getElementById("avatar-img-element");
-      const avatarInitials = document.getElementById("avatar-initials-text");
-      const btnSubirFoto = document.getElementById("btn-subir-foto-accion");
-      const btnQuitarFoto = document.getElementById("btn-quitar-foto");
+      const idProfesor = new URLSearchParams(window.location.search).get("id")
+      const enlaceTrayectoria = document.querySelector("[data-trayectoria-link]")
+      const enlaceRecursos = document.querySelector("[data-recursos-link]")
+      const enlaceSobreMi = document.querySelector("[data-sobre-mi-link]")
+      const enlaceCapacitaciones = document.querySelector("[data-capacitaciones-link]")
+      const tituloProfesor = document.getElementById("titulo-principal")
+      const estadoPerfil = document.getElementById("estado-perfil")
+      const fotoProfesor = document.getElementById("foto-profesor")
+      const sobreProfesor = document.getElementById("sobre-profesor")
+      const listaFortalezas = document.getElementById("lista-fortalezas")
+      const datosContacto = document.getElementById("datos-contacto")
+      const nombresBreadcrumb = document.querySelectorAll("[data-profesor-breadcrumb]")
 
-      const urlParams = new URLSearchParams(window.location.search);
-      const profesorId = urlParams.get("id") || "laura-mendez";
-      const storageKey = `foto_perfil_${profesorId}`;
+      fotoProfesor.addEventListener("error", () => {
+        fotoProfesor.hidden = true
+      })
 
-      function aplicarFoto(dataUrl) {
-        if (dataUrl) {
-          avatarImg.src = dataUrl;
-          avatarImg.classList.remove("d-none");
-          avatarInitials.classList.add("d-none");
-          btnQuitarFoto.classList.remove("d-none");
-          btnSubirFoto.textContent = "📷 Cambiar foto";
-        } else {
-          avatarImg.src = "";
-          avatarImg.classList.add("d-none");
-          avatarInitials.classList.remove("d-none");
-          btnQuitarFoto.classList.add("d-none");
-          btnSubirFoto.textContent = "📷 Cargar foto";
-        }
+      function mostrarError(mensaje, error) {
+        console.error("Error al cargar el perfil docente:", error)
+        estadoPerfil.setAttribute("role", "alert")
+        estadoPerfil.textContent = mensaje
       }
 
-      // Restaurar foto si ya fue cargada anteriormente
-      const fotoGuardada = localStorage.getItem(storageKey);
-      if (fotoGuardada) {
-        aplicarFoto(fotoGuardada);
-      }
-
-      // Accionar selector de archivo
-      avatarCircle.addEventListener("click", () => inputFoto.click());
-      avatarCircle.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          inputFoto.click();
-        }
-      });
-      btnSubirFoto.addEventListener("click", () => inputFoto.click());
-
-      // Leer archivo seleccionado y previsualizarlo inmediatamente
-      inputFoto.addEventListener("change", (e) => {
-        const file = e.target.files && e.target.files[0];
-        if (!file) return;
-
-        if (!file.type.startsWith("image/")) {
-          alert("Por favor selecciona un archivo de imagen válido (JPEG, PNG, WebP o GIF).");
-          return;
+      async function cargarPerfil() {
+        if (!idProfesor) {
+          mostrarError("No se indicó el profesor que se desea consultar.", new Error("Falta el parámetro id"))
+          return
         }
 
-        const reader = new FileReader();
-        reader.onload = (event) => {
-          const dataUrl = event.target.result;
-          try {
-            localStorage.setItem(storageKey, dataUrl);
-          } catch (err) {
-            console.warn("No se pudo persistir en localStorage:", err);
+        enlaceTrayectoria.href = `trayectoria_academica.html?id_profesor=${encodeURIComponent(idProfesor)}`
+        enlaceRecursos.href = `recursos.html?id_profesor=${encodeURIComponent(idProfesor)}`
+        enlaceSobreMi.href = `sobre_mi.html?id_profesor=${encodeURIComponent(idProfesor)}`
+        enlaceCapacitaciones.href = `capacitaciones.html?id_profesor=${encodeURIComponent(idProfesor)}`
+
+        try {
+          const response = await fetch(`/api/profesores/${encodeURIComponent(idProfesor)}`)
+          if (!response.ok) {
+            throw new Error(`La solicitud falló con estado ${response.status}`)
           }
-          aplicarFoto(dataUrl);
-        };
-        reader.readAsDataURL(file);
-      });
 
-      // Quitar foto y volver a las iniciales
-      btnQuitarFoto.addEventListener("click", (e) => {
-        e.stopPropagation();
-        localStorage.removeItem(storageKey);
-        inputFoto.value = "";
-        aplicarFoto(null);
-      });
+          const profesor = await response.json()
+          if (
+            !profesor ||
+            profesor.id_profesor == null ||
+            typeof profesor.nombre !== "string" ||
+            ["foto", "sobre_mi", "contacto", "fortalezas", "competencias_profesionales", "objetivos_profesionales"].some((campo) =>
+              profesor[campo] != null && typeof profesor[campo] !== "string"
+            )
+          ) {
+            throw new Error("La respuesta del servidor no tiene el formato esperado")
+          }
+
+          tituloProfesor.textContent = profesor.nombre
+          document.title = `Perfil docente - ${profesor.nombre}`
+          nombresBreadcrumb.forEach((elemento) => {
+            elemento.textContent = profesor.nombre
+          })
+
+          if (profesor.foto?.trim()) {
+            fotoProfesor.src = profesor.foto.trim()
+            fotoProfesor.alt = `Foto de ${profesor.nombre}`
+            fotoProfesor.hidden = false
+          }
+
+          sobreProfesor.textContent = profesor.sobre_mi?.trim() || "No hay una presentación disponible."
+
+          const fortalezas = (profesor.competencias_profesionales || profesor.fortalezas)
+            ?.split(";")
+            .map((fortaleza) => fortaleza.trim())
+            .filter(Boolean) || []
+          listaFortalezas.replaceChildren()
+          fortalezas.forEach((fortaleza) => {
+            const elemento = document.createElement("li")
+            elemento.textContent = fortaleza
+            elemento.className = "card card-pastel-peach p-3"
+            listaFortalezas.append(elemento)
+          })
+          if (!fortalezas.length) {
+            const elemento = document.createElement("li")
+            elemento.textContent = "No hay fortalezas registradas."
+            listaFortalezas.append(elemento)
+          }
+
+          datosContacto.replaceChildren()
+          if (profesor.contacto?.trim()) {
+            const elemento = document.createElement("li")
+            elemento.textContent = formatearDireccionesCorreo(profesor.contacto.trim())
+            datosContacto.append(elemento)
+          } else {
+            const elemento = document.createElement("li")
+            elemento.textContent = "No hay datos de contacto disponibles."
+            datosContacto.append(elemento)
+          }
+
+          estadoPerfil.textContent = ""
+        } catch (error) {
+          mostrarError("No se pudo cargar el perfil docente. Inténtalo nuevamente más tarde.", error)
+        }
+      }
+
+      cargarPerfil()
+      const enlaceTrayectoriaDocente = document.querySelector("[data-trayectoria-docente-link]")
+
+      if (idProfesor) {
+        enlaceTrayectoriaDocente.href = `trayectoria_docente.html?id_profesor=${encodeURIComponent(idProfesor)}`
+      }
     </script>
   </body>
-</html>
+  </html>

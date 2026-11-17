@@ -18,12 +18,9 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <!-- Enlace de accesibilidad para navegación por teclado -->
-    <a href="#contenido-principal" class="skip-link">Saltar al contenido principal</a>
-
     <!-- Barra de navegación principal -->
     <header class="position-absolute top-0 start-0 w-100 z-3">
-      <nav class="navbar navbar-expand-lg navbar-dark container py-3" aria-label="Navegación principal">
+      <nav class="navbar navbar-expand-lg navbar-dark container py-3 site-navbar" aria-label="Navegación principal">
         <a class="navbar-brand fw-bold text-white fs-4" href="index.html">Portafolio Docente</a>
         <button
           class="navbar-toggler border-0 shadow-none"
@@ -43,12 +40,6 @@
             </li>
             <li class="nav-item">
               <a class="nav-link px-3" href="public/profesores.html">Profesores</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link px-3" href="public/capacitaciones.html">Capacitaciones</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link px-3" href="public/recursos.html">Recursos</a>
             </li>
           </ul>
         </div>
@@ -89,9 +80,6 @@
                   <a class="btn btn-primary btn-lg px-4 py-3 fw-semibold shadow" href="public/profesores.html">
                     Ver listado de profesores →
                   </a>
-                  <a class="btn btn-outline-light btn-lg px-4 py-3 fw-semibold" href="#secciones-destacadas">
-                    Explorar secciones ↓
-                  </a>
                 </div>
               </div>
             </div>
@@ -99,97 +87,14 @@
         </div>
       </section>
 
-      <!-- Secciones destacadas en tarjetas con colores pasteles combinados -->
-      <section id="secciones-destacadas" class="py-5 bg-body" aria-labelledby="titulo-secciones">
-        <div class="container py-4">
-          <div class="text-center mb-5">
-            <span class="badge badge-pastel-indigo mb-2 text-uppercase">Áreas del Portafolio</span>
-            <h2 id="titulo-secciones" class="display-6 fw-bold mb-2">Secciones Principales</h2>
-            <p class="text-muted lead mb-0">Acceso directo a las producciones y recorridos pedagógicos del colectivo docente.</p>
-          </div>
-
-          <div class="row g-4 row-cols-1 row-cols-md-2 row-cols-lg-4">
-            <!-- Tarjeta 1: Pastel Índigo / Profesores -->
-            <div class="col">
-              <article class="card h-100 card-pastel-indigo p-4 d-flex flex-column">
-                <div class="mb-3">
-                  <span class="badge badge-pastel-indigo">Perfiles</span>
-                </div>
-                <h3 class="h5 fw-bold text-dark mb-2">Índice de Profesores</h3>
-                <p class="text-muted small flex-grow-1">
-                  Consulta el perfil de cada docente, sus áreas de especialización pedagógica y propuestas de enseñanza.
-                </p>
-                <div class="pt-3 border-top mt-auto">
-                  <a href="public/profesores.html" class="btn btn-outline-primary btn-sm w-100 fw-semibold">
-                    Ver profesores →
-                  </a>
-                </div>
-              </article>
-            </div>
-
-            <!-- Tarjeta 2: Pastel Salvia / Trayectoria Docente -->
-            <div class="col">
-              <article class="card h-100 card-pastel-sage p-4 d-flex flex-column">
-                <div class="mb-3">
-                  <span class="badge badge-pastel-sage">Práctica Áulica</span>
-                </div>
-                <h3 class="h5 fw-bold text-dark mb-2">Trayectoria Docente</h3>
-                <p class="text-muted small flex-grow-1">
-                  Bitácoras de campo, registros fotográficos, reflexiones críticas y secuencias didácticas implementadas.
-                </p>
-                <div class="pt-3 border-top mt-auto">
-                  <a href="public/trayectoria_docente.html" class="btn btn-pastel-sage btn-sm w-100 fw-semibold">
-                    Ver trayectoria →
-                  </a>
-                </div>
-              </article>
-            </div>
-
-            <!-- Tarjeta 3: Pastel Melocotón / Capacitaciones -->
-            <div class="col">
-              <article class="card h-100 card-pastel-peach p-4 d-flex flex-column">
-                <div class="mb-3">
-                  <span class="badge badge-pastel-peach">Formación Continua</span>
-                </div>
-                <h3 class="h5 fw-bold text-dark mb-2">Capacitaciones</h3>
-                <p class="text-muted small flex-grow-1">
-                  Actualización pedagógica, diplomaturas en tecnología educativa, robótica escolar y programación aplicada.
-                </p>
-                <div class="pt-3 border-top mt-auto">
-                  <a href="public/capacitaciones.html" class="btn btn-pastel-peach btn-sm w-100 fw-semibold">
-                    Ver capacitaciones →
-                  </a>
-                </div>
-              </article>
-            </div>
-
-            <!-- Tarjeta 4: Pastel Lavanda / Recursos -->
-            <div class="col">
-              <article class="card h-100 card-pastel-lavender p-4 d-flex flex-column">
-                <div class="mb-3">
-                  <span class="badge badge-pastel-lavender">Didáctica Abierta</span>
-                </div>
-                <h3 class="h5 fw-bold text-dark mb-2">Recursos Educativos</h3>
-                <p class="text-muted small flex-grow-1">
-                  Guías de estudio, actividades de pensamiento computacional, secuencias descargables y herramientas TIC.
-                </p>
-                <div class="pt-3 border-top mt-auto">
-                  <a href="public/recursos.html" class="btn btn-pastel-lavender btn-sm w-100 fw-semibold">
-                    Ver recursos →
-                  </a>
-                </div>
-              </article>
-            </div>
-          </div>
-        </div>
-      </section>
     </main>
 
     <!-- Pie de página institucional en tema pastel -->
-    <footer class="bg-dark text-white-50 py-4 mt-auto">
+    <footer class="site-footer-pastel py-4 mt-auto">
       <div class="container text-center">
-        <p class="mb-1 text-white fw-semibold">Portafolio Institucional · Práctica Docente III</p>
-        <p class="mb-0 small">Profesorado en Informática · Formación y práctica educativa</p>
+        <p class="footer-title mb-1 fw-semibold">Práctica Docente III · EDI 1 · Profesorado de Educación Secundaria en Informática · ISFD 15 · VLA</p>
+        <p class="mb-1 small">Portafolio institucional destinado a la documentación, seguimiento y reflexión pedagógica de la formación docente.</p>
+        <p class="mb-0 small">© 2026 Portafolio Docente. Todos los derechos reservados.</p>
       </div>
     </footer>
 

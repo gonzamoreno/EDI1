@@ -12,7 +12,7 @@
 | :--- | :--- | :---: | :--- |
 | **(1) Variables CSS** | Variables para color, tipografía, espaciado, foco y elevación documentadas en `:root`. | **Cumplido** | [styles.css](file:///home/yoana/SERVIDOR/EDI1/styles.css#L18-L135) |
 | **(2) Contraste AA** | Relación de contraste $\ge$ 4.5:1 en texto normal y $\ge$ 3:1 en componentes/foco. | **Cumplido** | Contrastes desde 5.5:1 hasta 13.6:1 (supera AA y alcanza AAA) |
-| **(3) Foco claramente visible** | Anillo de foco `:focus-visible` de 3px con offset y enlace de salto (*Skip Link*). | **Cumplido** | [styles.css](file:///home/yoana/SERVIDOR/EDI1/styles.css#L225-L270) |
+| **(3) Foco claramente visible** | Anillo de foco `:focus-visible` de 3px con offset en los elementos interactivos. | **Cumplido** | [styles.css](file:///home/yoana/SERVIDOR/EDI1/styles.css#L225-L270) |
 | **(4) Tipografía y Zoom 200%** | Unidades relativas (`rem`), contenedores flexibles que evitan desborde o pérdida. | **Cumplido** | `font-size: 100%`, flex-wrap, grid elástico sin alturas fijas |
 | **(5) Sin `!important` indiscriminado** | Cascada limpia sin `!important`, salvo utilidad universal de accesibilidad justificada. | **Cumplido** | Justificado únicamente en `.visually-hidden-accessible` y `prefers-reduced-motion` |
 | **(6) Carga posterior a Bootstrap** | Bootstrap 5 carga en primer lugar; `styles.css` carga después con contingencia documentada. | **Cumplido** | [index.html](file:///home/yoana/SERVIDOR/EDI1/index.html#L18-L27) y [css/bootstrap.min.css](file:///home/yoana/SERVIDOR/EDI1/css/bootstrap.min.css) |
@@ -23,7 +23,7 @@
 
 ```text
 /home/yoana/SERVIDOR/EDI1/
-├── index.html                   # Portafolio principal con enlaces CSS ordenados y skip link
+├── index.html                   # Portafolio principal con enlaces CSS ordenados
 ├── styles.css                   # Hoja de estilos accesible con variables, reset y componentes
 ├── guia.md                      # Esta guía técnica y protocolo de pruebas
 ├── css/
@@ -185,17 +185,12 @@ Todas las variables están declaradas en la pseudoclase `:root` en [styles.css](
     box-shadow: 0 0 0 calc(var(--focus-ring-offset) + 1px) var(--color-bg-surface);
   }
   ```
-* Se incluye el componente **Skip Link** (`.skip-link`):
-  * Permite saltar la navegación y pasar directamente al contenido principal (`#contenido-principal`).
-  * Oculto visualmente fuera de la pantalla en reposo, y visible al recibir el primer foco por teclado.
-
 #### Procedimiento de Prueba por Teclado:
 1. Abrir [index.html](file:///home/yoana/SERVIDOR/EDI1/index.html) en el navegador.
 2. Hacer clic en la barra de direcciones del navegador y presionar la tecla `Tab`.
-3. **Verificación 1 (Skip Link):** Debe emerger inmediatamente en la parte superior el botón *"Saltar al contenido principal"* con fondo azul, texto blanco y anillo de foco visible. Al presionar `Enter`, el foco se traslada al contenido principal.
-4. **Verificación 2 (Navegación secuencial):** Continuar presionando `Tab`. El anillo azul de 3px con separación de 3px debe desplazarse de forma nítida y visible por cada uno de los enlaces de la barra de navegación: *Inicio*, *Sobre mí*, *Lectura*, etc.
-5. **Verificación 3 (Botones y tarjetas):** Seguir con `Tab` hasta las tarjetas de artículos. Los enlaces `"Ver sección"` y `"Acceder al portafolio colectivo"` deben encuadrarse con su halo azul exterior visible, sin recortes ni solapamientos.
-6. **Verificación 4 (Retroceso):** Presionar `Shift + Tab` y confirmar que el foco retrocede en orden inverso manteniendo idéntica visibilidad.
+3. **Verificación 1 (Navegación secuencial):** El anillo azul de 3px con separación de 3px debe desplazarse de forma nítida y visible por los enlaces de navegación.
+4. **Verificación 2 (Acceso al listado):** Continuar con `Tab` hasta el enlace *Ver listado de profesores* y confirmar que recibe foco visible.
+5. **Verificación 3 (Retroceso):** Presionar `Shift + Tab` y confirmar que el foco retrocede en orden inverso manteniendo idéntica visibilidad.
 
 ---
 

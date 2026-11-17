@@ -5,6 +5,10 @@ const fs = require("node:fs")
 const path = require("node:path")
 const getProfesores = require("./api/profesores")
 const getProfesorById = require("./api/profesores/[id]")
+const getTrayectoriaAcademica = require("./api/trayectoria-academica")
+const getTrayectoriaDocente = require("./api/trayectoria-docente")
+const getRecursos = require("./api/recursos")
+const getCapacitaciones = require("./api/capacitaciones")
 
 const PORT = Number(process.env.PORT) || 8000
 const publicRoot = __dirname
@@ -43,7 +47,13 @@ function serveStatic(response, requestPath) {
     return
   }
 
-  const contentType = requestedPath.endsWith(".html") ? "text/html; charset=utf-8" : "application/octet-stream"
+  const contentType = requestedPath.endsWith(".html")
+    ? "text/html; charset=utf-8"
+    : requestedPath.endsWith(".js")
+      ? "text/javascript; charset=utf-8"
+      : requestedPath.endsWith(".css")
+        ? "text/css; charset=utf-8"
+        : "application/octet-stream"
   response.writeHead(200, { "Content-Type": contentType })
   fs.createReadStream(filePath).pipe(response)
 }
@@ -58,6 +68,38 @@ const server = http.createServer(async (request, response) => {
       return
     }
 
+    if (requestUrl.pathname === "/api/trayectoria-academica") {
+      await getTrayectoriaAcademica(
+        { method: request.method, query: { id_profesor: requestUrl.searchParams.get("id_profesor") } },
+        createApiResponse(response),
+      )
+      return
+    }
+
+    if (requestUrl.pathname === "/api/trayectoria-docente") {
+      await getTrayectoriaDocente(
+        { method: request.method, query: { id_profesor: requestUrl.searchParams.get("id_profesor") } },
+        createApiResponse(response),
+      )
+      return
+    }
+
+    if (requestUrl.pathname === "/api/recursos") {
+      await getRecursos(
+        { method: request.method, query: { id_profesor: requestUrl.searchParams.get("id_profesor") } },
+        createApiResponse(response),
+      )
+      return
+    }
+
+    if (requestUrl.pathname === "/api/capacitaciones") {
+      await getCapacitaciones(
+        { method: request.method, query: { id_profesor: requestUrl.searchParams.get("id_profesor") } },
+        createApiResponse(response),
+      )
+      return
+    }
+
     if (segments.length === 3 && segments[0] === "api" && segments[1] === "profesores") {
       await getProfesorById(
         { method: request.method, query: { id: segments[2] } },
@@ -66,9 +108,9 @@ const server = http.createServer(async (request, response) => {
       return
     }
   } catch (error) {
-    console.error("Error ejecutando el endpoint de profesores:", error.message)
+    console.error("Error ejecutando un endpoint de la API:", error.message)
     if (!response.headersSent) {
-      sendJson(response, 500, { error: "No se pudieron obtener los profesores" })
+      sendJson(response, 500, { error: "No se pudo completar la solicitud" })
     }
     return
   }
