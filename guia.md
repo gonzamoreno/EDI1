@@ -10,12 +10,12 @@
 
 | Criterio | Descripción | Estado | Ubicación Principal |
 | :--- | :--- | :---: | :--- |
-| **(1) Variables CSS** | Variables para color, tipografía, espaciado, foco y elevación documentadas en `:root`. | **Cumplido** | [styles.css](file:///home/yoana/SERVIDOR/EDI1/styles.css#L18-L135) |
+| **(1) Variables CSS** | Variables para color, tipografía, espaciado, foco y elevación documentadas en `:root`. | **Cumplido** | [public/styles.css](file:///home/yoana/SERVIDOR/EDI1/public/styles.css#L18-L135) |
 | **(2) Contraste AA** | Relación de contraste $\ge$ 4.5:1 en texto normal y $\ge$ 3:1 en componentes/foco. | **Cumplido** | Contrastes desde 5.5:1 hasta 13.6:1 (supera AA y alcanza AAA) |
-| **(3) Foco claramente visible** | Anillo de foco `:focus-visible` de 3px con offset en los elementos interactivos. | **Cumplido** | [styles.css](file:///home/yoana/SERVIDOR/EDI1/styles.css#L225-L270) |
+| **(3) Foco claramente visible** | Anillo de foco `:focus-visible` de 3px con offset en los elementos interactivos. | **Cumplido** | [public/styles.css](file:///home/yoana/SERVIDOR/EDI1/public/styles.css#L225-L270) |
 | **(4) Tipografía y Zoom 200%** | Unidades relativas (`rem`), contenedores flexibles que evitan desborde o pérdida. | **Cumplido** | `font-size: 100%`, flex-wrap, grid elástico sin alturas fijas |
 | **(5) Sin `!important` indiscriminado** | Cascada limpia sin `!important`, salvo utilidad universal de accesibilidad justificada. | **Cumplido** | Justificado únicamente en `.visually-hidden-accessible` y `prefers-reduced-motion` |
-| **(6) Carga posterior a Bootstrap** | Bootstrap 5 carga en primer lugar; `styles.css` carga después con contingencia documentada. | **Cumplido** | [index.html](file:///home/yoana/SERVIDOR/EDI1/index.html#L18-L27) y [css/bootstrap.min.css](file:///home/yoana/SERVIDOR/EDI1/css/bootstrap.min.css) |
+| **(6) Carga posterior a Bootstrap** | Bootstrap 5 carga en primer lugar; `public/styles.css` carga después con contingencia documentada. | **Cumplido** | [index.html](file:///home/yoana/SERVIDOR/EDI1/index.html#L18-L27) y [css/bootstrap.min.css](file:///home/yoana/SERVIDOR/EDI1/css/bootstrap.min.css) |
 
 ---
 
@@ -24,11 +24,11 @@
 ```text
 /home/yoana/SERVIDOR/EDI1/
 ├── index.html                   # Portafolio principal con enlaces CSS ordenados
-├── styles.css                   # Hoja de estilos accesible con variables, reset y componentes
 ├── guia.md                      # Esta guía técnica y protocolo de pruebas
 ├── css/
 │   └── bootstrap.min.css        # Copia local de Bootstrap 5.3.3 para contingencia offline/fallo CDN
 └── public/
+    ├── styles.css               # Hoja de estilos accesible con variables, reset y componentes
     ├── profesores.html          # Índice del portafolio colectivo con estilos integrados
     ├── profesor.html            # Perfil docente individual con estilos integrados
     └── trayectoria_academica.html # Trayectoria académica formativa con estilos integrados
@@ -52,7 +52,7 @@ Para asegurar que la especificidad CSS funcione de manera natural y predecible, 
 />
 
 <!-- 2. Hoja de estilos del proyecto: Carga DESPUÉS de Bootstrap -->
-<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="public/styles.css" />
 ```
 
 ### 3.2. Estrategia y Contingencia del CDN
@@ -66,13 +66,13 @@ Para asegurar que la especificidad CSS funcione de manera natural y predecible, 
   2. `this.onerror=null;` evita recursiones o bucles infinitos en caso de cualquier eventualidad.
   3. `this.href='css/bootstrap.min.css';` redirige la carga inmediatamente a la copia local descargada en el repositorio.
 * **Integración sin sobrescritura destructiva:**  
-  `styles.css` no usa `!important` para forzar estilos sobre Bootstrap. En su lugar, respeta la base estructural de Bootstrap (Grid, utilidades de espaciado, breakpoints) y define componentes semánticos y tokens de color complementarios.
+  `public/styles.css` no usa `!important` para forzar estilos sobre Bootstrap. En su lugar, respeta la base estructural de Bootstrap (Grid, utilidades de espaciado, breakpoints) y define componentes semánticos y tokens de color complementarios.
 
 ---
 
 ## 4. Catálogo de Variables CSS Documentadas (Criterio 1)
 
-Todas las variables están declaradas en la pseudoclase `:root` en [styles.css](file:///home/yoana/SERVIDOR/EDI1/styles.css#L18):
+Todas las variables están declaradas en la pseudoclase `:root` en [public/styles.css](file:///home/yoana/SERVIDOR/EDI1/public/styles.css#L18):
 
 ### 4.1. Paleta de Colores Semánticos y Accesibles
 
@@ -218,7 +218,7 @@ Todas las variables están declaradas en la pseudoclase `:root` en [styles.css](
 
 ## 6. Política de Especificidad y Uso de `!important` (Criterio 5)
 
-En [styles.css](file:///home/yoana/SERVIDOR/EDI1/styles.css), se cumple estrictamente la premisa de **no utilizar `!important`** para sobrescribir reglas de cascada ni para forzar especificidad arbitraria.
+En [public/styles.css](file:///home/yoana/SERVIDOR/EDI1/public/styles.css), se cumple estrictamente la premisa de **no utilizar `!important`** para sobrescribir reglas de cascada ni para forzar especificidad arbitraria.
 
 ### Excepciones Técnicas Estrictamente Justificadas:
 Solo se admiten dos casos especiales amparados por los estándares de accesibilidad W3C:
