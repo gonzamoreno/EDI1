@@ -46,8 +46,10 @@
       <!-- 1. PRESENTACIÓN (Mantiene el patrón de #inicio y el único <h1>) -->
       <!-- [JS-FUTURO]: Componente de cabecera del perfil (nombre, rol y biografía) -->
       <section id="presentacion" class="page-hero-banner" aria-labelledby="titulo-principal">
-        <img id="foto-profesor" class="rounded-circle mb-3" alt="" hidden />
-        <h1 id="titulo-principal">Perfil docente</h1>
+        <div class="d-flex align-items-center gap-3 mb-3">
+          <span id="avatar-profesor" class="avatar-circle" aria-hidden="true">PD</span>
+          <h1 id="titulo-principal" class="flex-grow-1 mb-0">Perfil docente</h1>
+        </div>
         <p id="estado-perfil" role="status" aria-live="polite">Cargando perfil docente...</p>
         <p id="sobre-profesor" class="lead mb-0"></p>
       </section>
@@ -133,15 +135,40 @@
       const enlaceCapacitaciones = document.querySelector("[data-capacitaciones-link]")
       const tituloProfesor = document.getElementById("titulo-principal")
       const estadoPerfil = document.getElementById("estado-perfil")
-      const fotoProfesor = document.getElementById("foto-profesor")
+      const avatarProfesor = document.getElementById("avatar-profesor")
       const sobreProfesor = document.getElementById("sobre-profesor")
       const listaFortalezas = document.getElementById("lista-fortalezas")
       const datosContacto = document.getElementById("datos-contacto")
       const nombresBreadcrumb = document.querySelectorAll("[data-profesor-breadcrumb]")
 
-      fotoProfesor.addEventListener("error", () => {
-        fotoProfesor.hidden = true
-      })
+      function obtenerIniciales(nombre) {
+        const partes = nombre.replace(/^Prof\.\s*/i, "").trim().split(/\s+/).filter(Boolean)
+        if (partes.length >= 2) {
+          return (partes[0][0] + partes[1][0]).toUpperCase()
+        }
+        return partes[0]?.slice(0, 2).toUpperCase() || "PD"
+      }
+
+      function actualizarAvatar(profesor) {
+        const iniciales = obtenerIniciales(profesor.nombre)
+        avatarProfesor.textContent = iniciales
+
+        const fotoGuardada = localStorage.getItem(`foto_perfil_${profesor.id_profesor}`)
+        const foto = profesor.foto?.trim() || fotoGuardada
+        if (!foto) {
+          return
+        }
+
+        const imagen = document.createElement("img")
+        imagen.className = "avatar-img"
+        imagen.alt = ""
+        imagen.addEventListener("error", () => {
+          avatarProfesor.replaceChildren()
+          avatarProfesor.textContent = iniciales
+        }, { once: true })
+        imagen.src = foto
+        avatarProfesor.replaceChildren(imagen)
+      }
 
       function mostrarError(mensaje, error) {
         console.error("Error al cargar el perfil docente:", error)
@@ -184,11 +211,7 @@
             elemento.textContent = profesor.nombre
           })
 
-          if (profesor.foto?.trim()) {
-            fotoProfesor.src = profesor.foto.trim()
-            fotoProfesor.alt = `Foto de ${profesor.nombre}`
-            fotoProfesor.hidden = false
-          }
+          actualizarAvatar(profesor)
 
           sobreProfesor.textContent = profesor.sobre_mi?.trim() || "No hay una presentación disponible."
 
