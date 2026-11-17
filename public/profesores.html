@@ -69,157 +69,15 @@
           </div>
         </section>
 
-        <!-- Estado de carga accesible -->
-        <p id="estado-profesores" class="text-muted small my-3" role="status" aria-live="polite"></p>
+        <div id="estado-profesores" class="d-flex align-items-center gap-2 text-muted my-3" role="status" aria-live="polite" aria-atomic="true">
+          <span class="spinner-border spinner-border-sm text-primary" aria-hidden="true"></span>
+          <span>Cargando docentes desde la API...</span>
+        </div>
 
         <!-- Cuadrícula responsiva de tarjetas de profesores con tema pastel -->
         <section aria-labelledby="subtitulo-listado" class="mt-4">
           <h2 id="subtitulo-listado" class="visually-hidden-accessible">Listado de docentes participantes</h2>
-          <ul id="lista-profesores" class="list-unstyled row g-4" aria-label="Profesores">
-            <!-- Docente 1: Lautaro Curruhuinca -->
-            <li class="col-12 col-md-6 col-lg-4">
-              <article class="card h-100 card-pastel-indigo p-4 d-flex flex-column" data-profesor-id="1" aria-labelledby="prof-1">
-                <div class="d-flex align-items-center gap-3 mb-3">
-                  <span class="avatar-circle" aria-hidden="true">LC</span>
-                  <div>
-                    <h3 id="prof-1" class="h5 fw-bold mb-0 text-dark">Prof. Lautaro Curruhuinca</h3>
-                    <small class="text-muted">Docente en formación</small>
-                  </div>
-                </div>
-                <div class="mb-3">
-                  <span class="badge badge-pastel-indigo">Programación y Pensamiento Computacional</span>
-                </div>
-                <p class="text-muted small flex-grow-1">
-                  Desarrollo de aplicaciones educativas, lógica de programación y proyectos colaborativos de software para la escuela secundaria.
-                </p>
-                <div class="pt-3 border-top mt-auto">
-                  <a href="profesor.html?id=1" class="btn btn-outline-primary btn-sm w-100 fw-semibold">
-                    Ver perfil completo →
-                  </a>
-                </div>
-              </article>
-            </li>
-
-            <!-- Docente 2: Juan Vilugron -->
-            <li class="col-12 col-md-6 col-lg-4">
-              <article class="card h-100 card-pastel-sage p-4 d-flex flex-column" data-profesor-id="2" aria-labelledby="prof-2">
-                <div class="d-flex align-items-center gap-3 mb-3">
-                  <span class="avatar-circle" aria-hidden="true" style="background: var(--color-sage-subtle); color: var(--color-sage); border-color: var(--color-sage-border);">JV</span>
-                  <div>
-                    <h3 id="prof-2" class="h5 fw-bold mb-0 text-dark">Prof. Juan Vilugron</h3>
-                    <small class="text-muted">Docente en formación</small>
-                  </div>
-                </div>
-                <div class="mb-3">
-                  <span class="badge badge-pastel-sage">Arquitectura de Computadoras y Redes</span>
-                </div>
-                <p class="text-muted small flex-grow-1">
-                  Implementación de redes locales, configuración de entornos virtuales de aprendizaje y mantenimiento de equipamiento informático educativo.
-                </p>
-                <div class="pt-3 border-top mt-auto">
-                  <a href="profesor.html?id=2" class="btn btn-pastel-sage btn-sm w-100 fw-semibold">
-                    Ver perfil completo →
-                  </a>
-                </div>
-              </article>
-            </li>
-
-            <!-- Docente 3: Carolina Melis -->
-            <li class="col-12 col-md-6 col-lg-4">
-              <article class="card h-100 card-pastel-peach p-4 d-flex flex-column" data-profesor-id="3" aria-labelledby="prof-3">
-                <div class="d-flex align-items-center gap-3 mb-3">
-                  <span class="avatar-circle" aria-hidden="true" style="background: var(--color-peach-subtle); color: var(--color-peach); border-color: var(--color-peach-border);">CM</span>
-                  <div>
-                    <h3 id="prof-3" class="h5 fw-bold mb-0 text-dark">Prof. Carolina Melis</h3>
-                    <small class="text-muted">Docente en formación</small>
-                  </div>
-                </div>
-                <div class="mb-3">
-                  <span class="badge badge-pastel-peach">TIC y Mediaciones Pedagógicas</span>
-                </div>
-                <p class="text-muted small flex-grow-1">
-                  Integración de herramientas digitales en el aula, mediaciones pedagógicas y estrategias transversales de alfabetización digital escolar.
-                </p>
-                <div class="pt-3 border-top mt-auto">
-                  <a href="profesor.html?id=3" class="btn btn-pastel-peach btn-sm w-100 fw-semibold">
-                    Ver perfil completo →
-                  </a>
-                </div>
-              </article>
-            </li>
-
-            <!-- Docente 4: Rosauro Fara -->
-            <li class="col-12 col-md-6 col-lg-4">
-              <article class="card h-100 card-pastel-lavender p-4 d-flex flex-column" data-profesor-id="4" aria-labelledby="prof-4">
-                <div class="d-flex align-items-center gap-3 mb-3">
-                  <span class="avatar-circle" aria-hidden="true" style="background: var(--color-lavender-subtle); color: var(--color-lavender); border-color: var(--color-lavender-border);">RF</span>
-                  <div>
-                    <h3 id="prof-4" class="h5 fw-bold mb-0 text-dark">Prof. Rosauro Fara</h3>
-                    <small class="text-muted">Docente en formación</small>
-                  </div>
-                </div>
-                <div class="mb-3">
-                  <span class="badge badge-pastel-lavender">Robótica Educativa y Embebidos</span>
-                </div>
-                <p class="text-muted small flex-grow-1">
-                  Prototipado electrónico con hardware libre, programación de sensores y diseño de proyectos interdisciplinarios de automatización.
-                </p>
-                <div class="pt-3 border-top mt-auto">
-                  <a href="profesor.html?id=4" class="btn btn-pastel-lavender btn-sm w-100 fw-semibold">
-                    Ver perfil completo →
-                  </a>
-                </div>
-              </article>
-            </li>
-
-            <!-- Docente 5: Yoana Benitez -->
-            <li class="col-12 col-md-6 col-lg-4">
-              <article class="card h-100 card-pastel-honey p-4 d-flex flex-column" data-profesor-id="5" aria-labelledby="prof-5">
-                <div class="d-flex align-items-center gap-3 mb-3">
-                  <span class="avatar-circle" aria-hidden="true" style="background: var(--color-honey-subtle); color: var(--color-honey); border-color: var(--color-honey-border);">YB</span>
-                  <div>
-                    <h3 id="prof-5" class="h5 fw-bold mb-0 text-dark">Prof. Yoana Benitez</h3>
-                    <small class="text-muted">Docente en formación</small>
-                  </div>
-                </div>
-                <div class="mb-3">
-                  <span class="badge badge-pastel-honey">Recursos Educativos Digitales</span>
-                </div>
-                <p class="text-muted small flex-grow-1">
-                  Selección, diseño y producción de materiales didácticos multimedia, aplicaciones interactivas y recursos de acceso abierto para la enseñanza.
-                </p>
-                <div class="pt-3 border-top mt-auto">
-                  <a href="profesor.html?id=5" class="btn btn-outline-primary btn-sm w-100 fw-semibold">
-                    Ver perfil completo →
-                  </a>
-                </div>
-              </article>
-            </li>
-
-            <!-- Docente 6: Patricia Cheuqueman -->
-            <li class="col-12 col-md-6 col-lg-4">
-              <article class="card h-100 card-pastel-indigo p-4 d-flex flex-column" data-profesor-id="6" aria-labelledby="prof-6">
-                <div class="d-flex align-items-center gap-3 mb-3">
-                  <span class="avatar-circle" aria-hidden="true">PC</span>
-                  <div>
-                    <h3 id="prof-6" class="h5 fw-bold mb-0 text-dark">Prof. Patricia Cheuqueman</h3>
-                    <small class="text-muted">Docente en formación</small>
-                  </div>
-                </div>
-                <div class="mb-3">
-                  <span class="badge badge-pastel-indigo">Práctica Docente y Diseño Curricular</span>
-                </div>
-                <p class="text-muted small flex-grow-1">
-                  Planificación de secuencias didácticas, seguimiento formativo de trayectorias estudiantiles y elaboración de registros reflexivos de la práctica.
-                </p>
-                <div class="pt-3 border-top mt-auto">
-                  <a href="profesor.html?id=6" class="btn btn-outline-primary btn-sm w-100 fw-semibold">
-                    Ver perfil completo →
-                  </a>
-                </div>
-              </article>
-            </li>
-          </ul>
+          <ul id="lista-profesores" class="list-unstyled row g-4" aria-label="Profesores" aria-busy="true"></ul>
         </section>
       </div>
     </main>
@@ -258,9 +116,19 @@
       async function cargarProfesores() {
         try {
           const response = await fetch("/api/profesores")
-          if (!response.ok) return // Conserva los profesores estáticos de respaldo
+          if (!response.ok) {
+            throw new Error(`La API respondió con el estado ${response.status}`)
+          }
+
           const profesores = await response.json()
-          if (!Array.isArray(profesores) || profesores.length === 0) return
+          if (!Array.isArray(profesores)) {
+            throw new TypeError("La respuesta de la API no es una lista de profesores")
+          }
+
+          if (profesores.length === 0) {
+            estadoProfesores.textContent = "No hay profesores disponibles."
+            return
+          }
 
           listaProfesores.replaceChildren()
           profesores.forEach((profesor, index) => {
@@ -332,27 +200,13 @@
           })
           estadoProfesores.textContent = ""
         } catch (error) {
-          // Si falla la API (ej: modo estático local), los profesores estáticos ya están visibles
+          console.error("No se pudo cargar el listado de profesores.", error)
+          estadoProfesores.textContent = "No se pudo cargar el listado de profesores. Intenta nuevamente más tarde."
+        } finally {
+          listaProfesores.setAttribute("aria-busy", "false")
         }
       }
 
-      function actualizarFotosEstaticas() {
-        document.querySelectorAll("[data-profesor-id]").forEach((el) => {
-          const id = el.getAttribute("data-profesor-id")
-          const foto = localStorage.getItem(`foto_perfil_${id}`)
-          const circle = el.querySelector(".avatar-circle")
-          if (foto && circle) {
-            circle.replaceChildren()
-            const img = document.createElement("img")
-            img.className = "avatar-img"
-            img.src = foto
-            img.alt = "Foto de perfil"
-            circle.append(img)
-          }
-        })
-      }
-
-      actualizarFotosEstaticas()
       cargarProfesores()
     </script>
 
