@@ -56,6 +56,7 @@
       <p id="contacto-docente">Contacto del docente: Cargando...</p>
       <p>© 2026 Portafolio Docente. Todos los derechos reservados.</p>
     </footer>
+    <script src="email-display.js"></script>
     <script>
       const idProfesor = new URLSearchParams(window.location.search).get("id_profesor")
         || new URLSearchParams(window.location.search).get("id")
@@ -141,9 +142,9 @@
             throw new Error("La respuesta del perfil no contiene un contacto válido")
           }
 
-          contactoDocente.textContent = profesor.contacto?.trim()
+          contactoDocente.textContent = formatearDireccionesCorreo(profesor.contacto?.trim()
             ? `Contacto: ${profesor.contacto.trim()}`
-            : "Contacto del docente no disponible."
+            : "Contacto del docente no disponible.")
         } catch (error) {
           console.error("Error al cargar el contacto del docente:", error)
           contactoDocente.textContent = "No se pudo cargar el contacto del docente."

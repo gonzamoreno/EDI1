@@ -47,7 +47,11 @@ function serveStatic(response, requestPath) {
     return
   }
 
-  const contentType = requestedPath.endsWith(".html") ? "text/html; charset=utf-8" : "application/octet-stream"
+  const contentType = requestedPath.endsWith(".html")
+    ? "text/html; charset=utf-8"
+    : requestedPath.endsWith(".js")
+      ? "text/javascript; charset=utf-8"
+      : "application/octet-stream"
   response.writeHead(200, { "Content-Type": contentType })
   fs.createReadStream(filePath).pipe(response)
 }

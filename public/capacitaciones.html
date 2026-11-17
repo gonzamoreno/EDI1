@@ -63,6 +63,7 @@
       <p id="contacto-docente">Contacto del docente: Cargando...</p>
       <p>© 2026 Portafolio Docente. Todos los derechos reservados.</p>
     </footer>
+    <script src="email-display.js"></script>
     <script>
       const idProfesor = new URLSearchParams(window.location.search).get("id_profesor")
         || new URLSearchParams(window.location.search).get("id")
@@ -168,9 +169,9 @@
           estadoCapacitaciones.textContent = datos.capacitaciones.length
             ? ""
             : "No hay capacitaciones disponibles para este profesor."
-          contactoDocente.textContent = datos.profesor.contacto?.trim()
+          contactoDocente.textContent = formatearDireccionesCorreo(datos.profesor.contacto?.trim()
             ? `Contacto: ${datos.profesor.contacto.trim()}`
-            : "Contacto del docente no disponible."
+            : "Contacto del docente no disponible.")
         } catch (error) {
           mostrarError(error)
           contactoDocente.textContent = "No se pudo cargar el contacto del docente."

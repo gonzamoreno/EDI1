@@ -120,6 +120,7 @@
       <p>Profesorado en Informática</p>
       <p>Portafolio institucional destinado a la documentación, seguimiento y reflexión pedagógica de la formación docente.</p>
     </footer>
+    <script src="email-display.js"></script>
     <script>
       const idProfesor = new URLSearchParams(window.location.search).get("id")
       const enlaceTrayectoria = document.querySelector("[data-trayectoria-link]")
@@ -206,7 +207,7 @@
           datosContacto.replaceChildren()
           if (profesor.contacto?.trim()) {
             const elemento = document.createElement("li")
-            elemento.textContent = profesor.contacto.trim()
+            elemento.textContent = formatearDireccionesCorreo(profesor.contacto.trim())
             datosContacto.append(elemento)
           } else {
             const elemento = document.createElement("li")

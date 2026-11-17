@@ -75,6 +75,7 @@
     <footer>
       <p>© 2026 Portafolio Docente. Todos los derechos reservados.</p>
     </footer>
+    <script src="email-display.js"></script>
     <script>
       const parametros = new URLSearchParams(window.location.search)
       const idProfesor = parametros.get("id") || parametros.get("id_profesor")
@@ -158,7 +159,9 @@
           datosContacto.replaceChildren()
           const contacto = profesor.contacto?.trim()
           const elementoContacto = document.createElement("li")
-          elementoContacto.textContent = contacto || "No hay datos de contacto disponibles."
+          elementoContacto.textContent = formatearDireccionesCorreo(
+            contacto || "No hay datos de contacto disponibles.",
+          )
           datosContacto.append(elementoContacto)
           estadoPerfil.textContent = ""
         } catch (error) {
