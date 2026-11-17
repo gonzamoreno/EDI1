@@ -21,7 +21,7 @@ module.exports = async function handler(request, response) {
   const supabase = createClient(supabaseUrl, supabaseKey)
   const { data, error } = await supabase
     .from("profesores")
-    .select("id_profesor, nombre, foto, sobre_mi, contacto, fortalezas")
+    .select("id_profesor, nombre, foto, sobre_mi, contacto, fortalezas, competencias_profesionales, objetivos_profesionales")
     .eq("id_profesor", id)
     .maybeSingle()
 

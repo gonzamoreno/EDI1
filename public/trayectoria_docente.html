@@ -31,9 +31,9 @@
       <nav aria-label="Navegación principal">
         <ul>
           <li><a href="trayectoria_academica.html" data-trayectoria-academica-link>Trayectoria Académica</a></li>
-          <li><a href="sobre_mi.html">Sobre mí</a></li>
-          <li><a href="capacitaciones.html">Capacitaciones</a></li>
-          <li><a href="recursos.html">Recursos</a></li>
+          <li><a href="sobre_mi.html" data-sobre-mi-link>Sobre mí</a></li>
+          <li><a href="capacitaciones.html" data-capacitaciones-link>Capacitaciones</a></li>
+          <li><a href="recursos.html" data-recursos-link>Recursos</a></li>
         </ul>
       </nav>
 
@@ -167,6 +167,9 @@
       const listaRegistros = document.getElementById("lista-registros")
       const enlaceProfesor = document.querySelector("[data-profesor-link]")
       const enlaceTrayectoriaAcademica = document.querySelector("[data-trayectoria-academica-link]")
+      const enlaceSobreMi = document.querySelector("[data-sobre-mi-link]")
+      const enlaceCapacitaciones = document.querySelector("[data-capacitaciones-link]")
+      const enlaceRecursos = document.querySelector("[data-recursos-link]")
 
       function mostrarError(error) {
         console.error("Error al cargar la trayectoria docente:", error)
@@ -203,6 +206,9 @@
         const idCodificado = encodeURIComponent(idProfesor)
         enlaceProfesor.href = `profesor.html?id=${idCodificado}`
         enlaceTrayectoriaAcademica.href = `trayectoria_academica.html?id_profesor=${idCodificado}`
+        enlaceSobreMi.href = `sobre_mi.html?id_profesor=${idCodificado}`
+        enlaceCapacitaciones.href = `capacitaciones.html?id_profesor=${idCodificado}`
+        enlaceRecursos.href = `recursos.html?id_profesor=${idCodificado}`
 
         try {
           const response = await fetch(`/api/trayectoria-docente?id_profesor=${idCodificado}`)

@@ -28,9 +28,9 @@
         <ul>
           <li><a href="trayectoria_academica.html" data-trayectoria-link>Trayectoria Académica</a></li>
           <li><a href="trayectoria_docente.html" data-trayectoria-docente-link>Trayectoria Docente</a></li>
-          <li><a href="sobre_mi.html">Sobre mí</a></li>
-          <li><a href="capacitaciones.html">Capacitaciones</a></li>
-          <li><a href="recursos.html">Recursos</a></li>
+          <li><a href="sobre_mi.html" data-sobre-mi-link>Sobre mí</a></li>
+          <li><a href="capacitaciones.html" data-capacitaciones-link>Capacitaciones</a></li>
+          <li><a href="recursos.html" data-recursos-link>Recursos</a></li>
           
         </ul>
       </nav>
@@ -53,7 +53,7 @@
       <!-- 2. FORTALEZAS -->
       <!-- [JS-FUTURO]: Componente de lista dinámica (iteración de array a nodos <li>) -->
       <section id="fortalezas" aria-labelledby="titulo-fortalezas">
-        <h2 id="titulo-fortalezas">Fortalezas</h2>
+        <h2 id="titulo-fortalezas">Competencias Profesionales</h2>
         <ul id="lista-fortalezas"></ul>
       </section>
 
@@ -120,9 +120,13 @@
       <p>Profesorado en Informática</p>
       <p>Portafolio institucional destinado a la documentación, seguimiento y reflexión pedagógica de la formación docente.</p>
     </footer>
+    <script src="email-display.js"></script>
     <script>
       const idProfesor = new URLSearchParams(window.location.search).get("id")
       const enlaceTrayectoria = document.querySelector("[data-trayectoria-link]")
+      const enlaceRecursos = document.querySelector("[data-recursos-link]")
+      const enlaceSobreMi = document.querySelector("[data-sobre-mi-link]")
+      const enlaceCapacitaciones = document.querySelector("[data-capacitaciones-link]")
       const tituloProfesor = document.getElementById("titulo-principal")
       const estadoPerfil = document.getElementById("estado-perfil")
       const fotoProfesor = document.getElementById("foto-profesor")
@@ -148,6 +152,9 @@
         }
 
         enlaceTrayectoria.href = `trayectoria_academica.html?id_profesor=${encodeURIComponent(idProfesor)}`
+        enlaceRecursos.href = `recursos.html?id_profesor=${encodeURIComponent(idProfesor)}`
+        enlaceSobreMi.href = `sobre_mi.html?id_profesor=${encodeURIComponent(idProfesor)}`
+        enlaceCapacitaciones.href = `capacitaciones.html?id_profesor=${encodeURIComponent(idProfesor)}`
 
         try {
           const response = await fetch(`/api/profesores/${encodeURIComponent(idProfesor)}`)
@@ -160,7 +167,7 @@
             !profesor ||
             profesor.id_profesor == null ||
             typeof profesor.nombre !== "string" ||
-            ["foto", "sobre_mi", "contacto", "fortalezas"].some((campo) =>
+            ["foto", "sobre_mi", "contacto", "fortalezas", "competencias_profesionales", "objetivos_profesionales"].some((campo) =>
               profesor[campo] != null && typeof profesor[campo] !== "string"
             )
           ) {
@@ -181,7 +188,7 @@
 
           sobreProfesor.textContent = profesor.sobre_mi?.trim() || "No hay una presentación disponible."
 
-          const fortalezas = profesor.fortalezas
+          const fortalezas = (profesor.competencias_profesionales || profesor.fortalezas)
             ?.split(";")
             .map((fortaleza) => fortaleza.trim())
             .filter(Boolean) || []
@@ -200,7 +207,7 @@
           datosContacto.replaceChildren()
           if (profesor.contacto?.trim()) {
             const elemento = document.createElement("li")
-            elemento.textContent = profesor.contacto.trim()
+            elemento.textContent = formatearDireccionesCorreo(profesor.contacto.trim())
             datosContacto.append(elemento)
           } else {
             const elemento = document.createElement("li")
