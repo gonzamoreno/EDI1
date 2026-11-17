@@ -22,6 +22,13 @@ del profesor, además de sus registros de `public.recursos`, ordenados por
 nombre. La tabla `recursos` debe incluir `id_profesor`, `nombre`, `descripcion`
 y `url`; `contacto` se obtiene de la tabla `profesores`.
 
+## API de capacitaciones
+
+`GET /api/capacitaciones?id_profesor=<id>` devuelve como JSON el profesor y
+sus registros de `public.capacitaciones`, ordenados por año descendente. La
+tabla debe incluir `id_profesor`, `año`, `curso`, `institucion`, `nota` y
+`temario`, según el script SQL de ejemplo.
+
 ## Perfil y página «Sobre mí»
 
 `GET /api/profesores/:id` devuelve los datos del perfil, incluyendo
