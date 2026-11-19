@@ -188,7 +188,8 @@
 
             const desc = document.createElement("p")
             desc.className = "text-muted small flex-grow-1"
-            desc.textContent = profesor.sobre_mi || "Docente en el espacio institucional de práctica pedagógica y formación técnica."
+            const descripcionBreve = profesor.descripcion?.trim()
+            desc.textContent = descripcionBreve || "No hay una descripción disponible."
 
             const footerDiv = document.createElement("div")
             footerDiv.className = "pt-3 border-top mt-auto"
