@@ -1,16 +1,25 @@
-require("dotenv").config({ path: ".env.development.local" })
+try {
+  require("dotenv").config({ path: ".env.development.local" })
+} catch (error) {
+  // dotenv es opcional para servir contenido estático
+}
 
 const http = require("node:http")
 const fs = require("node:fs")
 const path = require("node:path")
-const getProfesores = require("./api/profesores")
-const getProfesorById = require("./api/profesores/[id]")
-const getTrayectoriaAcademica = require("./api/trayectoria-academica")
-const getTrayectoriaDocente = require("./api/trayectoria-docente")
-const getRecursos = require("./api/recursos")
-const getCapacitaciones = require("./api/capacitaciones")
-const getReflexiones = require("./api/reflexiones")
-const getPlanificaciones = require("./api/planificaciones")
+let getProfesores, getProfesorById, getTrayectoriaAcademica, getTrayectoriaDocente, getRecursos, getCapacitaciones, getReflexiones, getPlanificaciones
+try {
+  getProfesores = require("./api/profesores")
+  getProfesorById = require("./api/profesores/[id]")
+  getTrayectoriaAcademica = require("./api/trayectoria-academica")
+  getTrayectoriaDocente = require("./api/trayectoria-docente")
+  getRecursos = require("./api/recursos")
+  getCapacitaciones = require("./api/capacitaciones")
+  getReflexiones = require("./api/reflexiones")
+  getPlanificaciones = require("./api/planificaciones")
+} catch (loadError) {
+  console.warn("Aviso: Módulos de API pendientes de instalación de dependencias ('npm install'):", loadError.message)
+}
 
 const PORT = Number(process.env.PORT) || 8000
 const publicRoot = __dirname
@@ -40,22 +49,38 @@ function createApiResponse(response) {
   }
 }
 
+const MIME_TYPES = {
+  ".html": "text/html; charset=utf-8",
+  ".js": "text/javascript; charset=utf-8",
+  ".css": "text/css; charset=utf-8",
+  ".json": "application/json; charset=utf-8",
+  ".jpg": "image/jpeg",
+  ".jpeg": "image/jpeg",
+  ".png": "image/png",
+  ".webp": "image/webp",
+  ".svg": "image/svg+xml",
+  ".gif": "image/gif",
+  ".ico": "image/x-icon",
+  ".txt": "text/plain; charset=utf-8",
+}
+
 function serveStatic(response, requestPath) {
   const requestedPath = requestPath === "/" ? "/index.html" : requestPath
-  const filePath = path.join(publicRoot, requestedPath)
+  let filePath = path.join(publicRoot, requestedPath)
 
-  if (!filePath.startsWith(publicRoot) || !fs.existsSync(filePath)) {
-    sendJson(response, 404, { error: "Recurso no encontrado" })
-    return
+  const isDirectFile = filePath.startsWith(publicRoot) && fs.existsSync(filePath) && !fs.statSync(filePath).isDirectory()
+  if (!isDirectFile) {
+    const fallbackPath = path.join(publicRoot, "public", requestedPath)
+    if (fallbackPath.startsWith(publicRoot) && fs.existsSync(fallbackPath) && !fs.statSync(fallbackPath).isDirectory()) {
+      filePath = fallbackPath
+    } else {
+      sendJson(response, 404, { error: "Recurso no encontrado" })
+      return
+    }
   }
 
-  const contentType = requestedPath.endsWith(".html")
-    ? "text/html; charset=utf-8"
-    : requestedPath.endsWith(".js")
-      ? "text/javascript; charset=utf-8"
-      : requestedPath.endsWith(".css")
-        ? "text/css; charset=utf-8"
-        : "application/octet-stream"
+  const ext = path.extname(filePath).toLowerCase()
+  const contentType = MIME_TYPES[ext] || "application/octet-stream"
   response.writeHead(200, { "Content-Type": contentType })
   fs.createReadStream(filePath).pipe(response)
 }
