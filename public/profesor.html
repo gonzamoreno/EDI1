@@ -95,58 +95,14 @@
             </div>
           </div>
           <div class="col-12 col-md">
-            <span class="badge badge-pastel-lavender text-uppercase mb-2">Perfil Docente</span>
             <h1 id="titulo-principal" class="mb-2">Perfil docente</h1>
-            <p id="sobre-profesor" class="lead mb-0"></p>
+            <p id="descripcion-profesor" class="lead mb-0"></p>
           </div>
         </div>
         <p id="estado-perfil" role="status" aria-live="polite">Cargando perfil docente...</p>
       </section>
 
-      <!-- 2. FORTALEZAS -->
-      <!-- [JS-FUTURO]: Componente de lista dinámica (iteración de array a nodos <li>) -->
-      <section id="fortalezas" class="card card-pastel-peach mb-4 p-4" aria-labelledby="titulo-fortalezas">
-        <h2 id="titulo-fortalezas">Competencias Profesionales</h2>
-        <ul id="lista-fortalezas" class="list-unstyled mb-0 d-flex flex-column gap-2"></ul>
-      </section>
-
-      <!-- 3. EXPERIENCIA (Reutiliza la anatomía de <article> de index.html) -->
-      <!-- [JS-FUTURO]: Componente de listado de artículos para antecedentes docentes -->
-      <section id="experiencia" class="card card-pastel-sage mb-4 p-4" aria-labelledby="titulo-experiencia">
-        <h2 id="titulo-experiencia">Experiencia</h2>
-
-        <article>
-          <h3>Prácticas de enseñanza en nivel secundario</h3>
-          <p>Escuela de Educación Secundaria N° 12 (2025 - 2026)</p>
-          <p>Diseño de planificaciones, implementación de clases de informática y elaboración de registros reflexivos de práctica.</p>
-        </article>
-
-        <article>
-          <h3>Tutorías en taller de robótica y programación inicial</h3>
-          <p>Espacio de Extensión Institucional (2024 - 2025)</p>
-          <p>Facilitación de actividades lúdicas de pensamiento lógico y resolución de problemas en entornos colaborativos.</p>
-        </article>
-      </section>
-
-      <!-- 4. FORMACIÓN (Reutiliza la anatomía de <article> de index.html) -->
-      <!-- [JS-FUTURO]: Componente de listado de artículos para trayectoria académica -->
-      <section id="formacion" class="card card-pastel-indigo mb-4 p-4" aria-labelledby="titulo-formacion">
-        <h2 id="titulo-formacion">Formación</h2>
-
-        <article>
-          <h3>Profesorado en Informática</h3>
-          <p>Instituto Superior de Formación Docente (En curso)</p>
-          <p>Formación pedagógica, didáctica específica y desarrollo del trayecto de práctica docente.</p>
-        </article>
-
-        <article>
-          <h3>Seminario de Recursos Digitales para la Enseñanza</h3>
-          <p>Jornadas de Actualización Pedagógica (2025)</p>
-          <p>Capacitación intensiva en curaduría de materiales didácticos, aplicaciones interactivas y evaluación formativa.</p>
-        </article>
-      </section>
-
-      <!-- 5. CONTACTO -->
+      <!-- 2. CONTACTO -->
       <!-- [JS-FUTURO]: Componente de enlaces y vías de contacto del perfil -->
       <section id="contacto" class="card card-pastel-lavender mb-4 p-4" aria-labelledby="titulo-contacto">
         <h2 id="titulo-contacto">Contacto</h2>
@@ -184,8 +140,7 @@
       const enlaceCapacitaciones = document.querySelector("[data-capacitaciones-link]")
       const tituloProfesor = document.getElementById("titulo-principal")
       const estadoPerfil = document.getElementById("estado-perfil")
-      const sobreProfesor = document.getElementById("sobre-profesor")
-      const listaFortalezas = document.getElementById("lista-fortalezas")
+      const descripcionProfesor = document.getElementById("descripcion-profesor")
       const datosContacto = document.getElementById("datos-contacto")
       const nombresBreadcrumb = document.querySelectorAll("[data-profesor-breadcrumb]")
       const avatarCircle = document.getElementById("avatar-circle-display")
@@ -322,7 +277,7 @@
             !profesor ||
             profesor.id_profesor == null ||
             typeof profesor.nombre !== "string" ||
-            ["foto", "sobre_mi", "contacto", "fortalezas", "competencias_profesionales", "objetivos_profesionales"].some((campo) =>
+            ["foto", "sobre_mi", "contacto"].some((campo) =>
               profesor[campo] != null && typeof profesor[campo] !== "string"
             )
           ) {
@@ -334,27 +289,9 @@
           nombresBreadcrumb.forEach((elemento) => {
             elemento.textContent = profesor.nombre
           })
+          descripcionProfesor.textContent = profesor.sobre_mi?.trim() || "No hay una descripción disponible."
 
           actualizarAvatar(profesor)
-
-          sobreProfesor.textContent = profesor.sobre_mi?.trim() || "No hay una presentación disponible."
-
-          const fortalezas = (profesor.competencias_profesionales || profesor.fortalezas)
-            ?.split(";")
-            .map((fortaleza) => fortaleza.trim())
-            .filter(Boolean) || []
-          listaFortalezas.replaceChildren()
-          fortalezas.forEach((fortaleza) => {
-            const elemento = document.createElement("li")
-            elemento.textContent = fortaleza
-            elemento.className = "card card-pastel-peach p-3"
-            listaFortalezas.append(elemento)
-          })
-          if (!fortalezas.length) {
-            const elemento = document.createElement("li")
-            elemento.textContent = "No hay fortalezas registradas."
-            listaFortalezas.append(elemento)
-          }
 
           datosContacto.replaceChildren()
           if (profesor.contacto?.trim()) {
